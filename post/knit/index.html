@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.32.4" />
+  <meta name="author" content="Michael C Sachs">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Programs are meant to be read by humans and only incidentally for computers to execute.
+   Donald Knuth   Motivation The cut-and-paste approach to report production is tedious, slow, and error-prone. It can be very harmful to reproducible research and it is inconvenient to reproduce results.
+knitr is an R package that integrates computing and reporting. By incorporating code into text documents, the analysis, results and discussion are all in one place.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/knit/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Michael C Sachs">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Michael C Sachs">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/knit/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@sachsmc">
+  <meta property="twitter:creator" content="@sachsmc">
+  
+  <meta property="og:site_name" content="Michael C Sachs">
+  <meta property="og:url" content="/post/knit/">
+  <meta property="og:title" content="Introduction to `knitr` | Michael C Sachs">
+  <meta property="og:description" content="Programs are meant to be read by humans and only incidentally for computers to execute.
+   Donald Knuth   Motivation The cut-and-paste approach to report production is tedious, slow, and error-prone. It can be very harmful to reproducible research and it is inconvenient to reproduce results.
+knitr is an R package that integrates computing and reporting. By incorporating code into text documents, the analysis, results and discussion are all in one place.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2015-07-23T21:13:14-05:00">
+  
+  <meta property="article:modified_time" content="2015-07-23T21:13:14-05:00">
+  
+
+  
+
+  <title>Introduction to `knitr` | Michael C Sachs</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Michael C Sachs</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>R Packages</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Introduction to `knitr`</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2015-07-23 21:13:14 -0500 -0500" itemprop="datePublished dateModified">
+      2015-07-23
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Michael C Sachs">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Introduction%20to%20%60knitr%60&amp;url=%2fpost%2fknit%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fknit%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fknit%2f&amp;title=Introduction%20to%20%60knitr%60"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fknit%2f&amp;title=Introduction%20to%20%60knitr%60"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Introduction%20to%20%60knitr%60&amp;body=%2fpost%2fknit%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <blockquote>
+<p>Programs are meant to be read by humans and only incidentally for computers to execute.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Donald Knuth</li>
+</ul>
+</blockquote>
+<section id="motivation" class="level2">
+<h2>Motivation</h2>
+<p>The cut-and-paste approach to report production is tedious, slow, and error-prone. It can be very harmful to reproducible research and it is inconvenient to reproduce results.</p>
+<p><code>knitr</code> is an <code>R</code> package that integrates computing and reporting. By incorporating code into text documents, the analysis, results and discussion are all in one place. Files can then be processed into a diverse array of document formats, including the important ones for collaborative science: pdfs, Word documents, slide presentations, and web pages.</p>
+<p>This is important for reproducible research because you can create reports, papers, presentations in which every table, figure, and inline result is generated by code that is tied to the document itself. It makes life easier when it comes time to make small updates to an analysis, and more importantly, the code becomes more understandable by virtue of being directly related to the text description.</p>
+<section id="the-importance-of-text" class="level3">
+<h3>The importance of text</h3>
+<p>There are many advantages to creating scientific content using simple text documents. For one, they are future-proof. Microsoft and Apple are continually updating their software and document formats. In 5 years I probably won’t be able to easily open a Word document that I created today, and likewise, when a new document format comes out (remember when .docx was new?) it takes a while for it to be widely adopted. It is highly unlikely that text documents will become obsolete. I can still open a text file that I created on my old Apple IIe. Secondly, content tracking tools like <code>git</code> and github work wonderfully with text files. It is dead-easy to view line-by-line changes in a text file.</p>
+<p>Tools like <code>knitr</code>, <code>rmarkdown</code>, and pandoc do the hard work of translating your text files into “production” documents, like beautifully typeset pdfs, smooth presentations, and Word documents that your collaborators can’t live without. Creating the base in a text file allows you to focus on the content and not obsess over the details like formatting and figure placement. This document was created with <code>knitr</code> in markdown. Check out the source code <a href="http://github.com/sachsmc/knit-git-markr-guide/blob/master/knitr/knit.Rmd">here</a>.</p>
+</section>
+</section>
+<section id="how-to-use-knitr" class="level2">
+<h2>How to use <code>knitr</code></h2>
+<p>The basic idea is that your text documents are interrupted by <strong>chunks</strong> of code that are identified in a special way. These chunks are evaluated by an <code>R</code> process in the order that they appear. <code>R</code> objects that are created by chunks remain in the enviroment for subsequent chunks. The code in the chunks is displayed and formatted in the document. The results printed by the code are also incorporated into the document as figures, tables, or other objects. Chunks can stand alone, or be included inline with text. Many options exist to format the code and the results, and the options can be extended in countless ways.</p>
+<p>How exactly to use <code>knitr</code> depends on the input document format. First I will desribe how to use it with <a href="http://daringfireball.net/projects/markdown/"><strong>markdown</strong></a>.</p>
+<section id="knitr-with-markdown" class="level3">
+<h3><code>knitr</code> with markdown</h3>
+<p>When I say markdown I am referring to the plain text formatting syntax, as opposed to the software. Markdown is a syntax closely related to html. It is semantic, like html, but it is much less verbose. Markdown documents can in fact stand on their own as readable text documents without being rendered. Semantic means that elements of the document are described by what they represent, as opposed to how they should look. Thus, for a title, you indicate that this text is the title, as opposed to this text should be large font and in bold. Here is an example with the result:</p>
+<figure>
+<img src="/img/knit/mark1.png" alt="mark1" /><figcaption>mark1</figcaption>
+</figure>
+<p>Importantly, the markdown can stand on its own and continue to be readable even though it’s a simple text file. Contrast that with the generated html:</p>
+<figure>
+<img src="/img/knit/html.png" alt="html1" /><figcaption>html1</figcaption>
+</figure>
+<p>Or the equivalent Latex:</p>
+<figure>
+<img src="/img/knit/tex.png" alt="tex" /><figcaption>tex</figcaption>
+</figure>
+<p>Thus markdown has the dual advantages of being readble on it’s own, and having associated tools to create other document formats from it. Math in markdown is just like math in Latex.</p>
+</section>
+<section id="incorporating-code-chunks" class="level3">
+<h3>Incorporating code chunks</h3>
+<p>In markdown, the start of a code chunk is indicated by three backticks and the end of a code chunk is indicated by three backticks. At the start of the chunk, you tell <code>knitr</code> what type of code it is, give the chunk a name, and other options:</p>
+<pre><code>```{r my-first-chunk, results=&#39;asis&#39;}
+## code goes in here
+```</code></pre>
+<p>Inline code is similar, using single backticks instead. Inline code does not have names or options. For example, <code>r rnorm(10)</code>.</p>
+<p>Here’s an example of raw output using the <code>mtcars</code> dataset:</p>
+<pre><code>```{r mtcars-example}
+lm(mpg ~ hp + wt, data = mtcars)
+```</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp + wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           hp           wt  
+##    37.22727     -0.03177     -3.87783</code></pre>
+<p>And here’s a plot</p>
+<pre><code>```{r mt-plot}
+library(ggplot2)
+ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(method = &quot;lm&quot;, se = FALSE)
+```</code></pre>
+<p><img src="/post/knit_files/figure-html/mt-plot-1.png" width="672" /></p>
+<p>The concept is very simple. Anything you want to do in <code>R</code> is incorporated into your document, the results alongside the code. The important details to learn are methods of controlling the output. This means making nice looking tables, decent figures, and formatting inline results. We will cover these topics next.</p>
+</section>
+</section>
+<section id="controlling-r-output" class="level1">
+<h1>Controlling <code>R</code> output</h1>
+<section id="tables" class="level3">
+<h3>Tables</h3>
+<p>When outputting tables in knitr, it is important to use the option <code>results = 'asis'</code>. There are several options for formatting tables in <code>R</code>. The <code>knitr</code> package includes a function called <code>kable</code> that makes basic <strong>k</strong>nitr t<strong>ables</strong>. There are options to control the number of digits, whether row names are included or not, column alignment, and other options that depend on the output type.</p>
+<pre class="r"><code>kable(head(mtcars), digits = 2, align = c(rep(&quot;l&quot;, 4), rep(&quot;c&quot;, 4), rep(&quot;r&quot;, 4)))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;">mpg</th>
+<th style="text-align: left;">cyl</th>
+<th style="text-align: left;">disp</th>
+<th style="text-align: left;">hp</th>
+<th style="text-align: center;">drat</th>
+<th style="text-align: center;">wt</th>
+<th style="text-align: center;">qsec</th>
+<th style="text-align: center;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+<th style="text-align: right;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td style="text-align: left;">21.0</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">160</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: center;">3.90</td>
+<td style="text-align: center;">2.62</td>
+<td style="text-align: center;">16.46</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td style="text-align: left;">21.0</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">160</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: center;">3.90</td>
+<td style="text-align: center;">2.88</td>
+<td style="text-align: center;">17.02</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td style="text-align: left;">22.8</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">108</td>
+<td style="text-align: left;">93</td>
+<td style="text-align: center;">3.85</td>
+<td style="text-align: center;">2.32</td>
+<td style="text-align: center;">18.61</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td style="text-align: left;">21.4</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">258</td>
+<td style="text-align: left;">110</td>
+<td style="text-align: center;">3.08</td>
+<td style="text-align: center;">3.21</td>
+<td style="text-align: center;">19.44</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td style="text-align: left;">18.7</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">360</td>
+<td style="text-align: left;">175</td>
+<td style="text-align: center;">3.15</td>
+<td style="text-align: center;">3.44</td>
+<td style="text-align: center;">17.02</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>Valiant</td>
+<td style="text-align: left;">18.1</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">225</td>
+<td style="text-align: left;">105</td>
+<td style="text-align: center;">2.76</td>
+<td style="text-align: center;">3.46</td>
+<td style="text-align: center;">20.22</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>For finer control, use the <code>xtable</code> package. There are tons of options (see the help file), and the interface is a bit clunky. For instance some options are passed to <code>xtable</code>, while others are passed to <code>print.xtable</code>. The key one for markdown is to use <code>print(xtable(x), type = &quot;html&quot;)</code>.</p>
+<pre><code>```{r xtable, results = &#39;asis&#39;}
+library(xtable)
+print(xtable(head(mtcars)), type = &quot;html&quot;)
+```</code></pre>
+<!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
+<!-- Wed Jan 24 22:42:11 2018 -->
+<table border="1">
+<tr>
+<th>
+</th>
+<th>
+mpg
+</th>
+<th>
+cyl
+</th>
+<th>
+disp
+</th>
+<th>
+hp
+</th>
+<th>
+drat
+</th>
+<th>
+wt
+</th>
+<th>
+qsec
+</th>
+<th>
+vs
+</th>
+<th>
+am
+</th>
+<th>
+gear
+</th>
+<th>
+carb
+</th>
+</tr>
+<tr>
+<td align="right">
+Mazda RX4
+</td>
+<td align="right">
+21.00
+</td>
+<td align="right">
+6.00
+</td>
+<td align="right">
+160.00
+</td>
+<td align="right">
+110.00
+</td>
+<td align="right">
+3.90
+</td>
+<td align="right">
+2.62
+</td>
+<td align="right">
+16.46
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+4.00
+</td>
+<td align="right">
+4.00
+</td>
+</tr>
+<tr>
+<td align="right">
+Mazda RX4 Wag
+</td>
+<td align="right">
+21.00
+</td>
+<td align="right">
+6.00
+</td>
+<td align="right">
+160.00
+</td>
+<td align="right">
+110.00
+</td>
+<td align="right">
+3.90
+</td>
+<td align="right">
+2.88
+</td>
+<td align="right">
+17.02
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+4.00
+</td>
+<td align="right">
+4.00
+</td>
+</tr>
+<tr>
+<td align="right">
+Datsun 710
+</td>
+<td align="right">
+22.80
+</td>
+<td align="right">
+4.00
+</td>
+<td align="right">
+108.00
+</td>
+<td align="right">
+93.00
+</td>
+<td align="right">
+3.85
+</td>
+<td align="right">
+2.32
+</td>
+<td align="right">
+18.61
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+4.00
+</td>
+<td align="right">
+1.00
+</td>
+</tr>
+<tr>
+<td align="right">
+Hornet 4 Drive
+</td>
+<td align="right">
+21.40
+</td>
+<td align="right">
+6.00
+</td>
+<td align="right">
+258.00
+</td>
+<td align="right">
+110.00
+</td>
+<td align="right">
+3.08
+</td>
+<td align="right">
+3.21
+</td>
+<td align="right">
+19.44
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+3.00
+</td>
+<td align="right">
+1.00
+</td>
+</tr>
+<tr>
+<td align="right">
+Hornet Sportabout
+</td>
+<td align="right">
+18.70
+</td>
+<td align="right">
+8.00
+</td>
+<td align="right">
+360.00
+</td>
+<td align="right">
+175.00
+</td>
+<td align="right">
+3.15
+</td>
+<td align="right">
+3.44
+</td>
+<td align="right">
+17.02
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+3.00
+</td>
+<td align="right">
+2.00
+</td>
+</tr>
+<tr>
+<td align="right">
+Valiant
+</td>
+<td align="right">
+18.10
+</td>
+<td align="right">
+6.00
+</td>
+<td align="right">
+225.00
+</td>
+<td align="right">
+105.00
+</td>
+<td align="right">
+2.76
+</td>
+<td align="right">
+3.46
+</td>
+<td align="right">
+20.22
+</td>
+<td align="right">
+1.00
+</td>
+<td align="right">
+0.00
+</td>
+<td align="right">
+3.00
+</td>
+<td align="right">
+1.00
+</td>
+</tr>
+</table>
+<p>The <code>stargazer</code> package creates good-looking tables with minimal effort. It is especially useful for summarizing a series of regression models. See the help files for all the available options.</p>
+<pre><code>```{r star, results = &#39;asis&#39;, warning=FALSE, message=FALSE}
+library(stargazer, quietly = TRUE)
+
+fit1 &lt;- lm(mpg ~ wt, mtcars)
+fit2 &lt;- lm(mpg ~ wt + hp, mtcars)
+fit3 &lt;- lm(mpg ~ wt + hp + disp, mtcars)
+
+stargazer(fit1, fit2, fit3, type = &#39;html&#39;)
+```</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+mpg
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+wt
+</td>
+<td>
+-5.344<sup>***</sup>
+</td>
+<td>
+-3.878<sup>***</sup>
+</td>
+<td>
+-3.801<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.559)
+</td>
+<td>
+(0.633)
+</td>
+<td>
+(1.066)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+hp
+</td>
+<td>
+</td>
+<td>
+-0.032<sup>***</sup>
+</td>
+<td>
+-0.031<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.009)
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+disp
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+37.285<sup>***</sup>
+</td>
+<td>
+37.227<sup>***</sup>
+</td>
+<td>
+37.106<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.878)
+</td>
+<td>
+(1.599)
+</td>
+<td>
+(2.111)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+32
+</td>
+<td>
+32
+</td>
+<td>
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.753
+</td>
+<td>
+0.827
+</td>
+<td>
+0.827
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.745
+</td>
+<td>
+0.815
+</td>
+<td>
+0.808
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+3.046 (df = 30)
+</td>
+<td>
+2.593 (df = 29)
+</td>
+<td>
+2.639 (df = 28)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+91.375<sup>***</sup> (df = 1; 30)
+</td>
+<td>
+69.211<sup>***</sup> (df = 2; 29)
+</td>
+<td>
+44.566<sup>***</sup> (df = 3; 28)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>For long-running computations, a useful chunk option is <code>cache = TRUE</code>. This creates a folder called cache in your working directory that will store the results of the computation after the first time you run it. After that, re-knitting the document is fast.</p>
+</section>
+<section id="figures" class="level3">
+<h3>Figures</h3>
+<p>In general, figures will appear in a knit document exactly as they would appear in the <code>R</code> session. There are several important figure options to be aware of.</p>
+<ul>
+<li><code>dev</code>, controls the graphics device used to create the figures. For example pdf, png, or jpeg. Check out <code>tikzDevice</code> if you are creating pdf output. The <code>tikzDevice</code> generates Latex code from <code>R</code> plots for use in Latex documents. That way, all fonts match the main text, and the Tex syntax for mathematics can be used directly in plots. Here are two examples of the power of <code>tikzDevice</code>: <a href="http://bit.ly/114GNdP" class="uri">http://bit.ly/114GNdP</a>, <a href="http://cran.r-project.org/web/packages/tikzDevice/vignettes/tikzDevice.pdf">example</a></li>
+<li><code>path</code> what directory to save the figures.</li>
+<li><code>fig_width</code>, <code>fig_height</code>, in inches. Can also be set globally.</li>
+<li><code>fig_align</code>, left, right or center.</li>
+</ul>
+</section>
+<section id="inline-results" class="level3">
+<h3>Inline results</h3>
+<p>In my papers and reports, I strive to generate every in-text number from code. Anytime I reference a sample size, report summary statistics, or p-values in the text, <code>paste</code> and <code>sprintf</code> are my friends. Reporting in this way means no more missed corrections when you have to rerun an analysis, no more rounding errors, and the comfort that you didn’t mis-type a digit. Here are a couple examples using <code>paste</code> and <code>sprintf</code>.</p>
+<pre class="r"><code>paste_meansd &lt;- function(x, digits = 2, na.rm = TRUE){
+  paste0(round(mean(x, na.rm = na.rm), digits), &quot; (&quot;, round(sd(x, na.rm = na.rm), digits), &quot;)&quot;)  
+}
+
+## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</code></pre>
+<p>The mean (sd) of a random sample of normals is -0.16 (0.91)</p>
+<pre class="r"><code>sprint_CI95 &lt;- function(mu, se, trans = function(x) x) {
+  lim &lt;- trans(mu + c(-1.96, 1.96)*se)
+  sprintf(&quot;%.2f (95%% CI: %.2f to %.2f)&quot;, mu, lim[1], lim[2])
+}
+bfit &lt;- lm(hp ~ disp, mtcars)
+## The coefficient estimate is `r sprint_CI95(bfit$coeff[2], sqrt(diag(vcov(bfit)))[2])`</code></pre>
+<p>The coefficient estimate is 0.44 (95% CI: 0.32 to 0.56).</p>
+</section>
+<section id="extending-knitr" class="level3">
+<h3>Extending knitr</h3>
+<p>Output and rendering can be customized endlessly. <code>knitr</code> is written in <code>R</code> to process chunks, so write your own functions. These types of functions are called “hooks”. For example, in this document I used a custom hook to display the code chunks as they appear:</p>
+<pre class="r"><code>knit_hooks$set(source = function(x, options){
+  if (!is.null(options$verbatim) &amp;&amp; options$verbatim){
+    opts = gsub(&quot;,\\s*verbatim\\s*=\\s*TRUE\\s*&quot;, &quot;&quot;, options$params.src)
+    bef = sprintf(&#39;\n\n    ```{r %s}\n&#39;, opts, &quot;\n&quot;)
+    stringr::str_c(
+      bef, 
+      knitr:::indent_block(paste(x, collapse = &#39;\n&#39;), &quot;    &quot;), 
+      &quot;\n    ```\n&quot;
+    )
+  } else {
+    stringr::str_c(&quot;\n\n```&quot;, tolower(options$engine), &quot;\n&quot;, 
+      paste(x, collapse = &#39;\n&#39;), &quot;\n```\n\n&quot;
+    )
+  }
+})</code></pre>
+<p>Credit: <a href="https://ramnathv.github.io/posts/verbatim-chunks-knitr/">Ramnath Vaidyanathan</a></p>
+</section>
+</section>
+<section id="output-formats" class="level1">
+<h1>Output formats</h1>
+<section id="pandoc" class="level3">
+<h3>Pandoc</h3>
+<p>The folks at <a href="http://rstudio.org">Rstudio</a> have worked hard to bundle <code>knitr</code> with <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>, a universal document converter. Pandoc allows you to take markdown documents and convert them to almost any file format, docx, pdf, html, and much more. Furthermore, you can even convert markdown to Tex, which comes in handy for journal submission. Previously, if you wanted html output, you wrote a report in rmarkdown or rhtml and if you wanted a pdf, you had to start over with a .Rnw file. Now we can seamlessly switch between formats. The key is in defining what you want in the <strong>front matter</strong> of your document.</p>
+<p>At the top of your markdown file, all of the pandoc parameters are put between <code>---</code> delimeters. For example, in this document, I have</p>
+<pre><code>---
+title: &quot;knitr&quot;
+author: Michael Sachs
+output: 
+  md_document:
+    variant: markdown_github
+---</code></pre>
+<p>This is the front-matter, and it is in <code>yaml</code> format. Rstudio passes these options to pandoc to convert my document to the appropriate format, after knitting. See all of the possible options here <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>For example, if I want pdf output, keeping the intermediate tex file I would use</p>
+<pre><code>---
+title: &quot;knitr&quot;
+author: Michael Sachs
+output: 
+  pdf_document:
+    keep_tex: true
+---</code></pre>
+<p>Other commond document formats are <code>word_document</code>, <code>html_document</code>, and <code>beamer_presentation</code>. You can include a bibliography in a variety of formats, including <code>.bib</code>, with the <code>bibliography: myfile.bib</code> option. Include citations with the <code>@bibkey</code> syntax.</p>
+<p>To recap, this diagram illustrates my typical workflow. I start with a .Rmd, an r-markdown document with code, background, and descriptions. <code>knitr</code> does the work to evaluate the code, putting the results in a markdown document, which can then be converted to a variety of formats with pandoc. To extract the R code from the original document I use the <code>knitr::purl</code> function. I can then easily incorporate the code chunks into other document types, like presentations.</p>
+<figure>
+<img src="/img/knit/knitr-workflow.png" alt="flow" /><figcaption>flow</figcaption>
+</figure>
+<p>These tools are powerful and useful for all of the beautiful reports and variety of documents you can create. More important, however, are the plain-text files that generate the reports. Writing code along with prose describing the analysis gives others and our future selves a better and clearer understanding of the analysis itself. <code>knitr</code> makes it easy to write analysis code for people, not computers. Do your future self a favor and start using <code>knitr</code> today.</p>
+</section>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<section id="getting-started" class="level2">
+<h2>Getting started</h2>
+<ul>
+<li>Download the <a href="http://www.rstudio.com/products/rstudio/download/preview/">Rstudio preview release</a>
+<ul>
+<li>It comes with everything you need (except Latex)</li>
+<li>Menu options to create .Rmd files</li>
+<li>Handy button to <code>knit</code> documents</li>
+<li>Preview output</li>
+</ul></li>
+<li>Conversion to output formats uses <code>pandoc</code>
+<ul>
+<li>Translates between semantic markup</li>
+<li>Endless customization</li>
+<li>Pass options via the <em>front matter</em> at the top of document</li>
+</ul></li>
+</ul>
+</section>
+<section id="front-matter" class="level2">
+<h2>Front matter</h2>
+<ul>
+<li>Document types
+<ul>
+<li><code>pdf_document</code>, <code>word_document</code>, <code>html_document</code></li>
+<li><code>beamer_presentation</code>, <code>ioslides_presentation</code></li>
+</ul></li>
+<li>Other options
+<ul>
+<li><code>bibliography: mybib.bib</code></li>
+<li>Cite with <code>@paperkey</code></li>
+<li>See <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a> for complete documentation</li>
+</ul></li>
+</ul>
+<p>Full source for this webpage available <a href="http://github.com/sachsmc/knit-git-markr-guide" class="uri">http://github.com/sachsmc/knit-git-markr-guide</a></p>
+</section>
+</section>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r-markdown">R Markdown</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/plot">plot</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/reproducible-research">reproducible research</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/git/">git and github</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; Michael C Sachs 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
