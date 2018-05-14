@@ -265,8 +265,13 @@ ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(met
 library(xtable)
 print(xtable(head(mtcars)), type = &amp;quot;html&amp;quot;)
 ```&lt;/code&gt;&lt;/pre&gt;
+<<<<<<< HEAD
 &lt;!-- html table generated in R 3.5.0 by xtable 1.8-2 package --&gt;
 &lt;!-- Mon May 14 16:00:41 2018 --&gt;
+=======
+&lt;!-- html table generated in R 3.4.3 by xtable 1.8-2 package --&gt;
+&lt;!-- Wed Mar  7 22:46:02 2018 --&gt;
+>>>>>>> ddeb45d37192dc2de737e1a3c46f8e7b12c24cf3
 &lt;table border=&#34;1&#34;&gt;
 &lt;tr&gt;
 &lt;th&gt;
@@ -835,7 +840,11 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`&lt;/code&gt;&lt;/pre&gt;
+<<<<<<< HEAD
 &lt;p&gt;The mean (sd) of a random sample of normals is 0.13 (1.07)&lt;/p&gt;
+=======
+&lt;p&gt;The mean (sd) of a random sample of normals is 0.04 (0.95)&lt;/p&gt;
+>>>>>>> ddeb45d37192dc2de737e1a3c46f8e7b12c24cf3
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprint_CI95 &amp;lt;- function(mu, se, trans = function(x) x) {
   lim &amp;lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&amp;quot;%.2f (95%% CI: %.2f to %.2f)&amp;quot;, mu, lim[1], lim[2])
