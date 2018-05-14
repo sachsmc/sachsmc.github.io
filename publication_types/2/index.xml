@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 on Michael C Sachs</title>
+    <link>/publication_types/2/</link>
+    <description>Recent content in 2 on Michael C Sachs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Michael C Sachs 2018</copyright>
+    <lastBuildDate>Sun, 01 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Measuring precision in bioassays: Rethinking assay validation</title>
+      <link>/publication/rethinking-assay-validation/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/rethinking-assay-validation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Childhood onset inflammatory bowel disease and risk of cancer: a Swedish nationwide cohort study 1964-2014</title>
+      <link>/publication/childhood-ibd-cancer/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/childhood-ibd-cancer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Principal Surrogate Evaluation with the pseval Package</title>
+      <link>/publication/pseval-package/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/pseval-package/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

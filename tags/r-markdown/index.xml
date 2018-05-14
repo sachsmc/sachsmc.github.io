@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on Michael C Sachs</title>
+    <link>/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on Michael C Sachs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Michael C Sachs 2018</copyright>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction to `knitr`</title>
+      <link>/post/knit/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/knit/</guid>
+      <description>Programs are meant to be read by humans and only incidentally for computers to execute.
+Donald KnuthMotivationThe cut-and-paste approach to report production is tedious, slow, and error-prone. It can be very harmful to reproducible research and it is inconvenient to reproduce results.
+knitr is an R package that integrates computing and reporting. By incorporating code into text documents, the analysis, results and discussion are all in one place.</description>
+    </item>
+    
+    <item>
+      <title>git and github</title>
+      <link>/post/git/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/git/</guid>
+      <description>IntroductionYour closest collaborator is you six months ago, but you don’t reply to emails.
+-Paul Wilson
+git and github are tools to make version control and collaboration easier. Writing code, papers, presentations, and other scientific products requires iteration and input from multiple sources. Ad hoc approaches suffer from a variety of problems that occasionally have disastrous consequences. The following examples illustrate some of these problems.</description>
+    </item>
+    
+  </channel>
+</rss>

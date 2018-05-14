@@ -8,7 +8,18 @@
     <language>en-us</language>
     <copyright>&amp;copy; Michael C Sachs 2018</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/talk/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Interactive Graphics</title>
+      <link>/talk/meb-talk-201803/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
+      
+      <guid>/talk/meb-talk-201803/</guid>
+      <description>The what, why, where and how of interactive statistical graphics.</description>
+    </item>
     
     <item>
       <title>Reproducible Research in Data Analysis</title>

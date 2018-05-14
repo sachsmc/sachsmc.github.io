@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="author" content="Michael C Sachs">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Adapted from:
+Scott Emerson: http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdfAndrew Gelman: http://andrewgelman.com/2014/01/14/advice-writing-research-articles/Organizing your approach to a research studyBefore discussing with statisticianState the overall goal of the study
+State the specific scientific aims and how they relate to theoverall goal
+Current state of scientific knowledge
+Identify the expected outcomes that the study is designed toaddress
+Consider the available data and its relationship to the aimsIn consultation with statisticianRefine scientific aims into statistical questionsIdentify the type of questionDescription/quantifying distributions, e.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/research/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Michael C Sachs">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Michael C Sachs">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/research/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@sachsmc">
+  <meta property="twitter:creator" content="@sachsmc">
+  
+  <meta property="og:site_name" content="Michael C Sachs">
+  <meta property="og:url" content="/post/research/">
+  <meta property="og:title" content="Organizing your approach to a research study | Michael C Sachs">
+  <meta property="og:description" content="Adapted from:
+Scott Emerson: http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdfAndrew Gelman: http://andrewgelman.com/2014/01/14/advice-writing-research-articles/Organizing your approach to a research studyBefore discussing with statisticianState the overall goal of the study
+State the specific scientific aims and how they relate to theoverall goal
+Current state of scientific knowledge
+Identify the expected outcomes that the study is designed toaddress
+Consider the available data and its relationship to the aimsIn consultation with statisticianRefine scientific aims into statistical questionsIdentify the type of questionDescription/quantifying distributions, e.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-05-14T21:13:14-05:00">
+  
+  <meta property="article:modified_time" content="2018-05-14T21:13:14-05:00">
+  
+
+  
+
+  <title>Organizing your approach to a research study | Michael C Sachs</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Michael C Sachs</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>R Packages</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Organizing your approach to a research study</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-05-14 21:13:14 -0500 -0500" itemprop="datePublished dateModified">
+      2018-05-14
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Michael C Sachs">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/general">General</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Organizing%20your%20approach%20to%20a%20research%20study&amp;url=%2fpost%2fresearch%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fresearch%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fresearch%2f&amp;title=Organizing%20your%20approach%20to%20a%20research%20study"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fresearch%2f&amp;title=Organizing%20your%20approach%20to%20a%20research%20study"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Organizing%20your%20approach%20to%20a%20research%20study&amp;body=%2fpost%2fresearch%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <p>Adapted from:</p>
+<ul>
+<li>Scott Emerson: <a href="http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdf" class="uri">http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdf</a></li>
+<li>Andrew Gelman: <a href="http://andrewgelman.com/2014/01/14/advice-writing-research-articles/" class="uri">http://andrewgelman.com/2014/01/14/advice-writing-research-articles/</a></li>
+</ul>
+<div id="organizing-your-approach-to-a-research-study" class="section level1">
+<h1>Organizing your approach to a research study</h1>
+<div id="before-discussing-with-statistician" class="section level2">
+<h2>Before discussing with statistician</h2>
+<ol style="list-style-type: upper-roman">
+<li><p>State the overall goal of the study</p></li>
+<li><p>State the specific scientific aims and how they relate to the
+overall goal</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Current state of scientific knowledge</p></li>
+<li><p>Identify the expected outcomes that the study is designed to
+address</p></li>
+</ol>
+<ol start="3" style="list-style-type: upper-roman">
+<li>Consider the available data and its relationship to the aims</li>
+</ol>
+</div>
+<div id="in-consultation-with-statistician" class="section level2">
+<h2>In consultation with statistician</h2>
+<ol style="list-style-type: upper-roman">
+<li>Refine scientific aims into statistical questions</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Identify the type of question
+<ol style="list-style-type: lower-roman">
+<li>Description/quantifying distributions, e.g., what is the
+distribution of X in the population?</li>
+<li>Comparing distributions/estimating associations, e.g., what
+is the relationship between X and Y? Does the relationship
+between X and Y differ by Z?</li>
+<li>Prediction, e.g., can I predict future/unobserved values of
+Y using X?</li>
+<li>Clustering of observations</li>
+<li>Clustering of variables</li>
+</ol></li>
+<li>Where appropriate, specify statistical hypotheses in terms of a
+summary measure for the distribution
+<ol start="6" style="list-style-type: lower-roman">
+<li>E.g., mean, median, hazard ratio, proportion, event rate</li>
+</ol></li>
+</ol>
+<ol start="2" style="list-style-type: upper-roman">
+<li>Consider the design of the ideal experiment</li>
+</ol>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Ignoring practical and ethical limitations, how would you design
+a study to address the scientific aims?
+<ol start="7" style="list-style-type: lower-roman">
+<li>Who would be the subjects</li>
+<li>What would be the intervention</li>
+<li>How would subjects be assigned to intervention</li>
+<li>What variables would be measured</li>
+</ol></li>
+</ol>
+<ol start="3" style="list-style-type: upper-roman">
+<li>Available data</li>
+</ol>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Sampling sceme
+<ol start="11" style="list-style-type: lower-roman">
+<li>Retrospective vs prospective</li>
+<li>Observational vs interventional</li>
+<li>Inclusion and exclusion criteria</li>
+<li>How was the sample size determined</li>
+</ol></li>
+<li>Variables in the dataset
+<ol start="15" style="list-style-type: lower-roman">
+<li>Names and relationship to real world quantities</li>
+<li>Conditions under which they were measured</li>
+<li>Units of measurement</li>
+</ol></li>
+<li>Categorization of variables according to meaning
+<ol start="18" style="list-style-type: lower-roman">
+<li>Demographic</li>
+<li>Baseline physiology</li>
+<li>Baseline risk factors, prognosis</li>
+<li>Measures of treatment</li>
+<li>Measures of ancillary clinical course during follow up</li>
+<li>Clinically relevant outcome</li>
+</ol></li>
+<li>Categorization of variables according to use in the analysis
+<ol start="24" style="list-style-type: lower-roman">
+<li>Response/outcome</li>
+<li>Predictor of interest</li>
+<li>Subgroups of interest</li>
+<li>Potential confounders
+1. Associated with response (in truth)
+2. Associated with predictor of interest (in the sample)
+3. Not in causal pathway of interest</li>
+<li>Precision variables
+4. Predictive of response, but not associated with
+predictor of interest</li>
+<li>Surrogates for response
+5. Variables in causal pathway (mediators)
+6. Variables measuring a later effect of response</li>
+<li>Instruments for treatment
+7. Variables that cause the treatment/predictor of interest
+8. Not associated with outcome through any other route</li>
+<li>Other/irrelevant</li>
+</ol></li>
+</ol>
+</div>
+<div id="statistician-on-their-own" class="section level2">
+<h2>Statistician on their own</h2>
+<ol style="list-style-type: upper-roman">
+<li>Statistical analysis plan</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Primary specific aim
+<ol style="list-style-type: lower-roman">
+<li>Outcome measurement
+<ol style="list-style-type: decimal">
+<li>Clinical definition</li>
+<li>Protocol definition</li>
+<li>Statistical summary of interest</li>
+</ol></li>
+<li>Predictor of interest</li>
+<li>Subgroups for effect modification
+4. Contrasts of summary measure across subgroups</li>
+<li>Statistical hypotheses
+<ol start="5" style="list-style-type: decimal">
+<li>Differences (superiority or inferiority)</li>
+<li>Non-inferiority</li>
+<li>Approximate equivalence</li>
+</ol></li>
+<li>Statistical burden of proof
+<ol start="8" style="list-style-type: decimal">
+<li>Level of significance</li>
+<li>Descriptive criteria and precision</li>
+</ol></li>
+</ol></li>
+<li>Secondary and exploratory aims
+<ol start="6" style="list-style-type: lower-roman">
+<li>Supportive analyses using alternate outcomes</li>
+<li>Analyses restricted to particular subgroups</li>
+<li>Analyses considering specific mechanisms of action</li>
+<li>Exploratory analyses used for hypothesis generation</li>
+</ol></li>
+<li>Sensitivity analyses
+<ol start="24" style="list-style-type: lower-alpha">
+<li>Analysis specifically designed to address assumptions used
+in primary analysis</li>
+</ol>
+<ol start="11" style="list-style-type: lower-roman">
+<li>Description of assumptions that need to be addressed</li>
+<li>How can those assumptions be relaxed/assessed</li>
+</ol></li>
+<li>Describe statistical model
+<ol start="13" style="list-style-type: lower-roman">
+<li>Univariate estimation</li>
+<li>Two sample comparisons
+10. Weighting/matching methods for reduction of confounding</li>
+<li>Regression methods
+<ol start="11" style="list-style-type: decimal">
+<li>Summary measures</li>
+<li>Link function</li>
+<li>Modeling of predictor of interest (dichotomized,
+continuous, transformed)</li>
+<li>Adjustment for covariates, and how they are modeled</li>
+<li>Modeling of interactions</li>
+<li>Regression parameters of interest</li>
+<li>Statistic used for estimation and testing</li>
+</ol></li>
+<li>Handling of missing data</li>
+</ol></li>
+<li>Tables and figures
+<ol start="17" style="list-style-type: lower-roman">
+<li>Description of sampling scheme actually attained
+18. Timeframes and sample sizes
+19. Frequency and timing of measurement
+20. Missing data patterns</li>
+<li>Description of observations and baseline variables</li>
+<li>Description of outcomes</li>
+<li>Preliminary estimates and precision related to primary
+question</li>
+<li>Tables/figures for inference on primary and secondary
+questions</li>
+<li>Exploratory results</li>
+<li>Sensitivity analyses</li>
+</ol></li>
+</ol>
+</div>
+<div id="manuscript-writing-group-reporting-results-and-interpretation" class="section level2">
+<h2>Manuscript writing group: reporting results and interpretation</h2>
+<ol style="list-style-type: upper-roman">
+<li><p>Scientific background</p></li>
+<li><p>Statement of hypotheses</p></li>
+<li><p>Materials and methods</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Sampling scheme</p></li>
+<li><p>Basic description of sample</p></li>
+</ol>
+<ol start="4" style="list-style-type: upper-roman">
+<li>Results</li>
+</ol>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Descriptive statistics
+<ol style="list-style-type: lower-roman">
+<li>Subjects and baseline variables</li>
+<li>Outcome measurements</li>
+</ol></li>
+<li>Results about primary question
+<ol start="3" style="list-style-type: lower-roman">
+<li>Estimates of effect
+1. Point estimate
+2. Interval estimates</li>
+<li>Decisions about hypotheses
+<ol start="3" style="list-style-type: decimal">
+<li>Binary decision</li>
+<li>Measure of confidence in decision</li>
+</ol></li>
+<li>Describe questions that arise during this analysis</li>
+</ol></li>
+<li>Results about pre-specified secondary questions</li>
+<li>Questions which demonstrate consistency or lack thereof across
+alternative approaches</li>
+<li>Results about questions that arose during this analysis and that
+the vast majority of readers agree could be answered by the data</li>
+</ol>
+<ol start="22" style="list-style-type: upper-alpha">
+<li>Discussion</li>
+</ol>
+<ol start="8" style="list-style-type: lower-alpha">
+<li>Elaboration on ways that these analyses address the overall goal</li>
+<li>Results of the data-driven and speculative analyses of the data</li>
+</ol>
+</div>
+<div id="general-approach-to-manuscript-writing" class="section level2">
+<h2>General approach to manuscript writing</h2>
+<ol style="list-style-type: upper-roman">
+<li>Start with the conclusions</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>What you found and what you recommend</li>
+</ol>
+<ol start="2" style="list-style-type: upper-roman">
+<li>What is the primary evidence for your conclusions?</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Key graphs and numbers that support your claims</li>
+</ol>
+<ol start="3" style="list-style-type: upper-roman">
+<li><p>What methods and data did you used to obtain your findings?</p></li>
+<li><p>Literature review and introduction</p></li>
+<li><p>Go back to results and conclusions and give alternative explanations</p></li>
+</ol>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Why might you be wrong?</li>
+<li>What is the limit of applicability of your findings?</li>
+<li>What future research would be appropriate to follow up?</li>
+</ol>
+<ol start="6" style="list-style-type: upper-roman">
+<li><p>Write the abstract using main points from a-e</p></li>
+<li><p>Give article to co-authors and ask them:</p></li>
+</ol>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>What is the message?</li>
+<li>What evidence do we have for it?</li>
+<li>What questions arose during the reading that could/should be
+addressed?</li>
+</ol>
+<ol start="8" style="list-style-type: upper-roman">
+<li>General principles:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Don’t present something unless you expect people to read it.
+This includes tables and figures</li>
+</ol>
+<ol start="10" style="list-style-type: lower-alpha">
+<li>Revision process: macro to micro in multiple passes
+<ol style="list-style-type: lower-roman">
+<li>Clarity of general message</li>
+<li>Overall structure and organization</li>
+<li>Clarity of specific paragraphs/sentences</li>
+<li>Details of presentation and stylistic fixes</li>
+</ol></li>
+</ol>
+</div>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/reproducible-research">reproducible research</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/science">science</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/organization">organization</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/knit/">Introduction to `knitr`</a></li>
+    
+    <li><a href="/post/git/">git and github</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; Michael C Sachs 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

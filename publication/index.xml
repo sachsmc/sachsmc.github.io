@@ -8,7 +8,18 @@
     <language>en-us</language>
     <copyright>&amp;copy; Michael C Sachs 2018</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/publication/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Measuring precision in bioassays: Rethinking assay validation</title>
+      <link>/publication/rethinking-assay-validation/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/rethinking-assay-validation/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Childhood onset inflammatory bowel disease and risk of cancer: a Swedish nationwide cohort study 1964-2014</title>
