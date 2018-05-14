@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/research/</loc>
+      <lastmod>2018-05-14T21:13:14-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/publication/rethinking-assay-validation/</loc>
       <lastmod>2017-10-01T00:00:00+00:00</lastmod>
     </url>
@@ -141,8 +150,28 @@
     
     <url>
     
+      <loc>/categories/general/</loc>
+      <lastmod>2018-05-14T21:13:14-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/</loc>
       <lastmod>2017-10-15T00:00:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/organization/</loc>
+      <lastmod>2018-05-14T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -202,7 +231,17 @@
     <url>
     
       <loc>/tags/reproducible-research/</loc>
-      <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+      <lastmod>2018-05-14T21:13:14-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/science/</loc>
+      <lastmod>2018-05-14T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
     

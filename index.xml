@@ -11,6 +11,301 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Organizing your approach to a research study</title>
+      <link>/post/research/</link>
+      <pubDate>Mon, 14 May 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/post/research/</guid>
+      <description>&lt;p&gt;Adapted from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scott Emerson: &lt;a href=&#34;http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdf&#34; class=&#34;uri&#34;&gt;http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Andrew Gelman: &lt;a href=&#34;http://andrewgelman.com/2014/01/14/advice-writing-research-articles/&#34; class=&#34;uri&#34;&gt;http://andrewgelman.com/2014/01/14/advice-writing-research-articles/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;organizing-your-approach-to-a-research-study&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Organizing your approach to a research study&lt;/h1&gt;
+&lt;div id=&#34;before-discussing-with-statistician&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Before discussing with statistician&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;&lt;p&gt;State the overall goal of the study&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;State the specific scientific aims and how they relate to the
+overall goal&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Current state of scientific knowledge&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Identify the expected outcomes that the study is designed to
+address&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Consider the available data and its relationship to the aims&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;in-consultation-with-statistician&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;In consultation with statistician&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Refine scientific aims into statistical questions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Identify the type of question
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Description/quantifying distributions, e.g., what is the
+distribution of X in the population?&lt;/li&gt;
+&lt;li&gt;Comparing distributions/estimating associations, e.g., what
+is the relationship between X and Y? Does the relationship
+between X and Y differ by Z?&lt;/li&gt;
+&lt;li&gt;Prediction, e.g., can I predict future/unobserved values of
+Y using X?&lt;/li&gt;
+&lt;li&gt;Clustering of observations&lt;/li&gt;
+&lt;li&gt;Clustering of variables&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Where appropriate, specify statistical hypotheses in terms of a
+summary measure for the distribution
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;E.g., mean, median, hazard ratio, proportion, event rate&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Consider the design of the ideal experiment&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Ignoring practical and ethical limitations, how would you design
+a study to address the scientific aims?
+&lt;ol start=&#34;7&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Who would be the subjects&lt;/li&gt;
+&lt;li&gt;What would be the intervention&lt;/li&gt;
+&lt;li&gt;How would subjects be assigned to intervention&lt;/li&gt;
+&lt;li&gt;What variables would be measured&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Available data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Sampling sceme
+&lt;ol start=&#34;11&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Retrospective vs prospective&lt;/li&gt;
+&lt;li&gt;Observational vs interventional&lt;/li&gt;
+&lt;li&gt;Inclusion and exclusion criteria&lt;/li&gt;
+&lt;li&gt;How was the sample size determined&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Variables in the dataset
+&lt;ol start=&#34;15&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Names and relationship to real world quantities&lt;/li&gt;
+&lt;li&gt;Conditions under which they were measured&lt;/li&gt;
+&lt;li&gt;Units of measurement&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Categorization of variables according to meaning
+&lt;ol start=&#34;18&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Demographic&lt;/li&gt;
+&lt;li&gt;Baseline physiology&lt;/li&gt;
+&lt;li&gt;Baseline risk factors, prognosis&lt;/li&gt;
+&lt;li&gt;Measures of treatment&lt;/li&gt;
+&lt;li&gt;Measures of ancillary clinical course during follow up&lt;/li&gt;
+&lt;li&gt;Clinically relevant outcome&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Categorization of variables according to use in the analysis
+&lt;ol start=&#34;24&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Response/outcome&lt;/li&gt;
+&lt;li&gt;Predictor of interest&lt;/li&gt;
+&lt;li&gt;Subgroups of interest&lt;/li&gt;
+&lt;li&gt;Potential confounders
+1. Associated with response (in truth)
+2. Associated with predictor of interest (in the sample)
+3. Not in causal pathway of interest&lt;/li&gt;
+&lt;li&gt;Precision variables
+4. Predictive of response, but not associated with
+predictor of interest&lt;/li&gt;
+&lt;li&gt;Surrogates for response
+5. Variables in causal pathway (mediators)
+6. Variables measuring a later effect of response&lt;/li&gt;
+&lt;li&gt;Instruments for treatment
+7. Variables that cause the treatment/predictor of interest
+8. Not associated with outcome through any other route&lt;/li&gt;
+&lt;li&gt;Other/irrelevant&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistician-on-their-own&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistician on their own&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Statistical analysis plan&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Primary specific aim
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Outcome measurement
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Clinical definition&lt;/li&gt;
+&lt;li&gt;Protocol definition&lt;/li&gt;
+&lt;li&gt;Statistical summary of interest&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Predictor of interest&lt;/li&gt;
+&lt;li&gt;Subgroups for effect modification
+4. Contrasts of summary measure across subgroups&lt;/li&gt;
+&lt;li&gt;Statistical hypotheses
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Differences (superiority or inferiority)&lt;/li&gt;
+&lt;li&gt;Non-inferiority&lt;/li&gt;
+&lt;li&gt;Approximate equivalence&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Statistical burden of proof
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Level of significance&lt;/li&gt;
+&lt;li&gt;Descriptive criteria and precision&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Secondary and exploratory aims
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Supportive analyses using alternate outcomes&lt;/li&gt;
+&lt;li&gt;Analyses restricted to particular subgroups&lt;/li&gt;
+&lt;li&gt;Analyses considering specific mechanisms of action&lt;/li&gt;
+&lt;li&gt;Exploratory analyses used for hypothesis generation&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Sensitivity analyses
+&lt;ol start=&#34;24&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Analysis specifically designed to address assumptions used
+in primary analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;11&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Description of assumptions that need to be addressed&lt;/li&gt;
+&lt;li&gt;How can those assumptions be relaxed/assessed&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Describe statistical model
+&lt;ol start=&#34;13&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Univariate estimation&lt;/li&gt;
+&lt;li&gt;Two sample comparisons
+10. Weighting/matching methods for reduction of confounding&lt;/li&gt;
+&lt;li&gt;Regression methods
+&lt;ol start=&#34;11&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Summary measures&lt;/li&gt;
+&lt;li&gt;Link function&lt;/li&gt;
+&lt;li&gt;Modeling of predictor of interest (dichotomized,
+continuous, transformed)&lt;/li&gt;
+&lt;li&gt;Adjustment for covariates, and how they are modeled&lt;/li&gt;
+&lt;li&gt;Modeling of interactions&lt;/li&gt;
+&lt;li&gt;Regression parameters of interest&lt;/li&gt;
+&lt;li&gt;Statistic used for estimation and testing&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Handling of missing data&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Tables and figures
+&lt;ol start=&#34;17&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Description of sampling scheme actually attained
+18. Timeframes and sample sizes
+19. Frequency and timing of measurement
+20. Missing data patterns&lt;/li&gt;
+&lt;li&gt;Description of observations and baseline variables&lt;/li&gt;
+&lt;li&gt;Description of outcomes&lt;/li&gt;
+&lt;li&gt;Preliminary estimates and precision related to primary
+question&lt;/li&gt;
+&lt;li&gt;Tables/figures for inference on primary and secondary
+questions&lt;/li&gt;
+&lt;li&gt;Exploratory results&lt;/li&gt;
+&lt;li&gt;Sensitivity analyses&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manuscript-writing-group-reporting-results-and-interpretation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Manuscript writing group: reporting results and interpretation&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;&lt;p&gt;Scientific background&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Statement of hypotheses&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Materials and methods&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Sampling scheme&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Basic description of sample&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Results&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Descriptive statistics
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Subjects and baseline variables&lt;/li&gt;
+&lt;li&gt;Outcome measurements&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Results about primary question
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Estimates of effect
+1. Point estimate
+2. Interval estimates&lt;/li&gt;
+&lt;li&gt;Decisions about hypotheses
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Binary decision&lt;/li&gt;
+&lt;li&gt;Measure of confidence in decision&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Describe questions that arise during this analysis&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Results about pre-specified secondary questions&lt;/li&gt;
+&lt;li&gt;Questions which demonstrate consistency or lack thereof across
+alternative approaches&lt;/li&gt;
+&lt;li&gt;Results about questions that arose during this analysis and that
+the vast majority of readers agree could be answered by the data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;22&#34; style=&#34;list-style-type: upper-alpha&#34;&gt;
+&lt;li&gt;Discussion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Elaboration on ways that these analyses address the overall goal&lt;/li&gt;
+&lt;li&gt;Results of the data-driven and speculative analyses of the data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;general-approach-to-manuscript-writing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;General approach to manuscript writing&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;Start with the conclusions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;What you found and what you recommend&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;What is the primary evidence for your conclusions?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Key graphs and numbers that support your claims&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;&lt;p&gt;What methods and data did you used to obtain your findings?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Literature review and introduction&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go back to results and conclusions and give alternative explanations&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Why might you be wrong?&lt;/li&gt;
+&lt;li&gt;What is the limit of applicability of your findings?&lt;/li&gt;
+&lt;li&gt;What future research would be appropriate to follow up?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;&lt;p&gt;Write the abstract using main points from a-e&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Give article to co-authors and ask them:&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;What is the message?&lt;/li&gt;
+&lt;li&gt;What evidence do we have for it?&lt;/li&gt;
+&lt;li&gt;What questions arose during the reading that could/should be
+addressed?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: upper-roman&#34;&gt;
+&lt;li&gt;General principles:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Don’t present something unless you expect people to read it.
+This includes tables and figures&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;10&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Revision process: macro to micro in multiple passes
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+&lt;li&gt;Clarity of general message&lt;/li&gt;
+&lt;li&gt;Overall structure and organization&lt;/li&gt;
+&lt;li&gt;Clarity of specific paragraphs/sentences&lt;/li&gt;
+&lt;li&gt;Details of presentation and stylistic fixes&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Measuring precision in bioassays: Rethinking assay validation</title>
       <link>/publication/rethinking-assay-validation/</link>
       <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>

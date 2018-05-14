@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Organization</title>
+      <link>/tags/organization/</link>
+      <pubDate>Mon, 14 May 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/organization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Plot</title>
       <link>/tags/plot/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
@@ -42,9 +51,18 @@
     <item>
       <title>Reproducible research</title>
       <link>/tags/reproducible-research/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Mon, 14 May 2018 21:13:14 -0500</pubDate>
       
       <guid>/tags/reproducible-research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science</title>
+      <link>/tags/science/</link>
+      <pubDate>Mon, 14 May 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/science/</guid>
       <description></description>
     </item>
     

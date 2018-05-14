@@ -13,6 +13,20 @@
     
     
     <item>
+      <title>Organizing your approach to a research study</title>
+      <link>/post/research/</link>
+      <pubDate>Mon, 14 May 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/post/research/</guid>
+      <description>Adapted from:
+Scott Emerson: http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdfAndrew Gelman: http://andrewgelman.com/2014/01/14/advice-writing-research-articles/Organizing your approach to a research studyBefore discussing with statisticianState the overall goal of the study
+State the specific scientific aims and how they relate to theoverall goal
+Current state of scientific knowledge
+Identify the expected outcomes that the study is designed toaddress
+Consider the available data and its relationship to the aimsIn consultation with statisticianRefine scientific aims into statistical questionsIdentify the type of questionDescription/quantifying distributions, e.</description>
+    </item>
+    
+    <item>
       <title>Introduction to `knitr`</title>
       <link>/post/knit/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
