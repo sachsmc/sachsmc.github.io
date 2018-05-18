@@ -339,7 +339,7 @@ This includes tables and figures&lt;/li&gt;
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
       
       <guid>/talk/gsurg-talk-201805/</guid>
-      <description>&lt;p&gt;The what, why, where and how of interactive statistical graphics.&lt;/p&gt;
+      <description>&lt;p&gt;An introduction to modeling for prediction. Types of models, issues in valiation, and considerations for censored data.&lt;/p&gt;
 </description>
     </item>
     
@@ -571,7 +571,7 @@ library(xtable)
 print(xtable(head(mtcars)), type = &amp;quot;html&amp;quot;)
 ```&lt;/code&gt;&lt;/pre&gt;
 &lt;!-- html table generated in R 3.5.0 by xtable 1.8-2 package --&gt;
-&lt;!-- Fri May 18 08:35:06 2018 --&gt;
+&lt;!-- Fri May 18 08:40:17 2018 --&gt;
 &lt;table border=&#34;1&#34;&gt;
 &lt;tr&gt;
 &lt;th&gt;
@@ -1140,7 +1140,7 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The mean (sd) of a random sample of normals is 0.21 (1.01)&lt;/p&gt;
+&lt;p&gt;The mean (sd) of a random sample of normals is 0.09 (0.99)&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprint_CI95 &amp;lt;- function(mu, se, trans = function(x) x) {
   lim &amp;lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&amp;quot;%.2f (95%% CI: %.2f to %.2f)&amp;quot;, mu, lim[1], lim[2])
