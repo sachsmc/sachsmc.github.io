@@ -31,7 +31,7 @@ knitr is an R package that integrates computing and reporting. By incorporating 
 
   
   
-  <meta name="theme-color" content="#795548">
+  <meta name="theme-color" content="#07889b">
   
   
   
@@ -57,7 +57,7 @@ knitr is an R package that integrates computing and reporting. By incorporating 
   
   
   
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
   
   <link rel="stylesheet" href="/styles.css">
   
@@ -528,7 +528,7 @@ library(xtable)
 print(xtable(head(mtcars)), type = &quot;html&quot;)
 ```</code></pre>
 <!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Fri May 18 08:40:17 2018 -->
+<!-- Fri Jun 01 09:06:21 2018 -->
 <table border="1">
 <tr>
 <th>
@@ -1097,7 +1097,7 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</code></pre>
-<p>The mean (sd) of a random sample of normals is 0.09 (0.99)</p>
+<p>The mean (sd) of a random sample of normals is -0.21 (1.02)</p>
 <pre class="r"><code>sprint_CI95 &lt;- function(mu, se, trans = function(x) x) {
   lim &lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&quot;%.2f (95%% CI: %.2f to %.2f)&quot;, mu, lim[1], lim[2])
