@@ -22,6 +22,18 @@
     </item>
     
     <item>
+      <title>Modeling time to event data</title>
+      <link>/talk/kep-methods-201809/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
+      
+      <guid>/talk/kep-methods-201809/</guid>
+      <description>Andersen 2002, Multistate Models
+Asar 2015, Joint Models
+I&amp;rsquo;ve attached two review papers on methods for modelling exposures measured dynamically over time and their relation to a time-to-event outcome. We&amp;rsquo;ve examined the Cox model with time-varying covariates and flexible models for dose, but when and how should the alternatives be used?
+The first paper, by Asar et al., reviews the methods for joint modelling of longitudinal and time-to-event data. The authors claim that joint models should be preferred over Cox models when the longitudinal data are measured infrequently or with error.</description>
+    </item>
+    
+    <item>
       <title>Predictive Modeling</title>
       <link>/talk/gsurg-talk-201805/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>

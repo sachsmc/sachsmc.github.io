@@ -334,6 +334,28 @@ This includes tables and figures&lt;/li&gt;
     </item>
     
     <item>
+      <title>Modeling time to event data</title>
+      <link>/talk/kep-methods-201809/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
+      
+      <guid>/talk/kep-methods-201809/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;Andersen-2002-multistate.pdf&#34; target=&#34;_blank&#34;&gt;Andersen 2002, Multistate Models&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;Asar-2015-joint.pdf&#34; target=&#34;_blank&#34;&gt;Asar 2015, Joint Models&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve attached two review papers on methods for modelling exposures measured dynamically over time and their relation to a time-to-event outcome. We&amp;rsquo;ve examined the Cox model with time-varying covariates and flexible models for dose, but when and how should the alternatives be used?&lt;/p&gt;
+
+&lt;p&gt;The first paper, by Asar et al., reviews the methods for joint modelling of longitudinal and time-to-event data. The authors claim that joint models should be preferred over Cox models when the longitudinal data are measured infrequently or with error. The second paper, by Andersen et al., introduces the concept of multi-state models. This is a powerful approach for modelling complex event history data such as competing risks or recurrent events.&lt;/p&gt;
+
+&lt;p&gt;I will present a brief overview including some examples and lead the discussion. For future topics, please let me know if you are interested in taking the lead. The planned topics for the next few months are below.&lt;/p&gt;
+
+&lt;p&gt;October: Sensitivity Analysis
+November: Qualitative Interactions
+December: Causal Inference in Observational Studies&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Predictive Modeling</title>
       <link>/talk/gsurg-talk-201805/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
@@ -571,7 +593,7 @@ library(xtable)
 print(xtable(head(mtcars)), type = &amp;quot;html&amp;quot;)
 ```&lt;/code&gt;&lt;/pre&gt;
 &lt;!-- html table generated in R 3.5.0 by xtable 1.8-2 package --&gt;
-&lt;!-- Fri Jun 01 09:14:59 2018 --&gt;
+&lt;!-- Wed Sep 19 14:33:10 2018 --&gt;
 &lt;table border=&#34;1&#34;&gt;
 &lt;tr&gt;
 &lt;th&gt;
@@ -1140,7 +1162,7 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The mean (sd) of a random sample of normals is 0.14 (1)&lt;/p&gt;
+&lt;p&gt;The mean (sd) of a random sample of normals is 0.03 (1.11)&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprint_CI95 &amp;lt;- function(mu, se, trans = function(x) x) {
   lim &amp;lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&amp;quot;%.2f (95%% CI: %.2f to %.2f)&amp;quot;, mu, lim[1], lim[2])
