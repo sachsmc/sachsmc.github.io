@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphics on Michael C Sachs</title>
+    <link>/tags/graphics/</link>
+    <description>Recent content in Graphics on Michael C Sachs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Michael C Sachs 2018</copyright>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/graphics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>plotROC</title>
+      <link>/project/plotroc-package/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/plotroc-package/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -528,7 +528,7 @@ library(xtable)
 print(xtable(head(mtcars)), type = &quot;html&quot;)
 ```</code></pre>
 <!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Wed Sep 19 14:56:33 2018 -->
+<!-- Wed Sep 19 15:22:07 2018 -->
 <table border="1">
 <tr>
 <th>
@@ -1097,7 +1097,7 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</code></pre>
-<p>The mean (sd) of a random sample of normals is -0.1 (0.98)</p>
+<p>The mean (sd) of a random sample of normals is 0.09 (0.96)</p>
 <pre class="r"><code>sprint_CI95 &lt;- function(mu, se, trans = function(x) x) {
   lim &lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&quot;%.2f (95%% CI: %.2f to %.2f)&quot;, mu, lim[1], lim[2])
@@ -1236,6 +1236,29 @@ output:
 
 <div class="article-container">
   
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sachsmc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
 
 </div>
 
