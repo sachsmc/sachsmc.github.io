@@ -172,6 +172,25 @@ knitr is an R package that integrates computing and reporting. By incorporating 
         
 
         <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
           <a href="/#projects">
             
             <span>R Packages</span>
@@ -406,6 +425,9 @@ lm(mpg ~ hp + wt, data = mtcars)
 <p>And here’s a plot</p>
 <pre><code>```{r mt-plot}
 library(ggplot2)
+```</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre><code>```{r mt-plot}
 ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(method = &quot;lm&quot;, se = FALSE)
 ```</code></pre>
 <p><img src="/post/knit_files/figure-html/mt-plot-1.png" width="672" /></p>
@@ -525,10 +547,13 @@ ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(met
 <p>For finer control, use the <code>xtable</code> package. There are tons of options (see the help file), and the interface is a bit clunky. For instance some options are passed to <code>xtable</code>, while others are passed to <code>print.xtable</code>. The key one for markdown is to use <code>print(xtable(x), type = &quot;html&quot;)</code>.</p>
 <pre><code>```{r xtable, results = &#39;asis&#39;}
 library(xtable)
+```</code></pre>
+<pre><code>## Warning: package &#39;xtable&#39; was built under R version 3.5.1</code></pre>
+<pre><code>```{r xtable, results = &#39;asis&#39;}
 print(xtable(head(mtcars)), type = &quot;html&quot;)
 ```</code></pre>
-<!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Wed Sep 19 15:28:30 2018 -->
+<!-- html table generated in R 3.5.0 by xtable 1.8-3 package -->
+<!-- Fri Jan 25 15:24:25 2019 -->
 <table border="1">
 <tr>
 <th>
@@ -1097,7 +1122,7 @@ F Statistic
 }
 
 ## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</code></pre>
-<p>The mean (sd) of a random sample of normals is -0.01 (1.06)</p>
+<p>The mean (sd) of a random sample of normals is -0.13 (1.03)</p>
 <pre class="r"><code>sprint_CI95 &lt;- function(mu, se, trans = function(x) x) {
   lim &lt;- trans(mu + c(-1.96, 1.96)*se)
   sprintf(&quot;%.2f (95%% CI: %.2f to %.2f)&quot;, mu, lim[1], lim[2])

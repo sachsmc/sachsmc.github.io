@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Courses on Michael C Sachs</title>
+    <link>/course/</link>
+    <description>Recent content in Courses on Michael C Sachs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Michael C Sachs 2018</copyright>
+    <lastBuildDate>Thu, 31 Jan 2019 00:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="/course/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clinical Trials</title>
+      <link>/course/trials-2019/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/course/trials-2019/</guid>
+      <description>Learning Objectives  The Scientific Method The differences between evidence supporting a hypothesis and hypothesis generating information How to link a simple hypothesis in words to an objective that can be tested How to pick a good endpoint About clinical equipoise Why we blind Why we randomize The very basics of simple trial design How to ask for help to design a more complicated trial  Lecture Notes  Lecture I: Introduction Lecture II: Hypotheses and Objectives Lecture III: Blinding and Equipoise Lecture IV: Case Study  Resources References  Friedman LM, Furberg CD, and DeMets DL: Fundamentals of Clinical Trials, Springer (2015).</description>
+    </item>
+    
+    <item>
+      <title>Predictive Modeling in Medical Research</title>
+      <link>/course/prediction-2019/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0100</pubDate>
+      
+      <guid>/course/prediction-2019/</guid>
+      <description>Learning Objectives  Understand how predictions differ from associations Understand the term &amp;ldquo;machine learning&amp;rdquo; and its role in medical research Describe a predictive model, comparing and contrasting single-variable and multi-variable models Name and recognize common measures of predictive accuracy Understand the difference between in-sample and out-of-sample prediction Be aware of terminology related to prediction models in medical research Identify problems related to overfitting in the development of a predictive model List statistical strategies to avoid overfitting and overoptimisim bias  Lecture Notes  Lecture I: Introduction Lecture II: Measures of Accuracy Lecture III: Predictive Signatures Lecture IV: Case Study  Resources References  Margaret Sullivan Pepe.</description>
+    </item>
+    
+  </channel>
+</rss>
