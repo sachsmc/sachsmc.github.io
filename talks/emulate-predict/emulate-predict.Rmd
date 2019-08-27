@@ -1,0 +1,190 @@
+---
+title: "Emulated Prediction Trials"
+author: "Erin Gabriel"
+date: "2019-05-23"
+output:
+  beamer_presentation
+header-includes:
+    - \usepackage{tikz}
+    - \usetikzlibrary{calc}
+    - \usetikzlibrary{positioning}
+    - \usetikzlibrary{arrows}
+pandoc_args: [
+        "--variable", "classoption=aspectratio=169"
+        ]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
+                      fig.width = 4, fig.height = 5 * .618,
+                      fig.align = 'center')
+library(ggplot2)
+library(gridExtra)
+library(plotROC)
+library(dplyr)
+library(igraph)
+
+
+theme_set(theme_bw())# + theme(plot.background = element_rect(fill = "#999999")))
+
+```
+
+
+
+# So you want to use machine learning
+
+"I've heard about machine learning and I don't want to miss out, can you help me apply it to my data?"
+
+
+---
+
+# Wrong!
+
+The goal of medical studies is to produce the evidence that can be used to
+
+- Diagnose disease
+- Identify risk factors for disease
+- Treat disease
+- Prognosticate
+- Prevention of disease
+- Improve understanding of basic science
+
+**Start with a hypothesis!**
+
+---
+
+ML is a suite of tools for prediction, i.e., can I predict future/unobserved values of Y using X? 
+
+What is the intended use of the predictions? 
+
+- Implement a new policy or screening program on a population level
+- Guide treatments for individual patients
+- Allocate funds/time for further research and development?
+
+**A prediction by itself is not clinically useful unless it leads to an action**
+
+
+---
+
+# Rich Simon on black box prognostic models
+
+"There is an **enormous gap between the large literature on prognostic models and the small number of models used in medical practice**. There are several reasons for this discrepancy. **Most prognostic models do not provide actionable information.** That is, they are based on analysis of a heterogeneous set of patients who received a variety of treatments. **Physicians want tools that help them make treatment decisions.** Unless that decision context is clearly and specifically defined at the outset of the study and used to drive the selection of the training set, the resulting model is unlikely to find medical acceptance."
+
+---
+
+
+# Formal decision analysis
+
+- When predictions are reported to individuals, they may decide to take an action to improve their health or well-being or they may simply be comforted and informed by the knowledge. 
+- However, if there is a clearly defined space of actions in the clinical context, a formal decision rule based on the prediction has the potential to have a much broader positive impact.
+
+How do we incorporate predictions into decision making?
+
+---
+
+# A simple decision tree
+
+```{r}
+G <- graph.tree(n=7,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G)$name <- c("Home", "Outside", "Outside", "dry and burden", "dry and burden", "wet and no burden", "dry and no burden")
+E(G)$name <- c("raincoat", "no raincoat", "rain", "no rain", "rain", "no rain")
+
+# plot (1)
+lay <- layout.reingold.tilford(G, params=list(root='Home')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G, layout=-lay[, 2:1], vertex.shape="none", edge.label = E(G)$name, edge.label.color = "black", cex = .85)
+```
+
+---
+
+# Incorporating probabilities and utilities
+
+```{r}
+G <- graph.tree(n=7,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G)$name <- c("Home", "Outside", "Outside", "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)")
+E(G)$name <- c("raincoat (Pr=0.5)", "no raincoat (Pr=0.5)", "rain (0.5)", "no rain (0.5)", "rain (0.5)", "no rain (0.5)")
+
+# plot (1)
+lay <- layout.reingold.tilford(G, params=list(root='Home')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G, layout=-lay[, 2:1], vertex.shape="none", edge.label = E(G)$name, edge.label.color = "black", cex = .85)
+
+```
+---
+
+
+# Incorporating a prediction
+
+```{r util2}
+G2 <- graph.tree(n=15,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G2)$name <- c("Predict (-5)", "|", "|", "Outside", "Outside", "Outside", "Outside", 
+                "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)", 
+                "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)")
+Enames <- c("low chance (Pr=0.5)", "high chance (0.5)", "no raincoat", "raincoat", "rain (0.1)", "no rain (0.9)", "rain (0.9)", "no rain (0.1)")
+
+G3 <- delete_vertices(G2, c(4, 7, 8, 9, 14, 15))
+lay <- layout.reingold.tilford(G3, params=list(root='Predict (-5)')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G3, layout=-lay[, 2:1], vertex.shape="none", edge.label = Enames, edge.label.color = "black", cex = .85)
+
+```
+
+
+---
+
+# Analysis
+
+Does using the prediction lead to reduced suffering, on average? 
+
+- Compare the expected utility of using the prediction-driven rule vs a coin flip (or always/never take raincoat)
+- Utility values are personal and not easy to define, and may vary over time
+- As with drugs, we don't expect predictions to benefit everyone, every time, only on averge.
+
+
+---
+
+# Challenges
+
+1. Determining possible actions (raincoat or umbrella)
+2. Development and evaluation of prediction model
+3. Estimation of probabilities
+    - Distribution of predictions in the population (proportion testing positive)
+    - Distribution of outcomes conditional on predictions
+4. Assessment of utilities
+
+### Generate evidence to support use/no use of the model
+
+---
+
+\begin{figure}[ht]
+\begin{tikzpicture}[
+    sharp corners=1pt,
+    inner sep=2pt,
+    node distance=.25cm and 0cm,
+    >=latex]
+\tikzstyle{my node}=[draw,minimum height=1cm,minimum width=3cm]
+\node[my node] (elig){Eligible CD patients};
+\node[my node,below left=of elig] (disease){Prediction};
+\node[my node,below =of elig] (nopred){No prediction};
+\node[my node,below right=of nopred] (nopredsoc){Standard care};
+\node[my node,below left=of disease,xshift=1cm] (low){Low risk };
+\node[my node,below right=of disease,xshift=-1cm] (high) {High risk };
+\node[my node,below=of low,xshift=-1cm] (soc) {Mono therapy};
+\node[my node,below=of high,xshift=-1cm] (esc) {Combination therapy};
+\draw[->] (disease) -- (low);
+\draw[->] (disease) -- (high);
+\draw[->] (low) -- (soc);
+\draw[->] (high) -- (esc);
+\draw[->] (elig) -- (disease);
+\draw[->] (elig) -- (nopred);
+\draw[->] (nopred) -- (nopredsoc);
+\end{tikzpicture}
+\caption{Overview of the target prediction-model based trial in which patients are randomized to a prediction-based treatment decision rule versus standard of care. \label{trialdiag}}
+\end{figure}

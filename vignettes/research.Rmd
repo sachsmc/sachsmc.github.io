@@ -1,0 +1,231 @@
+---
+title: "Organizing your approach to a research study"
+author: Michael Sachs
+date: 2018-05-14T21:13:14-05:00
+categories: ["General"]
+tags: ["reproducible research", "science", "organization"]
+output: html_document
+---
+
+Adapted from:
+
+  - Scott Emerson: http://emersonstatistics.com/courses/formal/b517_2012/analysis.pdf
+  - Andrew Gelman: http://andrewgelman.com/2014/01/14/advice-writing-research-articles/
+  
+Organizing your approach to a research study
+============================================
+
+Before discussing with statistician
+-----------------------------------
+
+I.  State the overall goal of the study
+
+II. State the specific scientific aims and how they relate to the
+    overall goal
+
+   a.  Current state of scientific knowledge
+
+   b.  Identify the expected outcomes that the study is designed to
+        address
+
+III. Consider the available data and its relationship to the aims
+
+In consultation with statistician
+---------------------------------
+
+I.  Refine scientific aims into statistical questions
+
+a.  Identify the type of question
+    i.  Description/quantifying distributions, e.g., what is the
+        distribution of X in the population?
+    ii. Comparing distributions/estimating associations, e.g., what
+        is the relationship between X and Y? Does the relationship
+        between X and Y differ by Z?
+    iii. Prediction, e.g., can I predict future/unobserved values of
+        Y using X?
+    iv. Clustering of observations
+    v.  Clustering of variables
+b.  Where appropriate, specify statistical hypotheses in terms of a
+    summary measure for the distribution
+    vi. E.g., mean, median, hazard ratio, proportion, event rate
+
+II. Consider the design of the ideal experiment
+
+c.  Ignoring practical and ethical limitations, how would you design
+    a study to address the scientific aims?
+    vii. Who would be the subjects
+    viii. What would be the intervention
+    ix. How would subjects be assigned to intervention
+    x.  What variables would be measured
+
+III. Available data
+
+d.  Sampling sceme
+    xi. Retrospective vs prospective
+    xii. Observational vs interventional
+    xiii. Inclusion and exclusion criteria
+    xiv. How was the sample size determined
+e.  Variables in the dataset
+    xv. Names and relationship to real world quantities
+    xvi. Conditions under which they were measured
+    xvii. Units of measurement
+f.  Categorization of variables according to meaning
+    xviii.  Demographic
+    xix. Baseline physiology
+    xx. Baseline risk factors, prognosis
+    xxi. Measures of treatment
+    xxii. Measures of ancillary clinical course during follow up
+    xxiii.  Clinically relevant outcome
+g.  Categorization of variables according to use in the analysis
+    xxiv. Response/outcome
+    xxv. Predictor of interest
+    xxvi. Subgroups of interest
+    xxvii.  Potential confounders
+        1.  Associated with response (in truth)
+        2.  Associated with predictor of interest (in the sample)
+        3.  Not in causal pathway of interest
+    xxviii.   Precision variables
+        4.  Predictive of response, but not associated with
+            predictor of interest
+    xxix. Surrogates for response
+        5.  Variables in causal pathway (mediators)
+        6.  Variables measuring a later effect of response
+    xxx. Instruments for treatment
+        7.  Variables that cause the treatment/predictor of interest
+        8.  Not associated with outcome through any other route
+    xxxi. Other/irrelevant
+
+Statistician on their own
+-------------------------
+
+I.  Statistical analysis plan
+
+a.  Primary specific aim
+    i.  Outcome measurement
+        1.  Clinical definition
+        2.  Protocol definition
+        3.  Statistical summary of interest
+    ii. Predictor of interest
+    iii. Subgroups for effect modification
+        4.  Contrasts of summary measure across subgroups
+    iv. Statistical hypotheses
+        5.  Differences (superiority or inferiority)
+        6.  Non-inferiority
+        7.  Approximate equivalence
+    v.  Statistical burden of proof
+        8.  Level of significance
+        9.  Descriptive criteria and precision
+b.  Secondary and exploratory aims
+    vi. Supportive analyses using alternate outcomes
+    vii. Analyses restricted to particular subgroups
+    viii. Analyses considering specific mechanisms of action
+    ix. Exploratory analyses used for hypothesis generation
+c.  Sensitivity analyses
+    x.  Analysis specifically designed to address assumptions used
+        in primary analysis
+    xi. Description of assumptions that need to be addressed
+    xii. How can those assumptions be relaxed/assessed
+d.  Describe statistical model
+    xiii. Univariate estimation
+    xiv. Two sample comparisons
+        10. Weighting/matching methods for reduction of confounding
+    xv. Regression methods
+        11. Summary measures
+        12. Link function
+        13. Modeling of predictor of interest (dichotomized,
+            continuous, transformed)
+        14. Adjustment for covariates, and how they are modeled
+        15. Modeling of interactions
+        16. Regression parameters of interest
+        17. Statistic used for estimation and testing
+    xvi. Handling of missing data
+e.  Tables and figures
+    xvii. Description of sampling scheme actually attained
+        18. Timeframes and sample sizes
+        19. Frequency and timing of measurement
+        20. Missing data patterns
+    xviii.  Description of observations and baseline variables
+    xix. Description of outcomes
+    xx. Preliminary estimates and precision related to primary
+        question
+    xxi. Tables/figures for inference on primary and secondary
+        questions
+    xxii. Exploratory results
+    xxiii.  Sensitivity analyses
+
+Manuscript writing group: reporting results and interpretation
+--------------------------------------------------------------
+
+I.  Scientific background
+
+II. Statement of hypotheses
+
+III. Materials and methods
+
+a.  Sampling scheme
+
+b.  Basic description of sample
+
+IV. Results
+
+c.  Descriptive statistics
+    i.  Subjects and baseline variables
+    ii. Outcome measurements
+d.  Results about primary question
+    iii. Estimates of effect
+        1.  Point estimate
+        2.  Interval estimates
+    iv. Decisions about hypotheses
+        3.  Binary decision
+        4.  Measure of confidence in decision
+    v.  Describe questions that arise during this analysis
+e.  Results about pre-specified secondary questions
+f.  Questions which demonstrate consistency or lack thereof across
+    alternative approaches
+g.  Results about questions that arose during this analysis and that
+    the vast majority of readers agree could be answered by the data
+
+V.  Discussion
+
+h.  Elaboration on ways that these analyses address the overall goal
+i.  Results of the data-driven and speculative analyses of the data
+
+General approach to manuscript writing
+--------------------------------------
+
+I.  Start with the conclusions
+
+a.  What you found and what you recommend
+
+II. What is the primary evidence for your conclusions?
+
+b.  Key graphs and numbers that support your claims
+
+III. What methods and data did you used to obtain your findings?
+
+IV. Literature review and introduction
+
+V.  Go back to results and conclusions and give alternative explanations
+
+c.  Why might you be wrong?
+d.  What is the limit of applicability of your findings?
+e.  What future research would be appropriate to follow up?
+
+VI. Write the abstract using main points from a-e
+
+VII. Give article to co-authors and ask them:
+
+f.  What is the message?
+g.  What evidence do we have for it?
+h.  What questions arose during the reading that could/should be
+ addressed?
+
+VIII. General principles:
+
+i.  Don't present something unless you expect people to read it.
+    This includes tables and figures
+j.  Revision process: macro to micro in multiple passes
+    i.  Clarity of general message
+    ii. Overall structure and organization
+    iii. Clarity of specific paragraphs/sentences
+    iv. Details of presentation and stylistic fixes

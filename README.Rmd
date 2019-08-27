@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include = FALSE}
+library(icon)
+library(ggplot2)
+```
+
+# About 
+
+<img src="docs/logo.png" />
+
+Michael Sachs is a biostatistical researcher at the Karolinska Institute. He has a PhD degree in biostatistics from the University of Washington, Seattle, WA. He is a member of the [Clinical Epidemiology Unit](//ki.se/en/meds/clinical-epidemiology-unit), where he collaborates with researchers from around the institute. 
+
+His research interests are the development and evaluation of risk prediction models and biomarkers, assay development and validation, missing data patterns and mechanisms, statistical computing, causal inference in observational studies, and tools for reproducible research.
+
+# Contact
+
+[`r fa("github", size = 5)`](https://github.com/sachsmc){target="_blank"}
+[`r fa("twitter", size = 5)`](https://twitter.com/sachsmc){target="_blank"}
+[`r fa("envelope", size = 5)`](mailto:michael.sachs@ki.se)
+
+# Current schedule Week 35
+
+```{r echo = FALSE}
+Time <- seq(8, 17, by = 1)
+Y <- -Time + 17
+names(Y) <- Time
+Day <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+sched <- expand.grid(Time, Day)
+colnames(sched) <- c("Time", "Day")
+sched$What <- ""
+sched$What[sched$Time == 12] <- "Lunch"
+
+sched$What[sched$Time < 12 & !sched$Day %in% c("Tuesday")] <- "Coding"
+sched$What[sched$Time %in% c(13, 14)] <- "Teaching prep"
+sched$What[sched$Time %in% 8:9 & sched$Day == "Tuesday"] <- "Meetings"
+sched$What[sched$Time %in% 10:11 & sched$Day == "Tuesday"] <- "Admin"
+sched$What[sched$Time < 12 & sched$Day %in% c("Wednesday")] <- "Meetings"
+sched$What[sched$Time >= 15 & sched$Day %in% c("Monday", "Wednesday", "Thursday", "Friday")] <- "Writing"
+sched$What[sched$Time >= 15 & sched$Day %in% c("Tuesday")] <- "Meetings"
+
+
+sched$Y <- Y[as.character(sched$Time)]
+ggplot(sched, aes(x = Day, y = Y, fill = What)) + geom_tile() + theme_bw() + 
+    scale_y_continuous("Time", breaks = Y + .5, labels = Time) + scale_fill_brewer(type = "qual") + 
+    theme(legend.position = "bottom")
+```

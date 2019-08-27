@@ -1,0 +1,434 @@
+---
+title: "Reproducible Research in Data Analysis"
+author: "Michael Sachs"
+date: "2018-01-25"
+output: 
+    slidy_presentation:
+        keep_md: true
+---
+
+
+# About me
+
+```{r about, echo = FALSE, fig.height = 4, warning=FALSE}
+library(leaflet)
+plcs <- matrix(c(42.2508564, -87.8278465,
+                    47.65469, -122.3183384,
+                    38.99, -77.1,
+                    59.3251172, 18.0710935), ncol = 2, byrow = TRUE)
+plcs <- as.data.frame(plcs)
+colnames(plcs) <- c("lat", "lng")
+
+Icons <- iconList(
+  lfc = makeIcon("lfc.png", "lfc.png", 75, 66),
+  UW = makeIcon("UW.png", "UW.png", 90, 60),
+  nci = makeIcon("nci.png", "nci.png", 80, 60),
+  ki = makeIcon("ki.png", "ki.png", 84, 52)
+)
+plcs$icon <- Icons
+
+leaflet(data = plcs, width = "100%") %>% setView(lat = 50, lng = -50, zoom = 3) %>% addTiles() %>%
+  addMarkers(~lng, ~lat, icon = ~icon)
+
+```
+
+Interests: 
+
+- Evaluating biomarkers, 
+- developing and evaluating prediction models, 
+- statistical software, 
+- **reproducible research**
+
+# At the lab?
+
+![lab1](knitr/img/lab1.png)\ 
+
+# At the computer?
+
+![lab1](knitr/img/baggerly.png)\ 
+![lab1](knitr/img/witten.png)\ 
+![lab1](knitr/img/errors.png)\ 
+![lab1](knitr/img/fmri.png)\ 
+
+
+
+# Scientific Pathway
+
+![knit-flow1](knitr/img/repro-flow1.png)\ 
+
+
+# Scientific Cycle
+
+![knit-flow2](knitr/img/repro-flow2.png)\ 
+
+# Where do we (statisticians) fit in? 
+
+![knit-flow3](knitr/img/repro-flow3.png)\ 
+
+
+# A mathematical framework for data analysis
+
+### Notation
+
+- $S$ dataset which includes, for each of $n$ represented individuals, 
+    + a covariate vector $X$, 
+    + an outcome $Y$, 
+    + a treatment $Z$. 
+- $S$ is a sample of size $n$ from some distribution
+- $f \in \mathcal{F}$ denotes that $f$ is belongs to class of methods $\mathcal{F}$. 
+- Let $\phi: \mathcal{D} \times \mathcal{X} \mapsto \mathbb{R}$ denote the statistic that quantifies something about the function $f$
+
+# Example 1
+
+- Data contains 50 different outcomes, and $Z$ is treatment group indicator
+- $\mathcal{F} = \{f_j: j = 1, \ldots, 50 \}$, t-test by group for outcome $j$. 
+- $\phi =$ p-value
+
+# Example 2
+
+- Measure gene expression at 500,000 positions
+- Outcome is tumor response
+- $\mathcal{F} =$ {all machine learning methods available in my software}
+- $\phi =$ mean squared error
+
+# Evaluating performance
+
+- $\phi$ is a function of both $f$ and $S$. 
+- Interested in estimating $E_\mathcal{P}[\phi_{f^*}(S)]$, for a particular $f^* \in \mathcal{F}$.
+- One estimate is $\hat{E}[\phi_f(S)] = \frac{1}{n}\sum_{i=1}^n\phi_f(s_i)$.
+
+However, if the selection of $f$ from $\mathcal{F}$ involves *interacting with $S$*, then the estimate/inference may be biased.
+
+# Examples of "interacts with $S$"
+
+1. Working on a genomic classifier for binary $Y$:
+    + I test it out on $S$, and take a look at the individual-level accuracys $\phi(s_i)$ of a classifier $f(x_i)$
+    + For $i$ where $\phi(s_i)$ is poor, manually change the value of $y_i$. 
+2. Developing a predictor for binary $Y$:
+    + Test the association of each $X_j$ with $Y$ using t-test on $S$. 
+    + Select the 50 most significant
+    + Put them all in a regression model and test on $S$
+3. Developing predictive signature
+    + Split into $S_t$ and $S_h$
+    + Build clustering model on $S_t$
+    + Test performance on $S_h$
+    + Performance isn't as good as I expected 
+    + Go back to $S_t$ and try again using a different approach
+    
+**Which ones give valid estimates?**
+
+All aspects of $\mathcal{F}$ should be documented and reported, i.e., how is $f$ selected? 
+
+
+# Tools to make our lives better
+
+![knit-flow4](knitr/img/repro-flow4.png)\ 
+
+
+# Data analysis
+
+![analysis](knitr/img/analysis.png)\ 
+
+Goals: 
+
+- Avoid data manipulations that go undocumented or unreported
+- Avoid making arbitrary/data-driven decisions that go undocumented or unreported
+- Clearly document $S$
+- Clearly and correctly report $f$ and $\phi$
+
+
+# Knitr
+
+### Motivation
+
+- Cut and paste for report production is not a viable method
+    + tedious, slow, error-prone
+- Incorporate analysis code into text documents
+    + `knit` to create results
+    + no extra steps to get desired output
+    + post-process to get any type of output format
+- Literate documents
+    + Code creates results to inform report
+    + Prose surrounding code informs analysis
+    
+# History
+
+- Sweave has been around since 2002
+    + Mix R code into Latex docs
+    + Problems make it hard to use
+    + Most people don't use Latex
+- knitr 
+    + aimed to solve those problems
+    + agnostic about input and output formats
+- rmarkdown
+    + markdown emerged as a simple but powerful markup language
+    + pandoc allows conversion to and from almost any format (even .docx)
+    
+# The importance of text
+
+- Text is future-proof
+    + No worries about `.doc` $\rightarrow$ `.docx`
+    + Cross-platform
+    + Useful tools exist to track line-by-line changes in text <div class="blue"> (git) </div>
+- Our requirements
+    + Text doc should stand on its own
+    + Minimal, semantic markup 
+    + Applies to code also
+    
+# Markdown
+
+Plain-text formatting. Indicate what elements represent, not how they should look. Minimal, yet flexible, html and latex commands are interpreted correctly.
+
+![markdown](knitr/img/mark1.png)\ 
+
+
+# Markdown specs
+
+- Paragraphs, `# headers, ## subheader, etc`, `> blockquotes`
+- Emphasis, `_italics_, *italics*, __bold__, **bold**`
+- Images/links: `![name](pathtoimage)`, `[text](link)`
+- Lists/ordered lists `- > +`, `1. 2. 3.`
+- Latex equations: `$\sum_{i=1}^nX_i/n$` = $\sum_{i=1}^nX_i/n$
+- Citations: `[@citekey]`, bibtex, endnote, others supported
+
+
+
+# Incorporating code chunks
+
+
+```{r setup, include=FALSE}
+library(stringr)
+library(knitr)
+opts_chunk$set(tidy = FALSE)
+
+knit_hooks$set(source = function(x, options){
+  if (!is.null(options$verbatim) && options$verbatim){
+    opts = gsub(",\\s*verbatim\\s*=\\s*TRUE\\s*", "", options$params.src)
+    bef = sprintf('\n\n    ```{r %s}\n', opts, "\n")
+    stringr::str_c(
+      bef, 
+      knitr:::indent_block(paste(x, collapse = '\n'), "    "), 
+      "\n    ```\n"
+    )
+  } else {
+    stringr::str_c("\n\n```", tolower(options$engine), "\n", 
+      paste(x, collapse = '\n'), "\n```\n\n"
+    )
+  }
+})
+```
+
+Three backticks:
+
+
+```{r my-first-chunk, results='asis', verbatim = TRUE} 
+## code goes in here and gets evaluated
+```
+
+Inline code uses single backticks
+
+Here I am using `` `#r rnorm(1)` `` to generate a random digit: `r rnorm(1)`. (Omit the pound sign)
+
+# Results, raw output {.smaller}
+
+Raw output using the `mtcars` dataset:
+
+```{r mtcars-example, verbatim = TRUE}
+summary(lm(mpg ~ hp + wt, data = mtcars))
+```
+
+
+
+# Goals
+
+Generate every in-text number from code. 
+
+- Easy to reproduce results when data/assumptions change
+
+- The provenence of every result is clearly documented
+
+```{r paste-in, results = 'hide', verbatim = FALSE}
+paste_meansd <- function(x, digits = 2, na.rm = TRUE){
+  paste0(round(mean(x, na.rm = na.rm), digits), 
+         " (", round(sd(x, na.rm = na.rm), digits), ")")  
+}
+
+## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`
+```
+
+The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`
+
+```{r sprint-in, results = 'hide'}
+sprint_CI95 <- function(mu, se) {
+  lim <- mu + c(-1.96, 1.96) * se
+  sprintf("%.2f (95%% CI: %.2f to %.2f)", mu, lim[1], lim[2])
+}
+bfit <- lm(hp ~ disp, mtcars)
+## The coefficient estimate is `r sprint_CI95(bfit$coeff[2], sqrt(diag(vcov(bfit)))[2])`
+```
+The coefficient estimate is `r sprint_CI95(bfit$coeff[2], sqrt(diag(vcov(bfit)))[2])`.
+
+
+# Getting started
+
++ Packages: 
+    - knitr
+    - rmarkdown
++ Commands: 
+    - `render('doc.Rmd')` format specified in front matter
+    - `render('doc.Rmd', format = 'word_document')`
+    - Buttons if you use Rstudio
++ Templates: 
+    - [Biostat Core Report](https://raw.githubusercontent.com/sachsmc/MCmisc/master/inst/rmarkdown/templates/kiconsult/skeleton/skeleton.Rmd)
+    - [rticles](https://github.com/rstudio/rticles)
+    - [Statistics Journals](https://github.com/sachsmc/pandoc-journal-templates)
++ Examples: 
+    - [JSS paper](https://github.com/sachsmc/plotROC-paper/blob/gh-pages/Paper/sachs2015plotROC.Rmd)
+    - [JBS paper](https://github.com/sachsmc/signature-tutorial/blob/master/Documents/paper-revised.Rmd)
+    - [CCO paper](https://github.com/sachsmc/review-paper-cco/blob/gh-pages/Paper/review-paper-cco.md)
+
+
+# Limitations
+
+- Markdown is simple
+    + Can't precisely control everything in output
+    + How much control do you need? 
+- R $\rightarrow$ .docx works great
+    + R $\nleftarrow$ .docx
+    + Incorporating changes and collaborating with clinicians
+- Still requires good coding and project organization practices
+- Can't prevent fraud
+    + Can: help make open data and open code part of our social norms
+
+
+# `git` and Github
+
+- `git` and http://github.com make version control and collaboration easier
+- Code, papers, presentations, etc. require iteration and input from multiple sources
+- *Ad hoc* approaches suffer and can have disastrous consequences
+- Here are some examples
+
+# Example 1: Reverting changes
+
+A recent paper I worked on used data from a disease registry, which released "frozen" databases quarterly. While working on the revisions, a new database was released. I used to new database to update the analysis because it contained the most reliable and up to date information. After completing the revisions, I received this email from the lead author (this was in 2013 btw): 
+
+<div class = "blue2 center">
+"As you can see from the paper I sent you, it is almost complete and I do not want to re-write it.  Therefore, I just want the data described in the e-mail below from the June 1, 2011 data freeze.  ... Is it possible to reconstruct the data inquiry as per what was originally delivered?"
+
+</div>
+
+
+I had not saved prior versions of the analysis code, not to mention the manuscript with all of the results incorporated into the text. My only option at that point was to start over.
+
+
+# Example 2: Incorporating edits on a manuscript
+
+Applied papers that I've worked on had between 5 and 13 authors. Inevitably, a "final" draft of the manuscript (usually a Word document) gets circulated *via* email and comments or suggestions are solicited. Here are the typical types of responses that I get:
+
+* A new word document with tracked changes
+* A new word document with untracked changes
+* Suggestions listed in the body of an email
+* A txt file with suggested changes
+* A scanned copy of the paper with hand-written edits
+* No response
+
+The challenge is to incorporate (or not) all of the changes from a variety of collaborators, while keeping a record of who has contributed what. 
+
+# Example 3: Sharing content
+
+Once a paper gets published, occasionally people want to use or extend the method. 
+
+<div class = "blue2 center">
+"I would be very grateful if you are able to help me implement this tool in my dataset as well."
+
+"Could you please send me your code so that I can try to apply it to my example? "
+ 
+"Would you please kindly e-mail me your article and other works in that field promptly.?"
+
+</div>
+
+
+**Email is an ineffective tool for sharing code, data, documents**
+
+
+# What is it?
+
+`git`
+
+- "The stupid content tracker", developed to manage Linux source code
+    + Files organized into **repositories**
+    + Users **commit** changes, additions, deletions
+    + Entire history of **commits** saved
+
+[Github](http://github.com)
+
+- A web interface and host for repositories
+    + Explore repositories
+    + View code, documents, etc. 
+    + Interact with collaborators and the general public
+    
+# Summary 
+
+- `git` is a structured approach to tracking content
+    + Small committment to learn and use
+    + But benefits are enormous
+    + ... especially if using plain text files
+- [github](http://github.com) is a web interface and repository host
+    + Adds value to `git`
+    + It's not Dropbox, formal and structure commits + discussion
+    + Everything is public
+    + Alternatives: [bitbucket](http://bitbucket.org), self-hosting, local-only
+- The git history keeps a record of all changes
+    + Document all $f$s that were tried from $\mathcal{F}$
+    + keep track of any changes in data
+    
+
+# Final thoughts
+
+- These tools can have benefits if used properly
+    + but not ideally suited nor designed for the entire workflow
+- More complex than document versioning and tracking
+    + Google docs, dropbox, overleaf? 
+    
+- Occassionally save my butt and make my life easier
+    + setup and project management can be a pain
+- The bare minimum we should expect is to be able to replicate published results
+    + everything that happens before that is important too
+
+<q>
+Programs are meant to be read by humans and only incidentally for computers to execute. 
+</q>
+<div class="author">
+        -Donald Knuth
+</div>
+
+<q>
+Your closest collaborator is you six months ago, but you don't reply to emails.
+</q>
+<div class="author">
+        -Paul Wilson
+</div>
+
+
+# References
+
+1. _The Economist_ 'Trouble at the Lab' 2013 Oct 19; available at http://go.nature.com/dstij3.
+2. Baggerly, Keith A., and Kevin R. Coombes. "Deriving chemosensitivity from cell lines: Forensic bioinformatics and reproducible research in high-throughput biology." _The Annals of Applied Statistics_ (2009): 1309-1334.
+3. Witten, Daniela M., and Robert Tibshirani. "Scientific research in the age of omics: the good, the bad, and the sloppy." _Journal of the American Medical Informatics Association_ 20(1) (2013): 125-127.
+4. Ziemann, Mark, Yotam Eren, and Assam El-Osta. "Gene name errors are widespread in the scientific literature." _Genome Biology_ 17(1) (2016): 177.
+5. Eklund, Anders, Thomas E. Nichols, and Hans Knutsson. "Cluster failure: Why fMRI inferences for spatial extent have inflated false-positive rates." _Proceedings of the National Academy of Sciences_ (2016): 201602413.
+6. Leisch, Friedrich. "Sweave: Dynamic generation of statistical reports using literate data analysis." In _Compstat_, pp. 575-580. Physica-Verlag HD, 2002.
+7. Xie, Yihui. _Dynamic Documents with R and knitr_. Vol. 29. CRC Press, 2015.
+8. Sachs, Michael C., and Lisa M. McShane. "Issues in developing multivariable molecular signatures for guiding clinical care decisions." _Journal of Biopharmaceutical Statistics_ just-accepted (2016).
+9. Rmarkdown, Rstudio. https://rmarkdown.rstudio.com
+10. Wilson, Greg, Bryan, Jennifer, Cranston, Karen, et al. "Good Enough Practices in Scientific Computing" (2016). https://arxiv.org/pdf/1609.00037v1.pdf
+11. Patil, Prasad, Peng, Roger D., and Jeffrey Leek. "A statistical definition for reproducibility and replicability" (2016), doi: http://dx.doi.org/10.1101/066803.
+
+
+# Contact
+
+https://sachsmc.github.io
+
+michael.sachs@ki.se
+
+

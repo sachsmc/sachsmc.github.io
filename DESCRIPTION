@@ -1,0 +1,16 @@
+Package: sachsmc
+Type: Michael Sachs
+Title: My Homepage
+Version: 1983-09-07
+Authors@R: c(person("Michael", "Sachs", , "michael.sachs@ki.se", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1279-8676")))
+Maintainer: Michael C Sachs <michael.sachs@ki.se>
+License: CC0
+Description: Michael Sachs is a biostatistical researcher at the Karolinska Institute. He has a 
+    PhD degree in biostatistics from the University of Washington, Seattle, WA. He is a member 
+    of the Clinical Epidemiology Unit, where he collaborates with researchers from around the institute.
+    His research interests are the development and evaluation of risk prediction models and biomarkers, 
+    assay development and validation, missing data patterns and mechanisms, statistical computing, 
+    causal inference in observational studies, and tools for reproducible research.
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1

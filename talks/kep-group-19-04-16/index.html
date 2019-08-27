@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Machine Learning</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Sachs" />
+    <meta name="date" content="2019-04-16" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Machine Learning
+### Michael Sachs
+### 2019-04-16
+
+---
+
+
+
+
+
+
+background-image: url(https://venturebeat.com/wp-content/uploads/2013/10/big-data-sea.jpg)
+class: center
+
+# Prologue
+
+---
+
+# Demystifying some jargon
+
+**Machine learning, neural networks, deep learning, ..., oh my**
+
+- All of these refer to classes of algorithms that take training data and output models for generating predictions
+- They may be distinguised from statistical models because they do not necessarily imply probability models for the data
+    - Do not model the data generating process but rather attempts to learn from the dataset at hand
+    - Do not yield interpretable estimates of associations (which variables are important)
+- The algorithms are generally flexible, allowing interactions and non-linearities
+
+Artifical intelligence is a bit nebulous, but it can be distinguished from ML by considering that intelligence is characterized by the demonstration or application of knowledge to perform an action, e.g., perceive an image, make a decision, change direction, ... 
+
+---
+
+class: inverse, middle
+
+# So you want to use machine learning
+
+"I've heard about machine learning and I don't want to miss out, can you help me apply it to my data?"
+
+
+---
+
+# Wrong!
+
+The goal of medical studies is to produce the evidence that can be used to
+
+- Diagnose disease
+- Identify risk factors for disease
+- Treat disease
+- Prognosticate
+- Prevention of disease
+- Improve understanding of basic science
+
+**Start with a hypothesis!**
+
+---
+
+ML is a suite of tools for prediction, i.e., can I predict future/unobserved values of Y using X? 
+
+What is the intended use of the predictions? 
+
+- Implement a new policy or screening program on a population level
+- Guide treatments for individual patients
+- Allocate funds/time for further research and development?
+
+**A prediction by itself is not clinically useful unless it leads to an action**
+
+
+---
+
+# Rich Simon on black box prognostic models
+
+"There is an **enormous gap between the large literature on prognostic models and the small number of models used in medical practice**. There are several reasons for this discrepancy. **Most prognostic models do not provide actionable information.** That is, they are based on analysis of a heterogeneous set of patients who received a variety of treatments. **Physicians want tools that help them make treatment decisions.** Unless that decision context is clearly and specifically defined at the outset of the study and used to drive the selection of the training set, the resulting model is unlikely to find medical acceptance."
+
+---
+
+
+class: inverse, middle
+
+# Formal decision analysis
+
+How do we incorporate predictions into decision making?
+
+---
+
+# A simple decision tree
+
+&lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Incorporating probabilities and utilities
+
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+---
+
+
+# Incorporating a prediction
+
+&lt;img src="index_files/figure-html/util2-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Analysis
+
+Does using the prediction lead to reduced suffering, on average? 
+
+- Utility values are personal and not easy to define, and may vary over time
+- As with drugs, we don't expect predictions to benefit everyone, every time, only on averge.
+
+
+---
+
+# Challenges
+
+1. Determining possible actions (raincoat or umbrella)
+2. Development and evaluation of prediction model
+3. Estimation of probabilities
+    - Distribution of predictions in the population (proportion testing positive)
+    - Distribution of outcomes conditional on predictions
+4. Assessment of utilities
+
+### Generate evidence to support use/no use of the model
+
+Some biomedical examples later
+
+---
+
+
+background-image: url(https://imgs.xkcd.com/comics/machine_learning.png)
+class: center
+
+# Machine learning methods
+
+
+---
+
+# The goal
+
+- Take training data (paired predictor-outcome), 
+- Forming a function that takes only predictor data and gives you an estimated outcome
+- Evaluate the quality of the function
+
+&gt; **Key point:** Uninformative features in the training sample may not be reflected in the population
+
+**The only honest estimate of prediction performance is based on data NOT used to develop the signature**
+
+- In multivariable linear regression, the in-sample R squared value (and hence MSE) will decrease with each additional variable in the model, whether that variable is noise or informative. 
+- This does not imply that the model has good out-of-sample prediction
+
+
+---
+
+# The challenges
+
+- What data
+- Measuring how right the answers are
+- Stirring the pile cleverly
+
+
+---
+
+# The strategy
+
+for `\(X\)` a set of observable covariates, the goal is to find a function `\(f(X)\)` that is a good predictor of the outcome `\(Y\)`.
+
+The strategy: 
+
+1. Specify a real valued loss function `\(L(f(X), Y)\)` that quantifies how close `\(f(x)\)` is to `\(Y\)`. Penalize the loss for overly complex models.
+2. Restrict the search to a limited class of functions:
+    - Linear combinations of `\(X\)`: regression
+    - Nested univariate dichotomizations of the `\(X\)`s: trees
+    - Allow pairwise interactions
+    - Allow polynomials, other transformations
+3. Search for a good candidate `\(f\)`
+    - Brute force: neural networks
+    - Gradient based searches: gradient boosting
+    - Average many simple searches over bootstraps: bagging
+4. Combine over classes of algorithms
+    - Stacking
+    - Bagging (again)
+    - Superlearner
+
+
+---
+
+# Learning
+
+https://web.stanford.edu/~hastie/ElemStatLearn/
+
+---
+
+# Doing
+
+- R: https://cran.r-project.org/web/views/MachineLearning.html
+- SAS: https://communities.sas.com/t5/SAS-Data-Mining-and-Machine/machine-learning-using-base-SAS/td-p/139513
+- Python: ...
+- Weka: https://www.cs.waikato.ac.nz/~ml/weka/index.html
+- H2O: https://www.h2o.ai/download/#h2o
+- Ludwig: https://uber.github.io/ludwig/
+
+#### Cloud based implementations: 
+- https://www.tensorflow.org/
+- https://azure.microsoft.com/en-us/services/machine-learning-service/
+- https://caffe.berkeleyvision.org/
+        
+        
+---
+
+class: inverse, middle
+
+# Lessons from the literature
+
+---
+
+# Oncotype DX
+
+A gene expression signature used to predict breast cancer recurrence. 
+
+The TailorX trial
+
+&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+![gn](genomhlt.PNG)
+
+
+---
+
+# Corus CAD
+
+A blood based diagnostic test for coronary artery disease. 
+
+- Original publication reported a (biased) resubstitution estimate of the AUC
+- Claims that test negatives do not need to undergo further screening, via angiogram or ultrasound
+
+1. Does not clearly specify actions or context
+2. Low benefit of test negative
+3. High costs of false negatives: heart attack due to undiagnosed CAD
+
+
+---
+
+![cd](corus.PNG)
+
+
+---
+
+# IBM Watson for cancer treatment
+
+- Billions of USD spent on global marketing
+- claim that Watson for Oncology, through artificial intelligence, can sift through reams of data to generate new insights and identify, as an IBM sales rep put it, “even new approaches” to cancer care. 
+- STAT found that the system doesn’t create new knowledge and is artificially intelligent only in the most rudimentary sense of the term.
+- No evaluation (independent or otherwise) of whether the use of the system leads to patient benefit
+
+The "AI" consisted of a group of doctors at MSKCC manually creating treatment recommendations
+
+---
+
+![wt](watson.PNG)
+
+---
+
+# Finn Gen cardiovascular risk
+
+- Polygenic risk score for heart disease based on millions of loci
+- Combined with basic data (Framingham score) explains about 30% of the variation
+
+### Interesting study: 
+
+1. Assemble a cohort in Finland
+2. Estimate individual's risk score
+3. Report individuals' score to them, along with information on how risk changes in reponse to actions (e.g., stop smoking, lose weight)
+4. Follow them and see what happens
+
+---
+
+# Summary
+
+- The barriers to doing ML are very low
+- No substitute for critical scientific thinking
+- Prediction models can be useful, need to clearly specify the space of actions, and assess the utility of using the model to drive actions. 
+- In some cases ML might be the right tool for the job.
+
+A simple criteria for assessing AI/ML research projects: 
+
+Every time you see the term AI or ML, think instead of a people named Albert and Malin sitting at their computers running logstic regression models. If the project still sounds interesting/promising, then proceed.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
