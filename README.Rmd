@@ -30,7 +30,7 @@ His research interests are the development and evaluation of risk prediction mod
 [`r fa("twitter", size = 5)`](https://twitter.com/sachsmc){target="_blank"}
 [`r fa("envelope", size = 5)`](mailto:michael.sachs@ki.se)
 
-# Current schedule Week 35
+# Current schedule Week 36
 
 ```{r echo = FALSE}
 Time <- seq(8, 17, by = 1)
@@ -42,13 +42,13 @@ colnames(sched) <- c("Time", "Day")
 sched$What <- ""
 sched$What[sched$Time == 12] <- "Lunch"
 
-sched$What[sched$Time < 12 & !sched$Day %in% c("Tuesday")] <- "Coding"
+sched$What[sched$Time < 12 & !sched$Day %in% c("Tuesday", "Friday")] <- "Coding"
 sched$What[sched$Time %in% c(13, 14)] <- "Teaching prep"
 sched$What[sched$Time %in% 8:9 & sched$Day == "Tuesday"] <- "Meetings"
 sched$What[sched$Time %in% 10:11 & sched$Day == "Tuesday"] <- "Admin"
-sched$What[sched$Time < 12 & sched$Day %in% c("Wednesday")] <- "Meetings"
-sched$What[sched$Time >= 15 & sched$Day %in% c("Monday", "Wednesday", "Thursday", "Friday")] <- "Writing"
-sched$What[sched$Time >= 15 & sched$Day %in% c("Tuesday")] <- "Meetings"
+sched$What[sched$Time < 12 & sched$Day %in% c("Friday")] <- "Meetings"
+sched$What[sched$Time > 12 & sched$Day %in% c("Thursday")] <- "Meetings"
+sched$What[sched$Time >= 15 & sched$Day %in% c("Monday", "Tuesday", "Wednesday", "Friday")] <- "Writing"
 
 
 sched$Y <- Y[as.character(sched$Time)]

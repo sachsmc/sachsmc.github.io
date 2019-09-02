@@ -299,7 +299,7 @@ library(xtable)
 print(xtable(head(mtcars)), type = "html")
 ```</code></pre>
 <!-- html table generated in R 3.6.1 by xtable 1.8-4 package -->
-<!-- Tue Aug 27 15:55:35 2019 -->
+<!-- Mon Sep 02 11:39:31 2019 -->
 <table class="table">
 <tr>
 <th>
@@ -875,7 +875,7 @@ F Statistic
 <a class="sourceLine" id="cb8-3" title="3">}</a>
 <a class="sourceLine" id="cb8-4" title="4"></a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</span></a></code></pre></div>
-<p>The mean (sd) of a random sample of normals is 0.06 (0.91)</p>
+<p>The mean (sd) of a random sample of normals is -0.12 (1.06)</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">sprint_CI95 &lt;-<span class="st"> </span><span class="cf">function</span>(mu, se, <span class="dt">trans =</span> <span class="cf">function</span>(x) x) {</a>
 <a class="sourceLine" id="cb9-2" title="2">  lim &lt;-<span class="st"> </span><span class="kw">trans</span>(mu <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>)<span class="op">*</span>se)</a>
 <a class="sourceLine" id="cb9-3" title="3">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%.2f (95%% CI: %.2f to %.2f)"</span>, mu, lim[<span class="dv">1</span>], lim[<span class="dv">2</span>])</a>
