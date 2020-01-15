@@ -7,9 +7,10 @@ Maintainer: Michael C Sachs <michael.sachs@ki.se>
 License: CC0
 Description: Michael Sachs is a biostatistical researcher at the Karolinska Institute. He has a 
     PhD degree in biostatistics from the University of Washington, Seattle, WA. He is a member 
-    of the Clinical Epidemiology Unit, where he collaborates with researchers from around the institute.
-    His research interests are the development and evaluation of risk prediction models and biomarkers, 
-    assay development and validation, missing data patterns and mechanisms, statistical computing, 
+    of the Biostatistics Group at the Deparment of Medical Epidemiology and Biostatistics, where 
+    he collaborates with researchers from around the institute. His research interests are 
+    the development and evaluation of risk prediction models and biomarkers, assay development 
+    and validation, missing data patterns and mechanisms, statistical computing, 
     causal inference in observational studies, and tools for reproducible research.
 Encoding: UTF-8
 LazyData: true

@@ -131,7 +131,7 @@ list-style-type: none;
 </style>
 
 ```{r repos, echo = FALSE}
-repos <- gh("/users/sachsmc/repos", .token = mtok, .limit = 65)
+repos <- gh("/users/sachsmc/repos", .token = readLines(".mtok")[1], .limit = 65)
 
 test <- fromJSON(toJSON(repos))
 

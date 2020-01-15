@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Introduction to <code>knitr</code> • sachsmc</title>
+<title>Introduction to `knitr` • sachsmc</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -13,9 +13,10 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to &lt;code&gt;knitr&lt;/code&gt;">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to `knitr`">
 <meta property="og:description" content="">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
@@ -95,6 +96,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -190,7 +192,7 @@ ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(met
 <h3 class="hasAnchor">
 <a href="#tables" class="anchor"></a>Tables</h3>
 <p>When outputting tables in knitr, it is important to use the option <code>results = 'asis'</code>. There are several options for formatting tables in <code>R</code>. The <code>knitr</code> package includes a function called <code>kable</code> that makes basic <strong>k</strong>nitr t<strong>ables</strong>. There are options to control the number of digits, whether row names are included or not, column alignment, and other options that depend on the output type.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">kable</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(mtcars), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="st">"l"</span>, <span class="dv">4</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="st">"c"</span>, <span class="dv">4</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="st">"r"</span>, <span class="dv">4</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">kable</span>(<span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(mtcars), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="st">"l"</span>, <span class="dv">4</span>), <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="st">"c"</span>, <span class="dv">4</span>), <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="st">"r"</span>, <span class="dv">4</span>)))</a></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th></th>
@@ -293,13 +295,13 @@ ggplot(mtcars, aes(y = mpg, x = wt, size = hp)) + geom_point() + stat_smooth(met
 </tr>
 </tbody>
 </table>
-<p>For finer control, use the <code>xtable</code> package. There are tons of options (see the help file), and the interface is a bit clunky. For instance some options are passed to <code>xtable</code>, while others are passed to <code>print.xtable</code>. The key one for markdown is to use <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print(xtable(x), type = "html")</a></code>.</p>
+<p>For finer control, use the <code>xtable</code> package. There are tons of options (see the help file), and the interface is a bit clunky. For instance some options are passed to <code>xtable</code>, while others are passed to <code>print.xtable</code>. The key one for markdown is to use <code><a href="https://rdrr.io/r/base/print.html">print(xtable(x), type = "html")</a></code>.</p>
 <pre><code>```{r xtable, results = 'asis'}
 library(xtable)
 print(xtable(head(mtcars)), type = "html")
 ```</code></pre>
-<!-- html table generated in R 3.6.1 by xtable 1.8-4 package -->
-<!-- Mon Sep 02 11:39:31 2019 -->
+<!-- html table generated in R 3.6.2 by xtable 1.8-4 package -->
+<!-- Wed Jan 15 08:46:44 2020 -->
 <table class="table">
 <tr>
 <th>
@@ -871,16 +873,16 @@ F Statistic
 <a href="#inline-results" class="anchor"></a>Inline results</h3>
 <p>In my papers and reports, I strive to generate every in-text number from code. Anytime I reference a sample size, report summary statistics, or p-values in the text, <code>paste</code> and <code>sprintf</code> are my friends. Reporting in this way means no more missed corrections when you have to rerun an analysis, no more rounding errors, and the comfort that you didn’t mis-type a digit. Here are a couple examples using <code>paste</code> and <code>sprintf</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">paste_meansd &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>){</a>
-<a class="sourceLine" id="cb8-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">round</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(x, <span class="dt">na.rm =</span> na.rm), digits), <span class="st">" ("</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">round</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/sd">sd</a></span>(x, <span class="dt">na.rm =</span> na.rm), digits), <span class="st">")"</span>)  </a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(x, <span class="dt">na.rm =</span> na.rm), digits), <span class="st">" ("</span>, <span class="kw"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span>(x, <span class="dt">na.rm =</span> na.rm), digits), <span class="st">")"</span>)  </a>
 <a class="sourceLine" id="cb8-3" title="3">}</a>
 <a class="sourceLine" id="cb8-4" title="4"></a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="co">## The mean (sd) of a random sample of normals is `r paste_meansd(rnorm(100))`</span></a></code></pre></div>
-<p>The mean (sd) of a random sample of normals is -0.12 (1.06)</p>
+<p>The mean (sd) of a random sample of normals is 0.11 (1.03)</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">sprint_CI95 &lt;-<span class="st"> </span><span class="cf">function</span>(mu, se, <span class="dt">trans =</span> <span class="cf">function</span>(x) x) {</a>
-<a class="sourceLine" id="cb9-2" title="2">  lim &lt;-<span class="st"> </span><span class="kw">trans</span>(mu <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>)<span class="op">*</span>se)</a>
-<a class="sourceLine" id="cb9-3" title="3">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%.2f (95%% CI: %.2f to %.2f)"</span>, mu, lim[<span class="dv">1</span>], lim[<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb9-2" title="2">  lim &lt;-<span class="st"> </span><span class="kw">trans</span>(mu <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>)<span class="op">*</span>se)</a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">"%.2f (95%% CI: %.2f to %.2f)"</span>, mu, lim[<span class="dv">1</span>], lim[<span class="dv">2</span>])</a>
 <a class="sourceLine" id="cb9-4" title="4">}</a>
-<a class="sourceLine" id="cb9-5" title="5">bfit &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/lm">lm</a></span>(hp <span class="op">~</span><span class="st"> </span>disp, mtcars)</a>
+<a class="sourceLine" id="cb9-5" title="5">bfit &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(hp <span class="op">~</span><span class="st"> </span>disp, mtcars)</a>
 <a class="sourceLine" id="cb9-6" title="6"><span class="co">## The coefficient estimate is `r sprint_CI95(bfit$coeff[2], sqrt(diag(vcov(bfit)))[2])`</span></a></code></pre></div>
 <p>The coefficient estimate is 0.44 (95% CI: 0.32 to 0.56).</p>
 </div>
@@ -889,17 +891,17 @@ F Statistic
 <a href="#extending-knitr" class="anchor"></a>Extending knitr</h3>
 <p>Output and rendering can be customized endlessly. <code>knitr</code> is written in <code>R</code> to process chunks, so write your own functions. These types of functions are called “hooks”. For example, in this document I used a custom hook to display the code chunks as they appear:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">knit_hooks<span class="op">$</span><span class="kw">set</span>(<span class="dt">source =</span> <span class="cf">function</span>(x, options){</a>
-<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NULL">is.null</a></span>(options<span class="op">$</span>verbatim) <span class="op">&amp;&amp;</span><span class="st"> </span>options<span class="op">$</span>verbatim){</a>
-<a class="sourceLine" id="cb10-3" title="3">    opts =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">",</span><span class="ch">\\</span><span class="st">s*verbatim</span><span class="ch">\\</span><span class="st">s*=</span><span class="ch">\\</span><span class="st">s*TRUE</span><span class="ch">\\</span><span class="st">s*"</span>, <span class="st">""</span>, options<span class="op">$</span>params.src)</a>
-<a class="sourceLine" id="cb10-4" title="4">    bef =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">    ```{r %s}</span><span class="ch">\n</span><span class="st">'</span>, opts, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span>(options<span class="op">$</span>verbatim) <span class="op">&amp;&amp;</span><span class="st"> </span>options<span class="op">$</span>verbatim){</a>
+<a class="sourceLine" id="cb10-3" title="3">    opts =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">",</span><span class="ch">\\</span><span class="st">s*verbatim</span><span class="ch">\\</span><span class="st">s*=</span><span class="ch">\\</span><span class="st">s*TRUE</span><span class="ch">\\</span><span class="st">s*"</span>, <span class="st">""</span>, options<span class="op">$</span>params.src)</a>
+<a class="sourceLine" id="cb10-4" title="4">    bef =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">    ```{r %s}</span><span class="ch">\n</span><span class="st">'</span>, opts, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
 <a class="sourceLine" id="cb10-5" title="5">    stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span>(</a>
 <a class="sourceLine" id="cb10-6" title="6">      bef, </a>
-<a class="sourceLine" id="cb10-7" title="7">      knitr<span class="op">:::</span><span class="kw">indent_block</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(x, <span class="dt">collapse =</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>), <span class="st">"    "</span>), </a>
+<a class="sourceLine" id="cb10-7" title="7">      knitr<span class="op">:::</span><span class="kw">indent_block</span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(x, <span class="dt">collapse =</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>), <span class="st">"    "</span>), </a>
 <a class="sourceLine" id="cb10-8" title="8">      <span class="st">"</span><span class="ch">\n</span><span class="st">    ```</span><span class="ch">\n</span><span class="st">"</span></a>
 <a class="sourceLine" id="cb10-9" title="9">    )</a>
 <a class="sourceLine" id="cb10-10" title="10">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb10-11" title="11">    stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">```"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/chartr">tolower</a></span>(options<span class="op">$</span>engine), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, </a>
-<a class="sourceLine" id="cb10-12" title="12">      <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(x, <span class="dt">collapse =</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">```</span><span class="ch">\n\n</span><span class="st">"</span></a>
+<a class="sourceLine" id="cb10-11" title="11">    stringr<span class="op">::</span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">```"</span>, <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span>(options<span class="op">$</span>engine), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, </a>
+<a class="sourceLine" id="cb10-12" title="12">      <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(x, <span class="dt">collapse =</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">```</span><span class="ch">\n\n</span><span class="st">"</span></a>
 <a class="sourceLine" id="cb10-13" title="13">    )</a>
 <a class="sourceLine" id="cb10-14" title="14">  }</a>
 <a class="sourceLine" id="cb10-15" title="15">})</a></code></pre></div>
@@ -931,7 +933,7 @@ output:
     keep_tex: true
 ---</code></pre>
 <p>Other commond document formats are <code>word_document</code>, <code>html_document</code>, and <code>beamer_presentation</code>. You can include a bibliography in a variety of formats, including <code>.bib</code>, with the <code>bibliography: myfile.bib</code> option. Include citations with the <code>@bibkey</code> syntax.</p>
-<p>To recap, this diagram illustrates my typical workflow. I start with a .Rmd, an r-markdown document with code, background, and descriptions. <code>knitr</code> does the work to evaluate the code, putting the results in a markdown document, which can then be converted to a variety of formats with pandoc. To extract the R code from the original document I use the <code><a href="https://www.rdocumentation.org/packages/knitr/topics/knit">knitr::purl</a></code> function. I can then easily incorporate the code chunks into other document types, like presentations.</p>
+<p>To recap, this diagram illustrates my typical workflow. I start with a .Rmd, an r-markdown document with code, background, and descriptions. <code>knitr</code> does the work to evaluate the code, putting the results in a markdown document, which can then be converted to a variety of formats with pandoc. To extract the R code from the original document I use the <code><a href="https://rdrr.io/pkg/knitr/man/knit.html">knitr::purl</a></code> function. I can then easily incorporate the code chunks into other document types, like presentations.</p>
 <div class="figure">
 <img src="../../../../../../../knit/knitr-workflow.png" alt="flow"><p class="caption">flow</p>
 </div>
@@ -991,6 +993,7 @@ output:
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -1012,17 +1015,20 @@ output:
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Michael Sachs.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
