@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(gh)
 library(jsonlite)
-library(icon)
+#library(icon)
 library(htmltools)
 ```
 

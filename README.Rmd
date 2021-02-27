@@ -15,7 +15,7 @@ library(ggplot2)
 
 <img src="docs/logo.png" />
 
-Michael Sachs is a biostatistical researcher at the Karolinska Institute. He has a PhD degree in biostatistics from the University of Washington, Seattle, WA. He is a member of the [Applied Biostatistics Group](//ki.se/en/meb/meb-biostatistics-group) at [MEB](//ki.se/en/meb) where he collaborates with researchers from around the institute. 
+Michael Sachs is a biostatistical researcher at the Karolinska Institute. He has a PhD degree in biostatistics from the University of Washington, Seattle, WA. He is a member of the [Biostatistics Group](//ki.se/en/meb/meb-biostatistics-group) at [MEB](//ki.se/en/meb) where he collaborates with researchers from around the institute. 
 
 His research interests are the development and evaluation of risk prediction models and biomarkers, assay development and validation, statistical computing, causal inference in observational studies, and tools for reproducible research.
 

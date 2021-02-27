@@ -1,15 +1,10 @@
 destination: docs
 template:
   params:
-    bootswatch: sandstone
+    bootswatch: paper
 navbar:
   structure:
-    left:
-    - home
-    - reference
-    - software
-    - talks
-    - blog
+    left: [home, reference, software, blog]
     right: github
   components:
     home:
@@ -21,37 +16,16 @@ navbar:
     software:
       text: Software
       href: articles/software.html
-    talks:
-      text: Talks
-      href: articles/talks.html
     blog:
-      text: Blog
+      text: Blog posts
       href: articles/index.html
 reference:
-  - title: Biostatistics
+  - title: Methods
     contents:
-    - starts_with("Biostatistics")
-  - title: Gastroenterology
+    - has_concept("methods")
+  - title: Applications
     contents:
-    - starts_with("Gastroenterology")
-  - title: Oncology
-    contents:
-    - starts_with("Oncology")
-  - title: Nephrology
-    contents:
-    - starts_with("Nephrology")
-  - title: Infectious Disease
-    contents:
-    - starts_with("Infectious")
-  - title: Cardiology
-    contents:
-    - starts_with("Cardiology")
-  - title: Lab Medicine
-    contents:
-    - starts_with("Lab-medicine")
-  - title: Neurology
-    contents:
-    - starts_with("Neurology")
+    - has_concept("applied")
 articles:
 - title: Blog posts
   contents:

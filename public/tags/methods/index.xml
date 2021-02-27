@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>methods on Michael C Sachs</title>
+    <link>/tags/methods/</link>
+    <description>Recent content in methods on Michael C Sachs</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/methods/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>causaloptim</title>
+      <link>/project/causaloptim/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/causaloptim/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=causaloptim&#34;&gt;CRAN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sachsmc.github.io&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;an-interface-to-specify-causal-graphs-and-compute-bounds-on-causal-effects&#34;&gt;An Interface to Specify Causal Graphs and Compute Bounds on Causal Effects&lt;/h1&gt;
+&lt;p&gt;When causal quantities are not identifiable from the observed data, it still may be possible to bound these quantities using the observed data. We outline a class of problems for which the derivation of tight bounds is always a linear programming problem and can therefore, at least theoretically, be solved using a symbolic linear optimizer. We provide a user friendly graphical interface for setting up such problems via DAGs, which only allow for problems within this class to be depicted. The user can then define linear constraints to further refine their assumptions to meet their specific problem, and then specify a causal query using a text interface. The program converts this user defined DAG, query, and constraints, and returns tight bounds. The bounds can be converted to R functions to evaluate them for specific datasets, and to latex code for publication.&lt;/p&gt;
+&lt;h2 id=&#34;development-status&#34;&gt;Development status&lt;/h2&gt;
+&lt;p&gt;This package is in stable development. The interface is unlikely to have major changes at this time. New features may be added over time.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;remotes::install_github(&amp;quot;sachsmc/causaloptim&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Or use the web application: &lt;a href=&#34;https://sachsmc.shinyapps.io/causaloptimweb/&#34;&gt;https://sachsmc.shinyapps.io/causaloptimweb/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Launch the shiny app to get started, results are saved in the &lt;code&gt;results&lt;/code&gt; object:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;results &amp;lt;- specify_graph()
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;M.C. Sachs, E.E. Gabriel, and A. Sjölander, &amp;ldquo;Symbolic Computation of Tight Causal Bounds&amp;rdquo;, 2020. Preprint available at &lt;a href=&#34;https://sachsmc.github.io/causaloptim/articles/CausalBoundsMethods.pdf&#34;&gt;https://sachsmc.github.io/causaloptim/articles/CausalBoundsMethods.pdf&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;A. Balke and J. Pearl, &amp;ldquo;Counterfactual Probabilities: Computational Methods,Bounds, and Applications&amp;rdquo;  UCLA Cognitive Systems Laboratory, Technical Report (R-213-B). 
+In R. Lopez de Mantaras and D. Poole (Eds.), Proceedings of the Conference on Uncertainty in Artificial Intelligence (UAI-94), Morgan Kaufmann, San Mateo, CA, 46-54, July 29-31, 1994. 
+&lt;a href=&#34;https://ftp.cs.ucla.edu/pub/stat_ser/R213-B.pdf&#34;&gt;https://ftp.cs.ucla.edu/pub/stat_ser/R213-B.pdf&lt;/a&gt; .&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

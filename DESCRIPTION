@@ -14,4 +14,4 @@ Description: Michael Sachs is a biostatistical researcher at the Karolinska Inst
     causal inference in observational studies, and tools for reproducible research.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1

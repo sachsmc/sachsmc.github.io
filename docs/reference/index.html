@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • sachsmc</title>
+<title>Function reference ã¤¼ã¸µ sachsmc</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,7 +48,6 @@
 
 <meta property="og:title" content="Function reference" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -76,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sachsmc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1983.9.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1983-09-07</span>
       </span>
     </div>
 
@@ -84,7 +87,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -95,34 +98,10 @@
   <a href="../articles/software.html">Software</a>
 </li>
 <li>
-  <a href="../articles/talks.html">Talks</a>
+  <a href="../articles/index.html">Blog posts</a>
 </li>
 <li>
-  <a href="../articles/index.html">Blog</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/git.html">git and github</a>
-    </li>
-    <li>
-      <a href="../articles/knit.html">Introduction to `knitr`</a>
-    </li>
-    <li>
-      <a href="../articles/research.html">Organizing your approach to a research study</a>
-    </li>
-    <li>
-      <a href="../articles/software.html">Open Source Software</a>
-    </li>
-    <li>
-      <a href="../articles/talks.html">Recent Presentations</a>
-    </li>
-  </ul>
+  <a href="../articles/index.html">Articles</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -154,365 +133,451 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-biostatistics" class="hasAnchor"><a href="#section-biostatistics" class="anchor"></a>Biostatistics</h2>
+          <h2 id="section-methods" class="hasAnchor"><a href="#section-methods" class="anchor"></a>Methods</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="Biostatistics-1.html">Biostatistics-1</a></code> </p>
+          <p><code><a href="afSachs2020Aim.html">afSachs2020Aim</a></code> </p>
+        </td>
+        <td><p>Aim for Clinical Utility, Not Just Predictive Accuracy (2020) <em>Epidemiology (Cambridge, Mass.)</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="agAxelrad2020A.html">agAxelrad2020A</a></code> </p>
+        </td>
+        <td><p>A Novel Method for Quantifying Intestinal Inflammatory Burden in Inflammatory Bowel Disease Using Register Data (2020) <em>Clinical epidemiology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aiGabriel2020A.html">aiGabriel2020A</a></code> </p>
+        </td>
+        <td><p>A unified evaluation of differential vaccine efficacy (2020) <em>BIOMETRICS</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ajGabriel2020Causal.html">ajGabriel2020Causal</a></code> </p>
+        </td>
+        <td><p>Causal Bounds for Outcome-Dependent Sampling in Observational Studies (2020) <em>JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="asShrestha2020The.html">asShrestha2020The</a></code> </p>
+        </td>
+        <td><p>The use of ICD codes to identify IBD subtypes and phenotypes of the Montreal classification in the Swedish National Patient Register (2020) <em>Scandinavian journal of gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aySachs2019Ensemble.html">aySachs2019Ensemble</a></code> </p>
+        </td>
+        <td><p>Ensemble prediction of time-to-event outcomes with competing risks: a case-study of surgical complications in Crohn's disease (2019) <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY SERIES C-APPLIED STATISTICS</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="beGabriel2019Optimizing.html">beGabriel2019Optimizing</a></code> </p>
         </td>
         <td><p>Optimizing and evaluating biomarker combinations as trial-level general surrogates (2019) <em>Statistics in medicine</em></p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Biostatistics-10.html">Biostatistics-10</a></code> </p>
-        </td>
-        <td><p>Estimating mean annual 25-hydroxyvitamin D concentrations from single measurements: the Multi-Ethnic Study of Atherosclerosis (2013) <em>AMERICAN JOURNAL OF CLINICAL NUTRITION</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-11.html">Biostatistics-11</a></code> </p>
-        </td>
-        <td><p>Partial summary measures of the predictiveness curve (2013) <em>BIOMETRICAL JOURNAL</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-12.html">Biostatistics-12</a></code> </p>
-        </td>
-        <td><p>Ensemble prediction of time-to-event outcomes with competing risks: a case-study of surgical complications in Crohn's disease (NA) <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-2.html">Biostatistics-2</a></code> </p>
-        </td>
-        <td><p>The Problem of Incomplete Validation in Reporting Prediction Models (2019) <em>The American journal of gastroenterology</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-3.html">Biostatistics-3</a></code> </p>
-        </td>
-        <td><p>Evaluation and comparison of predictive individual-level general surrogates (2018) <em>Biostatistics (Oxford, England)</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-4.html">Biostatistics-4</a></code> </p>
-        </td>
-        <td><p>Measuring precision in bioassays: Rethinking assay validation (2018) <em>Statistics in medicine</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-5.html">Biostatistics-5</a></code> </p>
-        </td>
-        <td><p>Comparing and combining biomarkers as principal surrogates for time-to-event clinical endpoints (2017) <em>STATISTICS IN MEDICINE</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-6.html">Biostatistics-6</a></code> </p>
-        </td>
-        <td><p>plotROC: A Tool for Plotting ROC Curves (2017) <em>Journal of statistical software</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-7.html">Biostatistics-7</a></code> </p>
-        </td>
-        <td><p>An Introduction to Principal Surrogate Evaluation with the pseval Package (2016) <em>The R journal</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-8.html">Biostatistics-8</a></code> </p>
-        </td>
-        <td><p>Issues in developing multivariable molecular signatures for guiding clinical care decisions (2016) <em>Journal of biopharmaceutical statistics</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Biostatistics-9.html">Biostatistics-9</a></code> </p>
-        </td>
-        <td><p>Statistical principles for omics-based clinical trials (2015) <em>Chinese clinical oncology</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-gastroenterology" class="hasAnchor"><a href="#section-gastroenterology" class="anchor"></a>Gastroenterology</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-1.html">Gastroenterology-1</a></code> </p>
-        </td>
-        <td><p>Association between inflammatory bowel disease and Parkinson's disease: seek and you shall find? (2019) <em>Gut</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-10.html">Gastroenterology-10</a></code> </p>
-        </td>
-        <td><p>Childhood onset inflammatory bowel disease and risk of cancer: a Swedish nationwide cohort study 1964-2014 (2017) <em>BMJ (Clinical research ed.)</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-2.html">Gastroenterology-2</a></code> </p>
-        </td>
-        <td><p>Changes in inflammatory bowel disease subtype during follow-up and over time in 44,302 patients (2019) <em>Scandinavian journal of gastroenterology</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-3.html">Gastroenterology-3</a></code> </p>
-        </td>
-        <td><p>Effects of Childhood-onset Inflammatory Bowel Disease on School Performance: A Nationwide Population-based Cohort Study Using Swedish Health and Educational Registers (2019) <em>Inflammatory bowel diseases</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-4.html">Gastroenterology-4</a></code> </p>
-        </td>
-        <td><p>Fracture Risk in Patients With Inflammatory Bowel Disease: A Nationwide Population-Based Cohort Study From 1964 to 2014 (2019) <em>The American journal of gastroenterology</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-5.html">Gastroenterology-5</a></code> </p>
-        </td>
-        <td><p>Gastrointestinal Infection Increases Odds of Inflammatory Bowel Disease in a Nationwide Case-Control Study (2019) <em>Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-6.html">Gastroenterology-6</a></code> </p>
-        </td>
-        <td><p>Increased Mortality of Patients With Childhood-Onset Inflammatory Bowel Diseases, Compared With the General Population (2019) <em>Gastroenterology</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-7.html">Gastroenterology-7</a></code> </p>
-        </td>
-        <td><p>Inflammatory Bowel Disease and Parkinson's Disease: A Nationwide Swedish Cohort Study (2019) <em>Inflammatory bowel diseases</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-8.html">Gastroenterology-8</a></code> </p>
-        </td>
-        <td><p>Mortality in adult-onset and elderly-onset IBD: a nationwide register-based cohort study 1964-2014 (2019) <em>Gut</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Gastroenterology-9.html">Gastroenterology-9</a></code> </p>
-        </td>
-        <td><p>Incidence and Treatment of Patients Diagnosed With Inflammatory Bowel Diseases at 60 Years or Older in Sweden (2018) <em>Gastroenterology</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-oncology" class="hasAnchor"><a href="#section-oncology" class="anchor"></a>Oncology</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Oncology-1.html">Oncology-1</a></code> </p>
-        </td>
-        <td><p>Statistical controversies in clinical research: assessing pathologic complete response as a trial-level surrogate end point for early-stage breast cancer (2016) <em>ANNALS OF ONCOLOGY</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-nephrology" class="hasAnchor"><a href="#section-nephrology" class="anchor"></a>Nephrology</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Nephrology-1.html">Nephrology-1</a></code> </p>
-        </td>
-        <td><p>Estimated GFR and Circulating 24,25-Dihydroxyvitamin D-3 Concentration: A Participant-Level Analysis of 5 Cohort Studies and Clinical Trials (2014) <em>AMERICAN JOURNAL OF KIDNEY DISEASES</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-2.html">Nephrology-2</a></code> </p>
-        </td>
-        <td><p>Physical Activity and Change in Estimated GFR among Persons with CKD (2014) <em>JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-3.html">Nephrology-3</a></code> </p>
-        </td>
-        <td><p>Circulating Vitamin D Metabolites and Subclinical Atherosclerosis in Type 1 Diabetes (2013) <em>DIABETES CARE</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-4.html">Nephrology-4</a></code> </p>
-        </td>
-        <td><p>Kidney Disease and Increased Mortality Risk in Type 2 Diabetes (2013) <em>JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-5.html">Nephrology-5</a></code> </p>
-        </td>
-        <td><p>No independent association of serum phosphorus with risk for death or progression to end-stage renal disease in a large screen for chronic kidney disease (2013) <em>KIDNEY INTERNATIONAL</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-6.html">Nephrology-6</a></code> </p>
-        </td>
-        <td><p>Paricalcitol does not improve glucose metabolism in patients with stage 3-4 chronic kidney disease (2013) <em>KIDNEY INTERNATIONAL</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Nephrology-7.html">Nephrology-7</a></code> </p>
-        </td>
-        <td><p>Circulating Vitamin D Metabolites and Kidney Disease in Type 1 Diabetes (2012) <em>JOURNAL OF CLINICAL ENDOCRINOLOGY &amp; METABOLISM</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-infectious-disease" class="hasAnchor"><a href="#section-infectious-disease" class="anchor"></a>Infectious Disease</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Infectious-disease-1.html">Infectious-disease-1</a></code> </p>
-        </td>
-        <td><p>From high to low malaria transmission in Zanzibar-challenges and opportunities to achieve elimination (2019) <em>BMC medicine</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Infectious-disease-2.html">Infectious-disease-2</a></code> </p>
-        </td>
-        <td><p>A cluster randomised controlled trial of two rounds of mass drug administration in Zanzibar, a malaria pre-elimination setting-high coverage and safety, but no significant impact on transmission (2018) <em>BMC medicine</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-cardiology" class="hasAnchor"><a href="#section-cardiology" class="anchor"></a>Cardiology</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Cardiology-1.html">Cardiology-1</a></code> </p>
-        </td>
-        <td><p>Association of 25-Hydroxyvitamin D and Parathyroid Hormone With Incident Hypertension MESA (Multi-Ethnic Study of Atherosclerosis) (2014) <em>JOURNAL OF THE AMERICAN COLLEGE OF CARDIOLOGY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-10.html">Cardiology-10</a></code> </p>
-        </td>
-        <td><p>Total and Cause-Specific Mortality in the Cardiovascular Health Study (2009) <em>JOURNALS OF GERONTOLOGY SERIES A-BIOLOGICAL SCIENCES AND MEDICAL SCIENCES</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-2.html">Cardiology-2</a></code> </p>
-        </td>
-        <td><p>Fibroblast Growth Factor-23 and Cardiovascular Disease in the General Population The Multi-Ethnic Study of Atherosclerosis (2014) <em>CIRCULATION-HEART FAILURE</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-3.html">Cardiology-3</a></code> </p>
-        </td>
-        <td><p>Fibroblast Growth Factor-23 and Incident Atrial Fibrillation The Multi-Ethnic Study of Atherosclerosis (MESA) and the Cardiovascular Health Study (CHS) (2014) <em>CIRCULATION</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-4.html">Cardiology-4</a></code> </p>
-        </td>
-        <td><p>Serum phosphate is associated with aortic valve calcification in the Multi-ethnic Study of Atherosclerosis (MESA) (2014) <em>ATHEROSCLEROSIS</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-5.html">Cardiology-5</a></code> </p>
-        </td>
-        <td><p>25-Hydroxyvitamin D and Parathyroid Hormone Are Not Associated With Carotid Intima-Media Thickness or Plaque in the Multi-Ethnic Study of Atherosclerosis (2013) <em>ARTERIOSCLEROSIS THROMBOSIS AND VASCULAR BIOLOGY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-6.html">Cardiology-6</a></code> </p>
-        </td>
-        <td><p>Parathyroid hormone and arterial dysfunction in the multi-ethnic study of atherosclerosis (2013) <em>CLINICAL ENDOCRINOLOGY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-7.html">Cardiology-7</a></code> </p>
-        </td>
-        <td><p>Racial Differences in the Association of Serum 25-Hydroxyvitamin D Concentration With Coronary Heart Disease Events (2013) <em>JAMA-JOURNAL OF THE AMERICAN MEDICAL ASSOCIATION</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-8.html">Cardiology-8</a></code> </p>
-        </td>
-        <td><p>Long-Term Function in an Older Cohort-The Cardiovascular Health Study All Stars Study (2009) <em>JOURNAL OF THE AMERICAN GERIATRICS SOCIETY</em></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Cardiology-9.html">Cardiology-9</a></code> </p>
-        </td>
-        <td><p>Performance of Maximum Inspiratory Pressure Tests and Maximum Inspiratory Pressure Reference Equations for 4 Race/Ethnic Groups (2009) <em>RESPIRATORY CARE</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-lab-medicine" class="hasAnchor"><a href="#section-lab-medicine" class="anchor"></a>Lab Medicine</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Lab-medicine-1.html">Lab-medicine-1</a></code> </p>
+          <p><code><a href="bfCarithers2019The.html">bfCarithers2019The</a></code> </p>
         </td>
         <td><p>The Biospecimen Preanalytical Variables Program: A Multiassay Comparison of Effects of Delay to Fixation and Fixation Duration on Nucleic Acid Quality (2019) <em>Archives of pathology &amp; laboratory medicine</em></p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Lab-medicine-2.html">Lab-medicine-2</a></code> </p>
+          <p><code><a href="bgSachs2019The.html">bgSachs2019The</a></code> </p>
+        </td>
+        <td><p>The Problem of Incomplete Validation in Reporting Prediction Models (2019) <em>The American journal of gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="biGabriel2018Evaluation.html">biGabriel2018Evaluation</a></code> </p>
+        </td>
+        <td><p>Evaluation and comparison of predictive individual-level general surrogates (2018) <em>Biostatistics (Oxford, England)</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bkFay2018Measuring.html">bkFay2018Measuring</a></code> </p>
+        </td>
+        <td><p>Measuring precision in bioassays: Rethinking assay validation (2018) <em>Statistics in medicine</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="blAmmerlaan2018Small.html">blAmmerlaan2018Small</a></code> </p>
         </td>
         <td><p>Small Nucleolar RNA Score: An Assay to Detect Formalin-Overfixed Tissue (2018) <em>Biopreservation and biobanking</em></p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Lab-medicine-3.html">Lab-medicine-3</a></code> </p>
+          <p><code><a href="bnGabriel2017Comparing.html">bnGabriel2017Comparing</a></code> </p>
+        </td>
+        <td><p>Comparing and combining biomarkers as principal surrogates for time-to-event clinical endpoints (vol 34, pg 381, 2015) (2017) <em>STATISTICS IN MEDICINE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bpSachs2017plotROC-colon.html">bpSachs2017plotROC:</a></code> </p>
+        </td>
+        <td><p>plotROC: A Tool for Plotting ROC Curves (2017) <em>JOURNAL OF STATISTICAL SOFTWARE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bqSachs2016An.html">bqSachs2016An</a></code> </p>
+        </td>
+        <td><p>An Introduction to Principal Surrogate Evaluation with the pseval Package (2016) <em>The R journal</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="brSachs2016Issues.html">brSachs2016Issues</a></code> </p>
+        </td>
+        <td><p>Issues in developing multivariable molecular signatures for guiding clinical care decisions (2016) <em>Journal of biopharmaceutical statistics</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bsKorn2016Statistical.html">bsKorn2016Statistical</a></code> </p>
+        </td>
+        <td><p>Statistical controversies in clinical research: assessing pathologic complete response as a trial-level surrogate end point for early-stage breast cancer (2016) <em>ANNALS OF ONCOLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="btGabriel2015Comparing.html">btGabriel2015Comparing</a></code> </p>
+        </td>
+        <td><p>Comparing and combining biomarkers as principle surrogates for time-to-event clinical endpoints (2015) <em>STATISTICS IN MEDICINE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="buCarrick2015Robustness.html">buCarrick2015Robustness</a></code> </p>
+        </td>
+        <td><p>Robustness of Next Generation Sequencing on Older Formalin-Fixed Paraffin-Embedded Tissue (2015) <em>PLOS ONE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bvSachs2015Statistical.html">bvSachs2015Statistical</a></code> </p>
+        </td>
+        <td><p>Statistical principles for omics-based clinical trials (2015) <em>Chinese clinical oncology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cfSachs2013Estimating.html">cfSachs2013Estimating</a></code> </p>
+        </td>
+        <td><p>Estimating mean annual 25-hydroxyvitamin D concentrations from single measurements: the Multi-Ethnic Study of Atherosclerosis (2013) <em>AMERICAN JOURNAL OF CLINICAL NUTRITION</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ckSachs2013Partial.html">ckSachs2013Partial</a></code> </p>
+        </td>
+        <td><p>Partial summary measures of the predictiveness curve (2013) <em>BIOMETRICAL JOURNAL</em></p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-applications" class="hasAnchor"><a href="#section-applications" class="anchor"></a>Applications</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="aaRundquist2021Drug.html">aaRundquist2021Drug</a></code> </p>
+        </td>
+        <td><p>Drug survival of anti-TNF agents compared with vedolizumab as a second-line biological treatment in inflammatory bowel disease: results from nationwide Swedish registers (2021) <em>ALIMENTARY PHARMACOLOGY &amp; THERAPEUTICS</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="abRundquist2021Editorial-colon.html">abRundquist2021Editorial:</a></code> </p>
+        </td>
+        <td><p>Editorial: anti-TNF agents against vedolizumab as a second-line treatment? Not surprising tie game-authors' reply (2021) <em>Alimentary pharmacology &amp; therapeutics</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="acAxelrad2021Inflammatory.html">acAxelrad2021Inflammatory</a></code> </p>
+        </td>
+        <td><p>Inflammatory bowel disease and risk of small bowel cancer: a binational population-based cohort study from Denmark and Sweden (2021) <em>Gut</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="adLochhead2021Statin.html">adLochhead2021Statin</a></code> </p>
+        </td>
+        <td><p>Statin use and risk of inflammatory bowel diseases: authors' reply (2021) <em>Journal of Crohn's &amp; colitis</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aeMouratidou2020Adult.html">aeMouratidou2020Adult</a></code> </p>
+        </td>
+        <td><p>Adult height in patients with childhood-onset inflammatory bowel disease: a nationwide population-based cohort study (2020) <em>Alimentary pharmacology &amp; therapeutics</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ahLochhead2020Association.html">ahLochhead2020Association</a></code> </p>
+        </td>
+        <td><p>Association between statin use and inflammatory bowel diseases: Results from a Swedish, nationwide, population-based case-control study (2020) <em>Journal of Crohn's &amp; colitis</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="akOl-less-than-U-plus-653C-greater-than-less-than-U-plus-3E39-greater-than-n2020Colorectal.html">akOl<U+653C><U+3E39>n2020Colorectal</a></code> </p>
+        </td>
+        <td><p>Colorectal cancer in Crohn's disease: a Scandinavian population-based cohort study (2020) <em>The lancet. Gastroenterology &amp; hepatology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="alOl-less-than-U-plus-653C-greater-than-less-than-U-plus-3E39-greater-than-n2020Colorectal.html">alOl<U+653C><U+3E39>n2020Colorectal</a></code> </p>
+        </td>
+        <td><p>Colorectal cancer in ulcerative colitis: a Scandinavian population-based cohort study (2020) <em>Lancet (London, England)</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="amKalman2020Decrease.html">amKalman2020Decrease</a></code> </p>
+        </td>
+        <td><p>Decrease in primary but not in secondary abdominal surgery for Crohn's disease: nationwide cohort study, 1990-2014 (2020) <em>BRITISH JOURNAL OF SURGERY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="anEverhov2020Inflammatory.html">anEverhov2020Inflammatory</a></code> </p>
+        </td>
+        <td><p>Inflammatory bowel disease and pancreatic cancer: a Scandinavian register-based cohort study 1969-2017 (2020) <em>Alimentary pharmacology &amp; therapeutics</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aoKhalili2020Microscopic.html">aoKhalili2020Microscopic</a></code> </p>
+        </td>
+        <td><p>Microscopic Colitis and Risk of Inflammatory Bowel Disease in a Nationwide Cohort Study (2020) <em>Gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="apOl-less-than-U-plus-653C-greater-than-less-than-U-plus-3E39-greater-than-n2020Mortality.html">apOl<U+653C><U+3E39>n2020Mortality</a></code> </p>
+        </td>
+        <td><p>Mortality in adult-onset and elderly-onset IBD: a nationwide register-based cohort study 1964-2014 (2020) <em>Gut</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aqKhalili2020Mortality.html">aqKhalili2020Mortality</a></code> </p>
+        </td>
+        <td><p>Mortality of Patients With Microscopic Colitis in Sweden (2020) <em>Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="arAxelrad2020Reply-colon.html">arAxelrad2020Reply:</a></code> </p>
+        </td>
+        <td><p>Reply: Survival in Crohn's disease-associated small bowel adenocarcinoma (2020) <em>Gut</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="atLiu2020Vagotomy.html">atLiu2020Vagotomy</a></code> </p>
+        </td>
+        <td><p>Vagotomy and subsequent risk of inflammatory bowel disease: a nationwide register-based matched cohort study (2020) <em>Alimentary pharmacology &amp; therapeutics</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="auEverhov2020Work.html">auEverhov2020Work</a></code> </p>
+        </td>
+        <td><p>Work Loss in Relation to Pharmacological and Surgical Treatment for Crohn's Disease: A Population-Based Cohort Study (2020) <em>Clinical epidemiology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="avWeimers2019Association.html">avWeimers2019Association</a></code> </p>
+        </td>
+        <td><p>Association between inflammatory bowel disease and Parkinson's disease: seek and you shall find? (2019) <em>Gut</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="awEverhov2019Changes.html">awEverhov2019Changes</a></code> </p>
+        </td>
+        <td><p>Changes in inflammatory bowel disease subtype during follow-up and over time in 44,302 patients (2019) <em>Scandinavian journal of gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="axMalmborg2019Effects.html">axMalmborg2019Effects</a></code> </p>
+        </td>
+        <td><p>Effects of Childhood-onset Inflammatory Bowel Disease on School Performance: A Nationwide Population-based Cohort Study Using Swedish Health and Educational Registers (2019) <em>Inflammatory bowel diseases</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="azLudvigsson2019Fracture.html">azLudvigsson2019Fracture</a></code> </p>
+        </td>
+        <td><p>Fracture Risk in Patients With Inflammatory Bowel Disease: A Nationwide Population-Based Cohort Study From 1964 to 2014 (2019) <em>The American journal of gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="baBj-less-than-U-plus-663C-greater-than-less-than-U-plus-3E36-greater-than-rkman2019From.html">baBj<U+663C><U+3E36>rkman2019From</a></code> </p>
+        </td>
+        <td><p>From high to low malaria transmission in Zanzibar-challenges and opportunities to achieve elimination (2019) <em>BMC medicine</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bbAxelrad2019Gastrointestinal.html">bbAxelrad2019Gastrointestinal</a></code> </p>
+        </td>
+        <td><p>Gastrointestinal Infection Increases Odds of Inflammatory Bowel Disease in a Nationwide Case-Control Study (2019) <em>Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bcOl-less-than-U-plus-653C-greater-than-less-than-U-plus-3E39-greater-than-n2019Increased.html">bcOl<U+653C><U+3E39>n2019Increased</a></code> </p>
+        </td>
+        <td><p>Increased Mortality of Patients With Childhood-Onset Inflammatory Bowel Diseases, Compared With the General&lt;U+00A0&gt;Population (2019) <em>Gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bdWeimers2019Inflammatory.html">bdWeimers2019Inflammatory</a></code> </p>
+        </td>
+        <td><p>Inflammatory Bowel Disease and Parkinson's Disease: A Nationwide Swedish Cohort Study (2019) <em>Inflammatory bowel diseases</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bhMorris2018A.html">bhMorris2018A</a></code> </p>
+        </td>
+        <td><p>A cluster randomised controlled trial of two rounds of mass drug administration in Zanzibar, a malaria pre-elimination setting-high coverage and safety, but no significant impact on transmission (2018) <em>BMC medicine</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bjEverhov2018Incidence.html">bjEverhov2018Incidence</a></code> </p>
+        </td>
+        <td><p>Incidence and Treatment of Patients Diagnosed With&lt;U+00A0&gt;Inflammatory Bowel Diseases at 60 Years or Older&lt;U+00A0&gt;in&lt;U+00A0&gt;Sweden (2018) <em>Gastroenterology</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bmOl-less-than-U-plus-653C-greater-than-less-than-U-plus-3E39-greater-than-n2017Childhood.html">bmOl<U+653C><U+3E39>n2017Childhood</a></code> </p>
+        </td>
+        <td><p>Childhood onset inflammatory bowel disease and risk of cancer: a Swedish nationwide cohort study 1964-2014 (2017) <em>BMJ (Clinical research ed.)</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="boLucas2017Development.html">boLucas2017Development</a></code> </p>
         </td>
         <td><p>Development and validation of a Luminex assay for detection of a predictive biomarker for PROSTVAC-VF therapy (2017) <em>PLOS ONE</em></p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Lab-medicine-4.html">Lab-medicine-4</a></code> </p>
+          <p><code><a href="bwvanBallegooijen2014Association.html">bwvanBallegooijen2014Association</a></code> </p>
         </td>
-        <td><p>Robustness of Next Generation Sequencing on Older Formalin-Fixed Paraffin-Embedded Tissue (2015) <em>PLOS ONE</em></p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-neurology" class="hasAnchor"><a href="#section-neurology" class="anchor"></a>Neurology</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
+        <td><p>Association of 25-Hydroxyvitamin D and Parathyroid Hormone With Incident Hypertension MESA (Multi-Ethnic Study of Atherosclerosis) (2014) <em>JOURNAL OF THE AMERICAN COLLEGE OF CARDIOLOGY</em></p></td>
+      </tr><tr>
         
         <td>
-          <p><code><a href="Neurology-1.html">Neurology-1</a></code> </p>
+          <p><code><a href="bxRingman2014Clinical.html">bxRingman2014Clinical</a></code> </p>
         </td>
         <td><p>Clinical Predictors of Severe Cerebral Amyloid Angiopathy and Influence of APOE Genotype in Persons With Pathologically Verified Alzheimer Disease (2014) <em>JAMA NEUROLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bydeBoer2014Estimated.html">bydeBoer2014Estimated</a></code> </p>
+        </td>
+        <td><p>Estimated GFR and Circulating 24,25-Dihydroxyvitamin D-3 Concentration: A Participant-Level Analysis of 5 Cohort Studies and Clinical Trials (2014) <em>AMERICAN JOURNAL OF KIDNEY DISEASES</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bzKestenbaum2014Fibroblast.html">bzKestenbaum2014Fibroblast</a></code> </p>
+        </td>
+        <td><p>Fibroblast Growth Factor-23 and Cardiovascular Disease in the General Population The Multi-Ethnic Study of Atherosclerosis (2014) <em>CIRCULATION-HEART FAILURE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="caMathew2014Fibroblast.html">caMathew2014Fibroblast</a></code> </p>
+        </td>
+        <td><p>Fibroblast Growth Factor-23 and Incident Atrial Fibrillation The Multi-Ethnic Study of Atherosclerosis (MESA) and the Cardiovascular Health Study (CHS) (2014) <em>CIRCULATION</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cbRobinson-Cohen2014Physical.html">cbRobinson-Cohen2014Physical</a></code> </p>
+        </td>
+        <td><p>Physical Activity and Change in Estimated GFR among Persons with CKD (2014) <em>JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ccLinefsky2014Serum.html">ccLinefsky2014Serum</a></code> </p>
+        </td>
+        <td><p>Serum phosphate is associated with aortic valve calcification in the Multi-ethnic Study of Atherosclerosis (MESA) (2014) <em>ATHEROSCLEROSIS</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cdBlondon201325-Hydroxyvitamin.html">cdBlondon201325-Hydroxyvitamin</a></code> </p>
+        </td>
+        <td><p>25-Hydroxyvitamin D and Parathyroid Hormone Are Not Associated With Carotid Intima-Media Thickness or Plaque in the Multi-Ethnic Study of Atherosclerosis (2013) <em>ARTERIOSCLEROSIS THROMBOSIS AND VASCULAR BIOLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ceSachs2013Circulating.html">ceSachs2013Circulating</a></code> </p>
+        </td>
+        <td><p>Circulating Vitamin D Metabolites and Subclinical Atherosclerosis in Type 1 Diabetes (2013) <em>DIABETES CARE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cgAfkarian2013Kidney.html">cgAfkarian2013Kidney</a></code> </p>
+        </td>
+        <td><p>Kidney Disease and Increased Mortality Risk in Type 2 Diabetes (2013) <em>JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="chMehrotra2013No.html">chMehrotra2013No</a></code> </p>
+        </td>
+        <td><p>No independent association of serum phosphorus with risk for death or progression to end-stage renal disease in a large screen for chronic kidney disease (2013) <em>KIDNEY INTERNATIONAL</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ciBosworth2013Parathyroid.html">ciBosworth2013Parathyroid</a></code> </p>
+        </td>
+        <td><p>Parathyroid hormone and arterial dysfunction in the multi-ethnic study of atherosclerosis (2013) <em>CLINICAL ENDOCRINOLOGY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cjdeBoer2013Paricalcitol.html">cjdeBoer2013Paricalcitol</a></code> </p>
+        </td>
+        <td><p>Paricalcitol does not improve glucose metabolism in patients with stage 3-4 chronic kidney disease (2013) <em>KIDNEY INTERNATIONAL</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="clRobinson-Cohen2013Racial.html">clRobinson-Cohen2013Racial</a></code> </p>
+        </td>
+        <td><p>Racial Differences in the Association of Serum 25-Hydroxyvitamin D Concentration With Coronary Heart Disease Events (2013) <em>JAMA-JOURNAL OF THE AMERICAN MEDICAL ASSOCIATION</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cmdeBoer2012Circulating.html">cmdeBoer2012Circulating</a></code> </p>
+        </td>
+        <td><p>Circulating Vitamin D Metabolites and Kidney Disease in Type 1 Diabetes (2012) <em>JOURNAL OF CLINICAL ENDOCRINOLOGY &amp; METABOLISM</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cnHernandez2010Pharmacological.html">cnHernandez2010Pharmacological</a></code> </p>
+        </td>
+        <td><p>Pharmacological treatment of Alzheimer's disease: effect of race and demographic variables (2010) <em>Journal of Alzheimer's disease : JAD</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="coNewman2009Long-Term.html">coNewman2009Long-Term</a></code> </p>
+        </td>
+        <td><p>Long-Term Function in an Older Cohort-The Cardiovascular Health Study All Stars Study (2009) <em>JOURNAL OF THE AMERICAN GERIATRICS SOCIETY</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cpSachs2009Performance.html">cpSachs2009Performance</a></code> </p>
+        </td>
+        <td><p>Performance of Maximum Inspiratory Pressure Tests and Maximum Inspiratory Pressure Reference Equations for 4 Race/Ethnic Groups (2009) <em>RESPIRATORY CARE</em></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cqNewman2009Total.html">cqNewman2009Total</a></code> </p>
+        </td>
+        <td><p>Total and Cause-Specific Mortality in the Cardiovascular Health Study (2009) <em>JOURNALS OF GERONTOLOGY SERIES A-BIOLOGICAL SCIENCES AND MEDICAL SCIENCES</em></p></td>
       </tr>
     </tbody>
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-biostatistics">Biostatistics</a></li>
-      <li><a href="#section-gastroenterology">Gastroenterology</a></li>
-      <li><a href="#section-oncology">Oncology</a></li>
-      <li><a href="#section-nephrology">Nephrology</a></li>
-      <li><a href="#section-infectious-disease">Infectious Disease</a></li>
-      <li><a href="#section-cardiology">Cardiology</a></li>
-      <li><a href="#section-lab-medicine">Lab Medicine</a></li>
-      <li><a href="#section-neurology">Neurology</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -523,7 +588,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
