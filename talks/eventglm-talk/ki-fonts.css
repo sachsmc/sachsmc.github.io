@@ -1,0 +1,16 @@
+@import url('fira.css');
+@import url('fira-condensed.css');
+@import url('fira-code.css');
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-variant-ligatures: common-ligatures;
+}
+
+h1, h2, h3, h4, h5, h6, .remark-slide-number {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: normal;
+}
+
+.remark-code, .remark-inline-code {
+  font-family: "Fira Code", monospace;
+}

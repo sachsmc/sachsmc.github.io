@@ -3,6 +3,10 @@ title: "Recent Presentations"
 author: "Michael C Sachs"
 date: "Updated `r format(Sys.Date(), '%Y-%m-%d')`"
 output: html_document
+vignette: >
+  %\VignetteIndexEntry{Recent presentations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 
@@ -129,7 +133,7 @@ tkfold <- list.dirs("../talks", recursive = FALSE, full.names = FALSE)
 
 process_talk <- function(dir) {
     
-    linkrmd <- file.path("../talks", dir, "index.Rmd")
+    linkrmd <- file.path("../articles/talks", dir, "index.Rmd")
     titles <- yaml_front_matter(linkrmd)
     
     tags$li(class = "repo", 

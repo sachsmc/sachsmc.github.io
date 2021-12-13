@@ -1,0 +1,331 @@
+---
+title: "Modeling time to event data"
+subtitle: "⚔<br/>KEP Methods Club"
+author: "Michael Sachs"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(DiagrammeR)
+```
+
+class: inverse
+
+- Introductions
+- New Methods club, more focus on statistical literature
+- Goal is to critically read and understand the literature on a class of methods
+- Improve ability to "explore the solution space"
+- Upcoming meetings: 
+    - October 17, Sensitivity Analysis
+    - November 14, Qualitative Interactions
+    - December 12, Causal inference in observational studies (TMLE)
+
+
+---
+
+class: inverse, center, middle
+
+# Last time: 
+---
+class: center, middle
+
+$$\lambda(t | x) = \lambda_0(t | x) \exp\{\gamma f(x)\}$$
+
+where $f$ is a flexible function of exposure measured over time. 
+
+> Sylvestre MP, Abrahamowicz M. **Flexible modeling of the cumulative effects of time‐dependent exposures on the hazard.** _Statistics in medicine._ 2009 Nov 30;28(27):3437-53.
+
+
+---
+
+# Potential problems
+
+- Bias!
+    + Ignores measurement error in the exposure
+    + Intermittent/incomplete measurement
+- Inefficiency!
+    + "Does not fully exploit dependence between ..." the exposure measurement process and survival. 
+    
+> In order to obtain an unbiased estimate of the effect of a covariate on an outcome variable using standard survival analysis methods, it is necessary that the covariate be measured at all times and without error. 
+
+---
+
+# Joint modeling of repeated measurement and time-to-event data
+
+### Terminology
+
+- **Repeated measures:** Measurements belonging to the same subject but performed at different times. 
+- **Measurement times:** Follow up times at which measurements are taken.
+- **Measurement errors:** Difference between measured covariate and true value. 
+- **Random effect:** Patient-specific coefficient that represents between-patient variability in the outcome that is not explained by covariates. 
+
+
+---
+
+# Example
+
+```{r grp, echo = FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  eGFR; 'RRT/Censoring'; Covariate
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  GFR; Hazard
+
+  # several 'edge' statements
+  GFR->eGFR GFR->Hazard Hazard->'RRT/Censoring' Covariate->Hazard Covariate->GFR
+}
+")
+
+```
+
+
+---
+
+# Example 2
+
+```{r grp2, echo = FALSE}
+grViz("
+digraph boxes_and_circles2 {
+
+  # a 'graph' statement
+  graph [overlap = false, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  'entry in drug register'; 'Pancreatitis/Censoring'; Alcoholism
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  'taking drug'; Hazard
+
+  # several 'edge' statements
+  'taking drug'->'entry in drug register' 'taking drug'->Hazard Hazard->'Pancreatitis/Censoring' Alcoholism->Hazard Alcoholism->'taking drug'
+}
+")
+
+```
+
+---
+class: middle
+
+## The joint model
+
+$$Y_{ij} = Y_i^*(t_{ij}) + Z_{ij} = X_{ij}\beta + W_{ij} B_i + Z_{ij}; \\\\
+\lambda\{t | K_i, Y_i^*(t)\} = \lambda_0(t) \exp\{K_i \gamma_1 + Y_i^*(t) \gamma_2\}.$$
+
+
+---
+
+Estimate parameters by maximizing the likelihood. 
+
+```{r code, eval= FALSE}
+# RRT
+library(JM)
+
+lme.fit <- lme(log(mdrd) ~ age.0 + fu + salford +
+                   male + smoking + alcohol + diabetes +     
+                         mcp, random = ~ fu | ID, 
+               method = "ML", data = longitudinal.data)
+cox.rrt <- coxph(Surv(stime, rrt.event.ind) ~ age.0 + 
+                     salford + male + 
+                 smoking + alcohol + diabetes + mcp, 
+                 data = survival.data, x = TRUE)
+
+
+
+{{jm.rrt <- jointModel(lme1, cox.rrt, 
+                       timeVar = "fu", 
+                       method = "piecewise-PH-aGH", 
+                       iter.EM = 150, verbose = T)}}
+summary(jm.rrt)
+
+```
+
+---
+## Data analysis
+
+- Separate longitudinal model and survival models (Tables 2 and 3)
+- Joint model (Table 4)
+
+
+Stronger effect of GFR found in joint model compared to the separate models. Why was this surprising?
+
+---
+class: center, middle, inverse
+
+# Convenient transition quote
+
+> Our analysis of time to initiation of RRT as the survival outcome alone, treating death as a right-censored event time, could be criticized for failing to take account of the status of RRT and death as asymmetrical competing risks...
+
+
+---
+
+## Multi-state models for event history analysis
+### Per Kragh Andersen and Niels Keiding, 2002. SMMR
+
+### Terminology 
+
+- **Types of events (states) and times of occurrence**
+- **Transitions from one state to another**
+- **Absorbing state**: a state from which transitions cannot occur, otherwise **transient**
+
+
+---
+
+# Notation in simple model
+
+![two-state.png](two-state.png)
+
+Hazard = **transition intensity**
+$$
+\alpha(t) = \lim_{\Delta t \rightarrow 0}\frac{Pr(T \leq t + \Delta t | T \geq t)}{\Delta t}
+$$
+
+Survival = **Probability of not transitioning**
+$$
+S(t) = \exp(-\int_0^t \alpha(u) du)
+$$
+
+CDF = **Probability of transitioning**
+$$
+F(t) = \int_0^t \alpha(u) S(u) du = 1 - \exp(-\int_0^t \alpha(u) du)
+$$
+
+---
+
+# In general
+
+- **Multi-state process**: $(X(t), t \in \mathcal{T})$, taking possible values $\{1, \ldots, p\}$ (states). 
+- **Covariates**: $Z(t)$, may also be independent of $t$ (i.e., baseline covariates only).
+- **Transition probabilities**: $P_{hj}(s, t) = Pr(X(t) = j | X(s) = h, \mbox{history})$.
+- **Transition intensities**:
+$$\alpha_{hj}(t) = \lim_{\Delta t \rightarrow 0}\frac{P_{hj}(t, t + \Delta t)}{\Delta t}.$$
+
+- **Markovian process**: if the transition probabilities only depend on $X(s)$ and not the entire history
+
+
+---
+
+# Test your understanding
+
+In the two-state survival model: 
+
+- What values can $X(t)$ take? 
+- Is the process Markovian or not?
+- How do we specify dependence on covariates? 
+
+---
+
+# More examples
+
+- The competing risks model (Page 94)
+- The illness death model (Page 95)
+- Repeated events (Page 97)
+
+---
+
+# Model Specification and Estimation
+
+## General strategy: 
+- Specify model for $\alpha$
+- Estimate by maximum likelihood
+- Transform to get estimates of transition probabilities or other functionals of interest (**survival synthesis**)
+
+$$f(t) = \alpha(t) S(t)$$
+
+Therefore, once we specify models for the transition intensities, we can write down the likelihood (equation 2, page 99), and maximize it. 
+
+### Key assumption about censoring:
+> Individuals who are censored should have neither lower nor higher risk of future events than individuals who are not censored. 
+
+Page 92. 
+
+---
+
+# Models
+
+## No dependence on covariates
+
+1. Constant transition intensities (Page 100)
+    - Estimates are simple proportions: the number of transitions from state $h \rightarrow j$ divided by the time in state $h$. 
+2. Parametric models (Page 101, top)
+3. Non-parametric models (Section 5.1.3)
+    - Estimates are based on *Nelson-Aalen estimators* (equation 3)
+    - Can obtain estimates of transition probabilities using product-limit method
+
+---
+
+## Regression models
+
+1. Markov regression (Page 102, bottom)
+    - For all pairs $h,j$, specify $\alpha^i_{jk} = \alpha_{hj0}(t) \exp(\beta_{hj} Z_i)$
+2. Variations
+    - $\alpha_{hj0}(t) = \alpha_{hj0}$ "Constant hazard"
+    - $\alpha^i_{jk} = \alpha_{hj0}(t) + \beta_{hj}(t) Z_i$ "Additive model"
+    - More parsimonious models: $\beta_{hj} = \beta_{hk}$, for example. 
+    - ... or $\alpha_{hj0}(t) = \gamma \alpha_{hk0}(t)$
+    - Frailty, random effects models: $\alpha^i_{jk} = \alpha_{hj0}(t) W^i_{hj} \exp(\beta_{hj} Z_i)$, where $W^i_{hj}$ is a random variable with mean 1
+    
+
+
+---
+
+# PROVA data analysis
+
+- Draw the model. 
+- What are the models in table 2? 
+- What are the models in Table 3? 
+- What is the Markovian assumption and what evidence is there that it is violated? 
+- How is that violation handled in Table 4? 
+
+
+---
+
+# Software
+
+> If separate baseline hazards and regression coefficients are assumed for each possible transition ... then the parameters may be estimated by fitting separate Cox or Poisson models for each transition. 
+
+If not? Pages 108-109. 
+   
+![equs](model5.PNG)
+![data](datatable.PNG)
+
+---
+
+class: middle
+
+# Coming full circle
+
+> Thus, if the model contains time-dependent covariates that are not purely endogenous ... A joint model for the multi-state process and the time dependent covariates is needed. 
+
+Page 105
+
+
+---
+
+
+# Wrap up
+
+- There exist many models beyond the Cox for time-to-event and longitudinal data, many of which can be estimated with standard software
+- Think about your scientific model 
+- Then think about the richness/limitations of your measurements

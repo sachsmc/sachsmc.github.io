@@ -1,0 +1,250 @@
+---
+title: "Emulated Prediction Trials"
+author: "Michael Sachs and Arvid and Erin"
+date: "2019-05-23"
+output: xaringan::moon_reader
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
+                      fig.width = 4.5, fig.height = 5 * .618,
+                      fig.align = 'center')
+library(ggplot2)
+library(gridExtra)
+library(plotROC)
+library(dplyr)
+library(igraph)
+
+
+theme_set(theme_bw())# + theme(plot.background = element_rect(fill = "#999999")))
+
+```
+
+
+
+# So you want to use machine learning
+
+"I've heard about machine learning and I don't want to miss out, can you help me apply it to my data?"
+
+
+---
+
+# Wrong!
+
+The goal of medical studies is to produce the evidence that can be used to
+
+- Diagnose disease
+- Identify risk factors for disease
+- Treat disease
+- Prognosticate
+- Prevention of disease
+- Improve understanding of basic science
+
+**Start with a hypothesis!**
+
+---
+
+ML is a suite of tools for prediction, i.e., can I predict future/unobserved values of Y using X? 
+
+What is the intended use of the predictions? 
+
+- Implement a new policy or screening program on a population level
+- Guide treatments for individual patients
+- Allocate funds/time for further research and development?
+
+**A prediction by itself is not clinically useful unless it leads to an action**
+
+
+---
+
+# Rich Simon on black box prognostic models
+
+"There is an **enormous gap between the large literature on prognostic models and the small number of models used in medical practice**. There are several reasons for this discrepancy. **Most prognostic models do not provide actionable information.** That is, they are based on analysis of a heterogeneous set of patients who received a variety of treatments. **Physicians want tools that help them make treatment decisions.** Unless that decision context is clearly and specifically defined at the outset of the study and used to drive the selection of the training set, the resulting model is unlikely to find medical acceptance."
+
+---
+
+
+# Formal decision analysis
+
+- When predictions are reported to individuals, they may decide to take an action to improve their health or well-being or they may simply be comforted and informed by the knowledge. 
+- However, if there is a clearly defined space of actions in the clinical context, a formal decision rule based on the prediction has the potential to have a much broader positive impact.
+
+How do we incorporate predictions into decision making?
+
+---
+
+# A simple decision tree
+
+```{r}
+G <- graph.tree(n=7,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G)$name <- c("Home", "Outside", "Outside", "dry and burden", "dry and burden", "wet and no burden", "dry and no burden")
+E(G)$name <- c("raincoat", "no raincoat", "rain", "no rain", "rain", "no rain")
+
+# plot (1)
+lay <- layout.reingold.tilford(G, params=list(root='Home')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G, layout=-lay[, 2:1], vertex.shape="none", edge.label = E(G)$name, edge.label.color = "black", cex = .85)
+```
+
+---
+
+# Incorporating probabilities and utilities
+
+```{r}
+G <- graph.tree(n=7,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G)$name <- c("Home", "Outside", "Outside", "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)")
+E(G)$name <- c("raincoat (Pr=0.5)", "no raincoat (Pr=0.5)", "rain (0.5)", "no rain (0.5)", "rain (0.5)", "no rain (0.5)")
+
+# plot (1)
+lay <- layout.reingold.tilford(G, params=list(root='Home')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G, layout=-lay[, 2:1], vertex.shape="none", edge.label = E(G)$name, edge.label.color = "black", cex = .85)
+
+```
+
+---
+
+# Incorporating a prediction
+
+```{r util2}
+G2 <- graph.tree(n=15,children=2)
+
+#add names to vertex (just assign a upper-case letter to each)
+V(G2)$name <- c("Predict (-5)", "|", "|", "Outside", "Outside", "Outside", "Outside", 
+                "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)", 
+                "dry and burden (-10)", "dry and burden (-10)", "wet and no burden (-100)", "dry and no burden (0)")
+Enames <- c("low chance (Pr=0.5)", "high chance (0.5)", "no raincoat", "raincoat", "rain (0.1)", "no rain (0.9)", "rain (0.9)", "no rain (0.1)")
+
+G3 <- delete_vertices(G2, c(4, 7, 8, 9, 14, 15))
+lay <- layout.reingold.tilford(G3, params=list(root='Predict (-5)')) 
+par(mar = c(0, 0, 0, 0) + .1)
+plot(G3, layout=-lay[, 2:1], vertex.shape="none", edge.label = Enames, edge.label.color = "black", cex = .85)
+
+```
+
+
+---
+
+# Analysis
+
+Does using the prediction lead to reduced suffering, on average? 
+
+- Compare the expected utility of using the prediction-driven rule vs a coin flip (or always/never take raincoat)
+- -30 using the coin flip 
+- -10 using the prediction rule 
+
+
+
+---
+
+# Challenges
+
+1. Determining possible actions (raincoat or umbrella)
+2. Development and evaluation of prediction model
+3. Estimation of probabilities
+    - Distribution of predictions in the population (proportion testing positive)
+    - Distribution of outcomes conditional on predictions
+4. Assessment of utilities
+
+
+---
+
+# Assume you have a decision rule 
+
+1. Doctors are using a risk score and 
+2. based on it, the definitions of high risk and low risk have been decided 
+
+A rule of aggressive combination treatment is suggested for those at high risk and a less costly and toxic mono treatment for those at lower risk. 
+
+
+---
+
+# Generate evidence to support use/no use of the model
+
+`r knitr::include_graphics("study.png")`
+
+---
+
+# Where is the money for this going to come from? 
+
+1. Very few trials of this nature are being run 
+2. Most are platform studies, like Probio 
+3. What do the rest of us do? 
+
+We need preliminary evidence to support such a study. 
+
+
+---
+
+# Using an emulated trial in observational data 
+
+Same as Hérnan's 
+
+1. Use the same inclusion/exclusion criteria that a clinical trial might 
+2. Define a grace period for use of the deteministic decision rule 
+3. Deal with people that die/have the event prior to the end of the grace period
+
+Different than Hérnan's 
+
+1. The estimand is E{Y(used decision rule)}-E{Y(standard of care)}
+2. since E{Y(standard of care)} is literally what we observe, this has no confounding 
+3. E{Y(used decision rule)} can be decomposed to allow for estimation in the observed data 
+
+---
+
+# Estimand
+
+
+Pr{low risk} E{Y(A)|low risk} + Pr{high risk} E{Y(B)|high risk}.
+
+
+Under what conditions is this estimable in an observational study?
+
+How to estimate? (G-computation, maybe)
+
+Unlike emulated treatment trials, we need to be careful not the induce confouding by the predictor 
+
+---
+
+# Let's say you have a prediction model, but no decision rule 
+
+We could use the avaliable observational data to optimise the decision rule, using the prediction. 
+
+This optimization can be hard, there is potentially a huge space over which to optimize and defining the proper utility function alone can be a whole dissertation! 
+
+In an easy case, the prediction has already been used to define high and low risk subjects, so you use that same cutoff and simply decide between two treatments. 
+
+There is 4 total options there, and the utility might simply be the outcome of interest, death, the cost of the treatment, and some quality of life measure. 
+
+This clearly depends greatly on the richness of your data...
+
+
+---
+
+# Once you have defined the optimal treatment rule
+
+Run the emulated trial to provide evidence in an understandable manner, and as a validation for your optimization. 
+
+---
+
+# Let's say you have nothing! 
+
+Then you could do the hard direct optimization over all avalaible data, and treatment options, for a defined utility function and then again run the emulated trial to provide evidence in an understandable manner, and as a validation for your optimization. 
+
+OR you could do all three steps by doing a three way split of your data, or by performing one of the steps in an additional cross-validation 
+
+---
+
+# Data split
+
+`r knitr::include_graphics("trainingsplit.png")`
+
+
+
+
+

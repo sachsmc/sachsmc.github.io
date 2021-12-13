@@ -7,6 +7,10 @@ output:
     css: assets/style.css
     toc: yes
     toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Software}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}

@@ -31,3 +31,6 @@ articles:
   contents:
   - -starts_with("software")
   - -matches("talks")
+- title: Presentations
+  contents:
+  - talks
