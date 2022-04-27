@@ -336,7 +336,7 @@ cumincglm(Surv(time, status) ~ rx + age, time = 2500,
 
 ```
 
-With $I_i = 1\{C_i \geq \min(T_i, t)\}$ and $\tilde{V}_i = 1\{T_i < t\}$ if $T_i > C_i$ and 0 otherwise, these are estimated using 
+With $I_i = 1\{C_i \geq \min(T_i, t)\}$ and $\tilde{V}_i = 1\{T_i < t\}$ if $T_i < C_i$ and 0 otherwise, these are estimated using 
 
 $$\hat{\theta}^b = n^{-1}\sum_{i = 1}^n \frac{\tilde{V}_iI_i}{\hat{G}\{\min(\tilde{T}_i, t^*); \tilde{X}_i\}} \mbox{ or } \hat{\theta}^h = \frac{\sum_{i = 1}^n \tilde{V}_iw_i}{\sum_{i = 1}^n w_i}$$
 

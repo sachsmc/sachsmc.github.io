@@ -1,9 +1,153 @@
+#' Direct modeling of relative and absolute risks in register data: Mortality risk in sarcoidosis (2022) \emph{Annals of epidemiology}
+#' 
+#' Gabriel, EE; Arkema, EV; Sachs, MC
+#' 
+#' Annals of epidemiology (2022). 1-4.:NA. \url{http://www.ncbi.nlm.nih.gov/pubmed/34775031}
+#' @name aaGabriel2022Direct
+#' @concept methods
+NULL 
+
+#' Reproductive and hormonal risk factors for sarcoidosis: a nested case-control study (2022) \emph{BMC pulmonary medicine}
+#' 
+#' Dehara, M; Sachs, MC; Kullberg, S; Grunewald, J; Blomberg, A; Arkema, EV
+#' 
+#' BMC pulmonary medicine (2022). 43-.:1. \url{http://www.ncbi.nlm.nih.gov/pubmed/35073900}
+#' @name abDehara2022Reproductive
+#' @concept applied
+NULL 
+
+#' Adult-onset inflammatory bowel disease and rate of serious infections compared to the general population: a nationwide register-based cohort study 2002-2017 (2021) \emph{Scandinavian journal of gastroenterology}
+#' 
+#' Ludvigsson, JF; Holmgren, J; Grip, O; Halfvarson, J; Askling, J; Sachs, MC; Olén, O
+#' 
+#' Scandinavian journal of gastroenterology (2021). 1152-1162.:10. \url{http://www.ncbi.nlm.nih.gov/pubmed/34369254}
+#' @name acLudvigsson2021Adult-onset
+#' @concept applied
+NULL 
+
+#' Association Between Statin Use and Inflammatory Bowel Diseases: Results from a Swedish, Nationwide, Population-based Case-control Study (2021) \emph{Journal of Crohn's & colitis}
+#' 
+#' Lochhead, P; Khalili, H; Sachs, MC; Chan, AT; Olén, O; Ludvigsson, JF
+#' 
+#' Journal of Crohn's & colitis (2021). 757-765.:5. \url{http://www.ncbi.nlm.nih.gov/pubmed/33216873}
+#' @name adLochhead2021Association
+#' @concept applied
+NULL 
+
+#' Capturing biologic treatment for IBD in the Swedish Prescribed Drug Register and the Swedish National Patient Register - a validation study (2021) \emph{Scandinavian journal of gastroenterology}
+#' 
+#' Bröms, G; Söderling, J; Sachs, MC; Halfvarson, J; Myrelid, P; Ludvigsson, JF; Everhov, ÅH; Olén, O; SWIBREG study group
+#' 
+#' Scandinavian journal of gastroenterology (2021). 410-421.:4. \url{http://www.ncbi.nlm.nih.gov/pubmed/33632044}
+#' @name aeBröms2021Capturing
+#' @concept applied
+NULL 
+
+#' Distinct Metabolic Profile Associated with a Fatal Outcome in COVID-19 Patients during the Early Epidemic in Italy (2021) \emph{Microbiology spectrum}
+#' 
+#' Saccon, E; Bandera, A; Sciumè, M; Mikaeloff, F; Lashari, AA; Aliberti, S; Sachs, MC; Billi, F; Blasi, F; Gabriel, EE; Costantino, G; De Roberto, P; Krishnan, S; Gori, A; Peyvandi, F; Scudeller, L; Canetta, C; Lorson, CL; Valenti, L; Singh, K; Baldini, L; Fracchiolla, NS; Neogi, U; COVID-19 Network Working Group,
+#' 
+#' Microbiology spectrum (2021). e0054921-.:2. \url{http://www.ncbi.nlm.nih.gov/pubmed/34468185}
+#' @name afSaccon2021Distinct
+#' @concept applied
+NULL 
+
+#' Drug survival of anti-TNF agents compared with vedolizumab as a second-line biological treatment in inflammatory bowel disease: results from nationwide Swedish registers (2021) \emph{ALIMENTARY PHARMACOLOGY & THERAPEUTICS}
+#' 
+#' Rundquist, S; Sachs, MC; Eriksson, C; Olen, O; Montgomery, S; Halfvarson, J; SWIBREG Study Grp
+#' 
+#' ALIMENTARY PHARMACOLOGY & THERAPEUTICS (2021). 471-483.:4. \url{http://www.ncbi.nlm.nih.gov/pubmed/33340426}
+#' @name agRundquist2021Drug
+#' @concept applied
+NULL 
+
+#' Editorial: anti-TNF agents against vedolizumab as a second-line treatment? Not surprising tie game-authors' reply (2021) \emph{Alimentary pharmacology & therapeutics}
+#' 
+#' Rundquist, S; Sachs, MC; Eriksson, C; Olén, O; Montgomery, S; Halfvarson, J
+#' 
+#' Alimentary pharmacology & therapeutics (2021). 642-643.:5. \url{http://www.ncbi.nlm.nih.gov/pubmed/33566420}
+#' @name ahRundquist2021Editorial:
+#' @concept applied
+NULL 
+
+#' Hepatobiliary Cancer Risk in Patients with Inflammatory Bowel Disease: A Scandinavian Population-Based Cohort Study (2021) \emph{Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology}
+#' 
+#' Erichsen, R; Olén, O; Sachs, MC; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; Ludvigsson, JF; Sørensen, HT
+#' 
+#' Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology (2021). 886-894.:5. \url{http://www.ncbi.nlm.nih.gov/pubmed/33627380}
+#' @name aiErichsen2021Hepatobiliary
+#' @concept applied
+NULL 
+
+#' Inflammatory bowel disease and risk of small bowel cancer: a binational population-based cohort study from Denmark and Sweden (2021) \emph{Gut}
+#' 
+#' Axelrad, JE; Olén, O; Sachs, MC; Erichsen, R; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; Sørensen, HT; Ludvigsson, JF
+#' 
+#' Gut (2021). 297-308.:2. \url{http://www.ncbi.nlm.nih.gov/pubmed/32474410}
+#' @name ajAxelrad2021Inflammatory
+#' @concept applied
+NULL 
+
+#' Letter: vedolizumab or a second anti-TNF-no difference in efficacy for primary biologic failures with IBD. Authors' reply (2021) \emph{Alimentary pharmacology & therapeutics}
+#' 
+#' Rundquist, S; Sachs, MC; Eriksson, C; Olén, O; Montgomery, S; Halfvarson, J
+#' 
+#' Alimentary pharmacology & therapeutics (2021). 1046-1047.:9. \url{http://www.ncbi.nlm.nih.gov/pubmed/33831234}
+#' @name akRundquist2021Letter:
+#' @concept applied
+NULL 
+
+#' No evidence of substantial underreporting of COVID-19 deaths in Taiwan during 2020 (2021) \emph{Journal of the Formosan Medical Association = Taiwan yi zhi}
+#' 
+#' Chen, EY; Sachs, MC; Dickman, PW
+#' 
+#' Journal of the Formosan Medical Association = Taiwan yi zhi (2021). 1788-1789.:9. \url{http://www.ncbi.nlm.nih.gov/pubmed/33832837}
+#' @name alChen2021No
+#' @concept applied
+NULL 
+
+#' Nonparametric Bounds for Causal Effects in Imperfect Randomized Experiments (2021) \emph{JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION}
+#' 
+#' Gabriel, EE; Sjolander, A; Sachs, MC
+#' 
+#' JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION (2021). NA:NA. \url{NA}
+#' @name amGabriel2021Nonparametric
+#' @concept methods
+NULL 
+
+#' ON THE USE OF NONPARAMETRIC BOUNDS FOR CAUSAL EFFECTS IN NULL RANDOMIZED TRIALS (2021) \emph{American journal of epidemiology}
+#' 
+#' Gabriel, EE; Sachs, MC
+#' 
+#' American journal of epidemiology (2021). 2231-.:10. \url{http://www.ncbi.nlm.nih.gov/pubmed/34017983}
+#' @name anGabriel2021ON
+#' @concept methods
+NULL 
+
+#' Reply: Survival in Crohn's disease-associated small bowel adenocarcinoma (2021) \emph{Gut}
+#' 
+#' Axelrad, JE; Olén, O; Sachs, MC; Erichsen, R; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; Sørensen, HT; Ludvigsson, JF
+#' 
+#' Gut (2021). 998-.:5. \url{http://www.ncbi.nlm.nih.gov/pubmed/32873695}
+#' @name aoAxelrad2021Reply:
+#' @concept applied
+NULL 
+
+#' Serious Infections in Pediatric Inflammatory Bowel Disease 2002-2017-A Nationwide Cohort Study (2021) \emph{The Journal of pediatrics}
+#' 
+#' Ludvigsson, JF; Sachs, MC; Järås, J; Malmborg, P; Olén, O
+#' 
+#' The Journal of pediatrics (2021). 66-73.e1.:NA. \url{http://www.ncbi.nlm.nih.gov/pubmed/34216628}
+#' @name apLudvigsson2021Serious
+#' @concept applied
+NULL 
+
 #' Drug survival of anti-TNF agents compared with vedolizumab as a second-line biological treatment in inflammatory bowel disease: results from nationwide Swedish registers (2021) \emph{ALIMENTARY PHARMACOLOGY & THERAPEUTICS}
 #' 
 #' Rundquist, S; Sachs, MC; Eriksson, C; Olen, O; Montgomery, S; Halfvarson, J; SWIBREGStudyGrp
 #' 
 #' ALIMENTARY PHARMACOLOGY & THERAPEUTICS (2021). 471-483:53. \url{http://www.ncbi.nlm.nih.gov/pubmed/33340426}
-#' @name aaRundquist2021Drug
+#' @name aqRundquist2021Drug
 #' @concept applied
 NULL 
 
@@ -12,7 +156,7 @@ NULL
 #' Rundquist, S; Sachs, MC; Eriksson, C; Ol<e9>n, O; Montgomery, S; Halfvarson, J
 #' 
 #' Alimentary pharmacology & therapeutics (2021). 642-643:53. \url{http://www.ncbi.nlm.nih.gov/pubmed/33566420}
-#' @name abRundquist2021Editorial:
+#' @name arRundquist2021Editorial:
 #' @concept applied
 NULL 
 
@@ -21,7 +165,7 @@ NULL
 #' Axelrad, JE; Ol<e9>n, O; Sachs, MC; Erichsen, R; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; S<f8>rensen, HT; Ludvigsson, JF
 #' 
 #' Gut (2021). 297-308:70. \url{http://www.ncbi.nlm.nih.gov/pubmed/32474410}
-#' @name acAxelrad2021Inflammatory
+#' @name asAxelrad2021Inflammatory
 #' @concept applied
 NULL 
 
@@ -30,7 +174,7 @@ NULL
 #' Lochhead, P; Khalili, H; Sachs, MC; Chan, AT; Ol<e9>n, O; Ludvigsson, JF
 #' 
 #' Journal of Crohn's & colitis (2021). NA:NA. \url{http://www.ncbi.nlm.nih.gov/pubmed/33474560}
-#' @name adLochhead2021Statin
+#' @name atLochhead2021Statin
 #' @concept applied
 NULL 
 
@@ -39,7 +183,7 @@ NULL
 #' Mouratidou, N; Malmborg, P; Sachs, MC; Askling, J; Ekbom, A; Neovius, M; Smedby, KE; S<e4>vendahl, L; Ludvigsson, JF; Ol<e9>n, O
 #' 
 #' Alimentary pharmacology & therapeutics (2020). 789-800:51. \url{http://www.ncbi.nlm.nih.gov/pubmed/32133656}
-#' @name aeMouratidou2020Adult
+#' @name auMouratidou2020Adult
 #' @concept applied
 NULL 
 
@@ -48,7 +192,7 @@ NULL
 #' Sachs, MC; Sj<f6>lander, A; Gabriel, EE
 #' 
 #' Epidemiology (Cambridge, Mass.) (2020). 359-364:31. \url{http://www.ncbi.nlm.nih.gov/pubmed/32091429}
-#' @name afSachs2020Aim
+#' @name avSachs2020Aim
 #' @concept methods
 NULL 
 
@@ -57,7 +201,7 @@ NULL
 #' Axelrad, JE; Sachs, MC; Ludvigsson, JF; Ol<e9>n, O; SWIBREGStudyGroup
 #' 
 #' Clinical epidemiology (2020). 1059-1072:12. \url{http://www.ncbi.nlm.nih.gov/pubmed/33116900}
-#' @name agAxelrad2020A
+#' @name awAxelrad2020A
 #' @concept methods
 NULL 
 
@@ -66,7 +210,7 @@ NULL
 #' Lochhead, P; Khalili, H; Sachs, MC; Chan, AT; Ol<e9>n, O; Ludvigsson, JF
 #' 
 #' Journal of Crohn's & colitis (2020). NA:NA. \url{http://www.ncbi.nlm.nih.gov/pubmed/33216873}
-#' @name ahLochhead2020Association
+#' @name axLochhead2020Association
 #' @concept applied
 NULL 
 
@@ -75,7 +219,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Follmann, DA; Andersson, TML
 #' 
 #' BIOMETRICS (2020). 1053-1063:76. \url{http://www.ncbi.nlm.nih.gov/pubmed/31868914}
-#' @name aiGabriel2020A
+#' @name ayGabriel2020A
 #' @concept methods
 NULL 
 
@@ -84,7 +228,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Sjolander, A
 #' 
 #' JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION (2020). NA:NA. \url{NA}
-#' @name ajGabriel2020Causal
+#' @name azGabriel2020Causal
 #' @concept methods
 NULL 
 
@@ -93,7 +237,7 @@ NULL
 #' Ol<e9>n, O; Erichsen, R; Sachs, MC; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; S<f8>rensen, HT; Ludvigsson, JF
 #' 
 #' The lancet. Gastroenterology & hepatology (2020). 475-484:5. \url{http://www.ncbi.nlm.nih.gov/pubmed/32066530}
-#' @name akOl<U+653C><U+3E39>n2020Colorectal
+#' @name baOl<U+653C><U+3E39>n2020Colorectal
 #' @concept applied
 NULL 
 
@@ -102,7 +246,7 @@ NULL
 #' Ol<e9>n, O; Erichsen, R; Sachs, MC; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; S<f8>rensen, HT; Ludvigsson, JF
 #' 
 #' Lancet (London, England) (2020). 123-131:395. \url{http://www.ncbi.nlm.nih.gov/pubmed/31929014}
-#' @name alOl<U+653C><U+3E39>n2020Colorectal
+#' @name bbOl<U+653C><U+3E39>n2020Colorectal
 #' @concept applied
 NULL 
 
@@ -111,7 +255,7 @@ NULL
 #' Kalman, TD; Everhov, AH; Nordenvall, C; Sachs, MC; Halfvarson, J; Ekbom, A; Ludvigsson, JE; Myrelid, P; Olen, O
 #' 
 #' BRITISH JOURNAL OF SURGERY (2020). 1529-1538:107. \url{http://www.ncbi.nlm.nih.gov/pubmed/32452553}
-#' @name amKalman2020Decrease
+#' @name bcKalman2020Decrease
 #' @concept applied
 NULL 
 
@@ -120,7 +264,7 @@ NULL
 #' Everhov, <c5>H; Erichsen, R; Sachs, MC; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; Ludvigsson, JF; S<f8>rensen, HT; Ol<e9>n, O
 #' 
 #' Alimentary pharmacology & therapeutics (2020). 143-154:52. \url{http://www.ncbi.nlm.nih.gov/pubmed/32412143}
-#' @name anEverhov2020Inflammatory
+#' @name bdEverhov2020Inflammatory
 #' @concept applied
 NULL 
 
@@ -129,7 +273,7 @@ NULL
 #' Khalili, H; Burke, KE; Roelstraete, B; Sachs, MC; Ol<e9>n, O; Ludvigsson, JF
 #' 
 #' Gastroenterology (2020). 1574-1583.e2:158. \url{http://www.ncbi.nlm.nih.gov/pubmed/31926169}
-#' @name aoKhalili2020Microscopic
+#' @name beKhalili2020Microscopic
 #' @concept applied
 NULL 
 
@@ -138,7 +282,7 @@ NULL
 #' Ol<e9>n, O; Askling, J; Sachs, MC; Neovius, M; Smedby, KE; Ekbom, A; Ludvigsson, JF
 #' 
 #' Gut (2020). 453-461:69. \url{http://www.ncbi.nlm.nih.gov/pubmed/31092591}
-#' @name apOl<U+653C><U+3E39>n2020Mortality
+#' @name bfOl<U+653C><U+3E39>n2020Mortality
 #' @concept applied
 NULL 
 
@@ -147,7 +291,7 @@ NULL
 #' Khalili, H; Bergman, D; Roelstraete, B; Burke, KE; Sachs, MC; Ol<e9>n, O; Ludvigsson, JF
 #' 
 #' Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association (2020). 2491-2499.e3:18. \url{http://www.ncbi.nlm.nih.gov/pubmed/31857243}
-#' @name aqKhalili2020Mortality
+#' @name bgKhalili2020Mortality
 #' @concept applied
 NULL 
 
@@ -156,7 +300,7 @@ NULL
 #' Axelrad, JE; Ol<e9>n, O; Sachs, MC; Erichsen, R; Pedersen, L; Halfvarson, J; Askling, J; Ekbom, A; S<f8>rensen, HT; Ludvigsson, JF
 #' 
 #' Gut (2020). NA:NA. \url{http://www.ncbi.nlm.nih.gov/pubmed/32873695}
-#' @name arAxelrad2020Reply:
+#' @name bhAxelrad2020Reply:
 #' @concept applied
 NULL 
 
@@ -165,7 +309,7 @@ NULL
 #' Shrestha, S; Ol<e9>n, O; Eriksson, C; Everhov, <c5>H; Myrelid, P; Visuri, I; Ludvigsson, JF; Schoultz, I; Montgomery, S; Sachs, MC; Halfvarson, J; Olsson, M; Hjortswang, H; Bengtsson, J; Strid, H; Andersson, M; J<e4>ghult, S; Eberhardson, M; Nordenvall, C; Bj<f6>rk, J; Fagerberg, UL; Rejler, M; Grip, O; Karling, P; Block, M; Angenete, E; Hellstr<f6>m, PM; Gustavsson, A; SWIBREGStudyGroup
 #' 
 #' Scandinavian journal of gastroenterology (2020). 430-435:55. \url{http://www.ncbi.nlm.nih.gov/pubmed/32370571}
-#' @name asShrestha2020The
+#' @name biShrestha2020The
 #' @concept methods
 NULL 
 
@@ -174,7 +318,7 @@ NULL
 #' Liu, B; Wanders, A; Wirdefeldt, K; Sj<f6>lander, A; Sachs, MC; Eberhardson, M; Ye, W; Ekbom, A; Ol<e9>n, O; Ludvigsson, JF
 #' 
 #' Alimentary pharmacology & therapeutics (2020). 1022-1030:51. \url{http://www.ncbi.nlm.nih.gov/pubmed/32319125}
-#' @name atLiu2020Vagotomy
+#' @name bjLiu2020Vagotomy
 #' @concept applied
 NULL 
 
@@ -183,7 +327,7 @@ NULL
 #' Everhov, <c5>H; Sachs, MC; Ludvigsson, JF; Khalili, H; Askling, J; Neovius, M; Myrelid, P; Halfvarson, J; Nordenvall, C; S<f6>derling, J; Ol<e9>n, O; SWIBREGstudygroup
 #' 
 #' Clinical epidemiology (2020). 273-285:12. \url{http://www.ncbi.nlm.nih.gov/pubmed/32210631}
-#' @name auEverhov2020Work
+#' @name bkEverhov2020Work
 #' @concept applied
 NULL 
 
@@ -192,7 +336,7 @@ NULL
 #' Weimers, P; Halfvarson, J; Sachs, MC; Ludvigsson, JF; Peter, I; Ol<e9>n, O; Burisch, J
 #' 
 #' Gut (2019). 175-176:68. \url{http://www.ncbi.nlm.nih.gov/pubmed/30021791}
-#' @name avWeimers2019Association
+#' @name blWeimers2019Association
 #' @concept applied
 NULL 
 
@@ -201,7 +345,7 @@ NULL
 #' Everhov, <c5>H; Sachs, MC; Malmborg, P; Nordenvall, C; Myrelid, P; Khalili, H; Elmberg, M; Ekbom, A; Askling, J; Jakobsson, G; Halfvarson, J; Ludvigsson, JF; Ol<e9>n, O
 #' 
 #' Scandinavian journal of gastroenterology (2019). 55-63:54. \url{http://www.ncbi.nlm.nih.gov/pubmed/30700170}
-#' @name awEverhov2019Changes
+#' @name bmEverhov2019Changes
 #' @concept applied
 NULL 
 
@@ -210,7 +354,7 @@ NULL
 #' Malmborg, P; Mouratidou, N; Sachs, MC; Hammar, U; Khalili, H; Neovius, M; Hjern, A; Smedby, KE; Ekbom, A; Askling, J; Ludvigsson, JF; Ol<e9>n, O
 #' 
 #' Inflammatory bowel diseases (2019). 1663-1673:25. \url{http://www.ncbi.nlm.nih.gov/pubmed/30916332}
-#' @name axMalmborg2019Effects
+#' @name bnMalmborg2019Effects
 #' @concept applied
 NULL 
 
@@ -219,7 +363,7 @@ NULL
 #' Sachs, MC; Discacciati, A; Everhov, AH; Olen, O; Gabriel, EE
 #' 
 #' JOURNAL OF THE ROYAL STATISTICAL SOCIETY SERIES C-APPLIED STATISTICS (2019). 1431-1446:68. \url{NA}
-#' @name aySachs2019Ensemble
+#' @name boSachs2019Ensemble
 #' @concept methods
 NULL 
 
@@ -228,7 +372,7 @@ NULL
 #' Ludvigsson, JF; Mahl, M; Sachs, MC; Bj<f6>rk, J; Michaelsson, K; Ekbom, A; Askling, J; Backman, AS; Ol<e9>n, O
 #' 
 #' The American journal of gastroenterology (2019). 291-304:114. \url{http://www.ncbi.nlm.nih.gov/pubmed/30730858}
-#' @name azLudvigsson2019Fracture
+#' @name bpLudvigsson2019Fracture
 #' @concept applied
 NULL 
 
@@ -237,7 +381,7 @@ NULL
 #' Bj<f6>rkman, A; Shakely, D; Ali, AS; Morris, U; Mkali, H; Abbas, AK; Al-Mafazy, AW; Haji, KA; Mcha, J; Omar, R; Cook, J; Elfving, K; Petzold, M; Sachs, MC; Aydin-Schmidt, B; Drakeley, C; Msellem, M; M<e5>rtensson, A
 #' 
 #' BMC medicine (2019). 14:17. \url{http://www.ncbi.nlm.nih.gov/pubmed/30665398}
-#' @name baBj<U+663C><U+3E36>rkman2019From
+#' @name bqBj<U+663C><U+3E36>rkman2019From
 #' @concept applied
 NULL 
 
@@ -246,7 +390,7 @@ NULL
 #' Axelrad, JE; Ol<e9>n, O; Askling, J; Lebwohl, B; Khalili, H; Sachs, MC; Ludvigsson, JF
 #' 
 #' Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association (2019). 1311-1322.e7:17. \url{http://www.ncbi.nlm.nih.gov/pubmed/30389589}
-#' @name bbAxelrad2019Gastrointestinal
+#' @name brAxelrad2019Gastrointestinal
 #' @concept applied
 NULL 
 
@@ -255,7 +399,7 @@ NULL
 #' Ol<e9>n, O; Askling, J; Sachs, MC; Frumento, P; Neovius, M; Smedby, KE; Ekbom, A; Malmborg, P; Ludvigsson, JF
 #' 
 #' Gastroenterology (2019). 614-622:156. \url{http://www.ncbi.nlm.nih.gov/pubmed/30342031}
-#' @name bcOl<U+653C><U+3E39>n2019Increased
+#' @name bsOl<U+653C><U+3E39>n2019Increased
 #' @concept applied
 NULL 
 
@@ -264,7 +408,7 @@ NULL
 #' Weimers, P; Halfvarson, J; Sachs, MC; Saunders-Pullman, R; Ludvigsson, JF; Peter, I; Burisch, J; Ol<e9>n, O
 #' 
 #' Inflammatory bowel diseases (2019). 111-123:25. \url{http://www.ncbi.nlm.nih.gov/pubmed/29788069}
-#' @name bdWeimers2019Inflammatory
+#' @name btWeimers2019Inflammatory
 #' @concept applied
 NULL 
 
@@ -273,7 +417,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Daniels, MJ; Halloran, ME
 #' 
 #' Statistics in medicine (2019). 1135-1146:38. \url{http://www.ncbi.nlm.nih.gov/pubmed/30306600}
-#' @name beGabriel2019Optimizing
+#' @name buGabriel2019Optimizing
 #' @concept methods
 NULL 
 
@@ -282,7 +426,7 @@ NULL
 #' Carithers, LJ; Agarwal, R; Guan, P; Odeh, H; Sachs, MC; Engel, KB; Greytak, SR; Barcus, M; Soria, C; Lih, CJ; Williams, PM; Branton, PA; Sobin, L; Fombonne, B; Bocklage, T; Andry, C; Duffy, ER; Sica, G; Dhir, R; Jewell, S; Roche, N; Moore, HM; NationalCancerInstituteBiospecimenPreanalyticalVariablesResearchProgram
 #' 
 #' Archives of pathology & laboratory medicine (2019). 1106-1118:143. \url{http://www.ncbi.nlm.nih.gov/pubmed/30785788}
-#' @name bfCarithers2019The
+#' @name bvCarithers2019The
 #' @concept methods
 NULL 
 
@@ -291,7 +435,7 @@ NULL
 #' Sachs, MC
 #' 
 #' The American journal of gastroenterology (2019). 830-831:114. \url{http://www.ncbi.nlm.nih.gov/pubmed/31082841}
-#' @name bgSachs2019The
+#' @name bwSachs2019The
 #' @concept methods
 NULL 
 
@@ -300,7 +444,7 @@ NULL
 #' Morris, U; Msellem, MI; Mkali, H; Islam, A; Aydin-Schmidt, B; Jovel, I; Shija, SJ; Khamis, M; Ali, SM; Hodzic, L; Magnusson, E; Poirot, E; Bennett, A; Sachs, MC; Tarning, J; M<e5>rtensson, A; Ali, AS; Bj<f6>rkman, A
 #' 
 #' BMC medicine (2018). 215:16. \url{http://www.ncbi.nlm.nih.gov/pubmed/30526588}
-#' @name bhMorris2018A
+#' @name bxMorris2018A
 #' @concept applied
 NULL 
 
@@ -309,7 +453,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Halloran, ME
 #' 
 #' Biostatistics (Oxford, England) (2018). 307-324:19. \url{http://www.ncbi.nlm.nih.gov/pubmed/28968890}
-#' @name biGabriel2018Evaluation
+#' @name byGabriel2018Evaluation
 #' @concept methods
 NULL 
 
@@ -318,7 +462,7 @@ NULL
 #' Everhov, <c5>H; Halfvarson, J; Myrelid, P; Sachs, MC; Nordenvall, C; S<f6>derling, J; Ekbom, A; Neovius, M; Ludvigsson, JF; Askling, J; Ol<e9>n, O
 #' 
 #' Gastroenterology (2018). 518-528.e15:154. \url{http://www.ncbi.nlm.nih.gov/pubmed/29102619}
-#' @name bjEverhov2018Incidence
+#' @name bzEverhov2018Incidence
 #' @concept applied
 NULL 
 
@@ -327,7 +471,7 @@ NULL
 #' Fay, MP; Sachs, MC; Miura, K
 #' 
 #' Statistics in medicine (2018). 519-529:37. \url{http://www.ncbi.nlm.nih.gov/pubmed/29052234}
-#' @name bkFay2018Measuring
+#' @name caFay2018Measuring
 #' @concept methods
 NULL 
 
@@ -336,7 +480,7 @@ NULL
 #' Ammerlaan, W; Trouet, J; Sachs, MC; Guan, P; Carithers, L; Lambert, P; Frasquilho, S; Antunes, L; Kofanova, O; Rohrer, D; Valley, DR; Blanski, A; Jewell, S; Moore, H; Betsou, F
 #' 
 #' Biopreservation and biobanking (2018). 467-476:16. \url{http://www.ncbi.nlm.nih.gov/pubmed/30234371}
-#' @name blAmmerlaan2018Small
+#' @name cbAmmerlaan2018Small
 #' @concept methods
 NULL 
 
@@ -345,7 +489,7 @@ NULL
 #' Ol<e9>n, O; Askling, J; Sachs, MC; Frumento, P; Neovius, M; Smedby, KE; Ekbom, A; Malmborg, P; Ludvigsson, JF
 #' 
 #' BMJ (Clinical research ed.) (2017). j3951:358. \url{http://www.ncbi.nlm.nih.gov/pubmed/28931512}
-#' @name bmOl<U+653C><U+3E39>n2017Childhood
+#' @name ccOl<U+653C><U+3E39>n2017Childhood
 #' @concept applied
 NULL 
 
@@ -354,7 +498,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Gilbert, PB
 #' 
 #' STATISTICS IN MEDICINE (2017). 3440:36. \url{http://www.ncbi.nlm.nih.gov/pubmed/28776727}
-#' @name bnGabriel2017Comparing
+#' @name cdGabriel2017Comparing
 #' @concept methods
 NULL 
 
@@ -363,7 +507,7 @@ NULL
 #' Lucas, JL; Tacheny, EA; Ferris, A; Galusha, M; Srivastava, AK; Ganguly, A; Williams, PM; Sachs, MC; Thurin, M; Tricoli, JV; Ricker, W; Gildersleeve, JC
 #' 
 #' PLOS ONE (2017). e0182739:12. \url{http://www.ncbi.nlm.nih.gov/pubmed/28771597}
-#' @name boLucas2017Development
+#' @name ceLucas2017Development
 #' @concept applied
 NULL 
 
@@ -372,7 +516,7 @@ NULL
 #' Sachs, MC
 #' 
 #' JOURNAL OF STATISTICAL SOFTWARE (2017). NA:79. \url{http://www.ncbi.nlm.nih.gov/pubmed/30686944}
-#' @name bpSachs2017plotROC:
+#' @name cfSachs2017plotROC:
 #' @concept methods
 NULL 
 
@@ -381,7 +525,7 @@ NULL
 #' Sachs, MC; Gabriel, EE
 #' 
 #' The R journal (2016). 277-292:8. \url{http://www.ncbi.nlm.nih.gov/pubmed/29354294}
-#' @name bqSachs2016An
+#' @name cgSachs2016An
 #' @concept methods
 NULL 
 
@@ -390,7 +534,7 @@ NULL
 #' Sachs, MC; McShane, LM
 #' 
 #' Journal of biopharmaceutical statistics (2016). 1098-1110:26. \url{http://www.ncbi.nlm.nih.gov/pubmed/27561083}
-#' @name brSachs2016Issues
+#' @name chSachs2016Issues
 #' @concept methods
 NULL 
 
@@ -399,7 +543,7 @@ NULL
 #' Korn, EL; Sachs, MC; McShane, LM
 #' 
 #' ANNALS OF ONCOLOGY (2016). 05-Oct:27. \url{http://www.ncbi.nlm.nih.gov/pubmed/26489443}
-#' @name bsKorn2016Statistical
+#' @name ciKorn2016Statistical
 #' @concept methods
 NULL 
 
@@ -408,7 +552,7 @@ NULL
 #' Gabriel, EE; Sachs, MC; Gilbert, PB
 #' 
 #' STATISTICS IN MEDICINE (2015). 381-95:34. \url{http://www.ncbi.nlm.nih.gov/pubmed/25352131}
-#' @name btGabriel2015Comparing
+#' @name cjGabriel2015Comparing
 #' @concept methods
 NULL 
 
@@ -417,7 +561,7 @@ NULL
 #' Carrick, DM; Mehaffey, MG; Sachs, MC; Altekruse, S; Camalier, C; Chuaqui, R; Cozen, W; Das, B; Hernandez, BY; Lih, CJ; Lynch, CF; Makhlouf, H; McGregor, P; McShane, LM; Rohan, JP; Walsh, WD; Williams, PM; Gillanders, EM; Mechanic, LE; Schully, SD
 #' 
 #' PLOS ONE (2015). e0127353:10. \url{http://www.ncbi.nlm.nih.gov/pubmed/26222067}
-#' @name buCarrick2015Robustness
+#' @name ckCarrick2015Robustness
 #' @concept methods
 NULL 
 
@@ -426,7 +570,7 @@ NULL
 #' Sachs, MC
 #' 
 #' Chinese clinical oncology (2015). 29:4. \url{http://www.ncbi.nlm.nih.gov/pubmed/26408296}
-#' @name bvSachs2015Statistical
+#' @name clSachs2015Statistical
 #' @concept methods
 NULL 
 
@@ -435,7 +579,7 @@ NULL
 #' vanBallegooijen, AJ; Kestenbaum, B; Sachs, MC; deBoer, IH; Siscovick, DS; Hoofnagle, AN; Ix, JH; Visser, M; Brouwer, IA
 #' 
 #' JOURNAL OF THE AMERICAN COLLEGE OF CARDIOLOGY (2014). 1214-1222:63. \url{http://www.ncbi.nlm.nih.gov/pubmed/24480627}
-#' @name bwvanBallegooijen2014Association
+#' @name cmvanBallegooijen2014Association
 #' @concept applied
 NULL 
 
@@ -444,7 +588,7 @@ NULL
 #' Ringman, JM; Sachs, MC; Zhou, Y; Monsell, SE; Saver, JL; Vinters, HV
 #' 
 #' JAMA NEUROLOGY (2014). 878-83:71. \url{http://www.ncbi.nlm.nih.gov/pubmed/24797962}
-#' @name bxRingman2014Clinical
+#' @name cnRingman2014Clinical
 #' @concept applied
 NULL 
 
@@ -453,7 +597,7 @@ NULL
 #' deBoer, IH; Sachs, MC; Chonchol, M; Himmelfarb, J; Hoofnagle, AN; Ix, JH; Kremsdorf, RA; Lin, YS; Mehrotra, R; Robinson-Cohen, C; Siscovick, DS; Steffes, MW; Thummel, KE; Tracy, RP; Wang, ZC; Kestenbaum, B
 #' 
 #' AMERICAN JOURNAL OF KIDNEY DISEASES (2014). 187-97:64. \url{http://www.ncbi.nlm.nih.gov/pubmed/24703961}
-#' @name bydeBoer2014Estimated
+#' @name codeBoer2014Estimated
 #' @concept applied
 NULL 
 
@@ -462,7 +606,7 @@ NULL
 #' Kestenbaum, B; Sachs, MC; Hoofnagle, AN; Siscovick, DS; Ix, JH; Robinson-Cohen, C; Lima, JAC; Polak, JF; Blondon, M; Ruzinski, J; Rock, D; deBoer, IH
 #' 
 #' CIRCULATION-HEART FAILURE (2014). 409-17:7. \url{http://www.ncbi.nlm.nih.gov/pubmed/24668259}
-#' @name bzKestenbaum2014Fibroblast
+#' @name cpKestenbaum2014Fibroblast
 #' @concept applied
 NULL 
 
@@ -471,7 +615,7 @@ NULL
 #' Mathew, JS; Sachs, MC; Katz, R; Patton, KK; Heckbert, SR; Hoofnagle, AN; Alonso, A; Chonchol, M; Deo, R; Ix, JH; Siscovick, DS; Kestenbaum, B; deBoer, IH
 #' 
 #' CIRCULATION (2014). 298-307:130. \url{http://www.ncbi.nlm.nih.gov/pubmed/24920722}
-#' @name caMathew2014Fibroblast
+#' @name cqMathew2014Fibroblast
 #' @concept applied
 NULL 
 
@@ -480,7 +624,7 @@ NULL
 #' Robinson-Cohen, C; Littman, AJ; Duncan, GE; Weiss, NS; Sachs, MC; Ruzinski, J; Kundzins, J; Rock, D; deBoer, IH; Ikizler, TA; Himmelfarb, J; Kestenbaum, BR
 #' 
 #' JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY (2014). 399-406:25. \url{http://www.ncbi.nlm.nih.gov/pubmed/24335971}
-#' @name cbRobinson-Cohen2014Physical
+#' @name crRobinson-Cohen2014Physical
 #' @concept applied
 NULL 
 
@@ -489,7 +633,7 @@ NULL
 #' Linefsky, JP; O'Brien, KD; Sachs, M; Katz, R; Eng, J; Michos, ED; Budoff, MJ; deBoer, I; Kestenbaum, B
 #' 
 #' ATHEROSCLEROSIS (2014). 331-337:233. \url{http://www.ncbi.nlm.nih.gov/pubmed/24530958}
-#' @name ccLinefsky2014Serum
+#' @name csLinefsky2014Serum
 #' @concept applied
 NULL 
 
@@ -498,7 +642,7 @@ NULL
 #' Blondon, M; Sachs, M; Hoofnagle, AN; Ix, JH; Michos, ED; Korcarz, C; Gepner, AD; Siscovick, DS; Kaufman, JD; Stein, JH; Kestenbaum, B; deBoer, IH
 #' 
 #' ARTERIOSCLEROSIS THROMBOSIS AND VASCULAR BIOLOGY (2013). 2639-45:33. \url{http://www.ncbi.nlm.nih.gov/pubmed/23814117}
-#' @name cdBlondon201325-Hydroxyvitamin
+#' @name ctBlondon201325-Hydroxyvitamin
 #' @concept applied
 NULL 
 
@@ -506,8 +650,8 @@ NULL
 #' 
 #' Sachs, MC; Brunzell, JD; Cleary, PA; Hoofnagle, AN; Lachin, JM; Molitch, ME; Steffes, MW; Zinman, B; deBoer, IH; DiabetControlComplicationsTrial
 #' 
-#' DIABETES CARE (2013). Sep-23:36. \url{http://www.ncbi.nlm.nih.gov/pubmed/23530012}
-#' @name ceSachs2013Circulating
+#' DIABETES CARE (2013). 23-Sep:36. \url{http://www.ncbi.nlm.nih.gov/pubmed/23530012}
+#' @name cuSachs2013Circulating
 #' @concept applied
 NULL 
 
@@ -516,7 +660,7 @@ NULL
 #' Sachs, MC; Shoben, A; Levin, GP; Robinson-Cohen, C; Hoofnagle, AN; Swords-Jenny, N; Ix, JH; Budoff, M; Lutsey, PL; Siscovick, DS; Kestenbaum, B; deBoer, IH
 #' 
 #' AMERICAN JOURNAL OF CLINICAL NUTRITION (2013). 1243-51:97. \url{http://www.ncbi.nlm.nih.gov/pubmed/23615830}
-#' @name cfSachs2013Estimating
+#' @name cvSachs2013Estimating
 #' @concept methods
 NULL 
 
@@ -525,7 +669,7 @@ NULL
 #' Afkarian, M; Sachs, MC; Kestenbaum, B; Hirsch, IB; Tuttle, KR; Hinnmelfarb, J; deBoer, IH
 #' 
 #' JOURNAL OF THE AMERICAN SOCIETY OF NEPHROLOGY (2013). 302-8:24. \url{http://www.ncbi.nlm.nih.gov/pubmed/23362314}
-#' @name cgAfkarian2013Kidney
+#' @name cwAfkarian2013Kidney
 #' @concept applied
 NULL 
 
@@ -534,7 +678,7 @@ NULL
 #' Mehrotra, R; Peralta, CA; Chen, SC; Li, SY; Sachs, M; Shah, A; Norris, K; Saab, G; Whaley-Connell, A; Kestenbaum, B; McCullough, PA; KidneyEarlyEvaluationProgram
 #' 
 #' KIDNEY INTERNATIONAL (2013). 989-97:84. \url{http://www.ncbi.nlm.nih.gov/pubmed/23615501}
-#' @name chMehrotra2013No
+#' @name cxMehrotra2013No
 #' @concept applied
 NULL 
 
@@ -543,7 +687,7 @@ NULL
 #' Bosworth, C; Sachs, MC; Duprez, D; Hoofnagle, AN; Ix, JH; Jacobs, DR; Peralta, CA; Siscovick, DS; Kestenbaum, B; deBoer, IH
 #' 
 #' CLINICAL ENDOCRINOLOGY (2013). 429-36:79. \url{http://www.ncbi.nlm.nih.gov/pubmed/23402353}
-#' @name ciBosworth2013Parathyroid
+#' @name cyBosworth2013Parathyroid
 #' @concept applied
 NULL 
 
@@ -552,7 +696,7 @@ NULL
 #' deBoer, IH; Sachs, M; Hoofnagle, AN; Utzschneider, KM; Kahn, SE; Kestenbaum, B; Himmelfarb, J
 #' 
 #' KIDNEY INTERNATIONAL (2013). 323-30:83. \url{http://www.ncbi.nlm.nih.gov/pubmed/22913981}
-#' @name cjdeBoer2013Paricalcitol
+#' @name czdeBoer2013Paricalcitol
 #' @concept applied
 NULL 
 
@@ -561,7 +705,7 @@ NULL
 #' Sachs, MC; Zhou, XH
 #' 
 #' BIOMETRICAL JOURNAL (2013). 589-602:55. \url{http://www.ncbi.nlm.nih.gov/pubmed/23508801}
-#' @name ckSachs2013Partial
+#' @name daSachs2013Partial
 #' @concept methods
 NULL 
 
@@ -570,7 +714,7 @@ NULL
 #' Robinson-Cohen, C; Hoofnagle, AN; Ix, JH; Sachs, MC; Tracy, RP; Siscovick, DS; Kestenbaum, BR; deBoer, IH
 #' 
 #' JAMA-JOURNAL OF THE AMERICAN MEDICAL ASSOCIATION (2013). 179-88:310. \url{http://www.ncbi.nlm.nih.gov/pubmed/23839752}
-#' @name clRobinson-Cohen2013Racial
+#' @name dbRobinson-Cohen2013Racial
 #' @concept applied
 NULL 
 
@@ -579,7 +723,7 @@ NULL
 #' deBoer, IH; Sachs, MC; Cleary, PA; Hoofnagle, AN; Lachin, JM; Molitch, ME; Steffes, MW; Sun, WJ; Zinman, B; Brunzell, JD; DiabetControlComplicationTrial
 #' 
 #' JOURNAL OF CLINICAL ENDOCRINOLOGY & METABOLISM (2012). Aug-80:97. \url{http://www.ncbi.nlm.nih.gov/pubmed/22990096}
-#' @name cmdeBoer2012Circulating
+#' @name dcdeBoer2012Circulating
 #' @concept applied
 NULL 
 
@@ -588,7 +732,7 @@ NULL
 #' Hernandez, S; McClendon, MJ; Zhou, XH; Sachs, M; Lerner, AJ
 #' 
 #' Journal of Alzheimer's disease : JAD (2010). 665-72:19. \url{http://www.ncbi.nlm.nih.gov/pubmed/20110610}
-#' @name cnHernandez2010Pharmacological
+#' @name ddHernandez2010Pharmacological
 #' @concept applied
 NULL 
 
@@ -597,7 +741,7 @@ NULL
 #' Newman, AB; Arnold, AM; Sachs, MC; Ives, DG; Cushman, M; Strotmeyer, ES; Ding, JZ; Kritchevsky, SB; Chaves, PHM; Fried, LP; Robbins, J
 #' 
 #' JOURNAL OF THE AMERICAN GERIATRICS SOCIETY (2009). 432-40:57. \url{http://www.ncbi.nlm.nih.gov/pubmed/19187412}
-#' @name coNewman2009Long-Term
+#' @name deNewman2009Long-Term
 #' @concept applied
 NULL 
 
@@ -606,7 +750,7 @@ NULL
 #' Sachs, MC; Enright, PL; Stukovsky, KDH; Jiang, R; Barr, RG; Multi-EthnicStudyAtherosclerosis
 #' 
 #' RESPIRATORY CARE (2009). 1321-8:54. \url{http://www.ncbi.nlm.nih.gov/pubmed/19796411}
-#' @name cpSachs2009Performance
+#' @name dfSachs2009Performance
 #' @concept applied
 NULL 
 
@@ -615,7 +759,7 @@ NULL
 #' Newman, AB; Sachs, MC; Arnold, AM; Fried, LP; Kronmal, R; Cushman, M; Psaty, BM; Harris, TB; Robbins, JA; Burke, GL; Kuller, LH; Lumley, T
 #' 
 #' JOURNALS OF GERONTOLOGY SERIES A-BIOLOGICAL SCIENCES AND MEDICAL SCIENCES (2009). 1251-61:64. \url{http://www.ncbi.nlm.nih.gov/pubmed/19723772}
-#' @name cqNewman2009Total
+#' @name dgNewman2009Total
 #' @concept applied
 NULL 
 
