@@ -1,7 +1,7 @@
 ---
-title: "Event History Regression with Pseudo-Observations: Computational Approaches and an Implementation in R"
+title: "Recent advances in regression modeling of censored time-to-event outcomes using pseudo-observations"
 author: "Michael Sachs, Erin Gabriel"
-date: "2021-12-13"
+date: "2022-06-09"
 output:
   xaringan::moon_reader:
     css: ["default", "ki.css", "ki-fonts.css"]
@@ -336,7 +336,7 @@ cumincglm(Surv(time, status) ~ rx + age, time = 2500,
 
 ```
 
-With $I_i = 1\{C_i \geq \min(T_i, t)\}$ and $\tilde{V}_i = 1\{T_i < t\}$ if $T_i > C_i$ and 0 otherwise, these are estimated using 
+With $I_i = 1\{C_i \geq \min(T_i, t)\}$ and $\tilde{V}_i = 1\{T_i < t\}$ if $T_i < C_i$ and 0 otherwise, these are estimated using 
 
 $$\hat{\theta}^b = n^{-1}\sum_{i = 1}^n \frac{\tilde{V}_iI_i}{\hat{G}\{\min(\tilde{T}_i, t^*); \tilde{X}_i\}} \mbox{ or } \hat{\theta}^h = \frac{\sum_{i = 1}^n \tilde{V}_iw_i}{\sum_{i = 1}^n w_i}$$
 
@@ -492,11 +492,45 @@ pseudo_infjack <- function(formula, time, cause = 1, data,
      POi <- matrix(pstate, nrow = marginal.estimate2$n, 
                    ncol = length(time), byrow = TRUE) +
          (marginal.estimate2$n) *
-         (marginal.estimate2$influence.surv[, tdex + 1]) #<<
+         (marginal.estimate2$influence.surv[, tdex]) #<<
      
      POi
 }
 ```
+
+
+---
+
+# More general models
+
+- Since `survfit` can be used to fit general multi-state models, this infinitesimal jackknife opens up lots of new possibilities. 
+- Let $E_i$ denote the entry time into the study, this could be determined by, e.g., some other event occuring, if we are studying the time from complete response to death. 
+- In addition to the other assumptions regarding right censoring, we need the entry time to be completely independent for the pseudo observation method to work. 
+
+Then it is as easy as specifying the start time in the call to `Surv`: 
+
+```{r echo = TRUE, eval = FALSE}
+tinf <- cumincglm(Surv(tstart, tstop, death) ~ trt, data = mdata,
+          time = 750, model.censoring = "infjack")
+```
+
+In a more general multi-state model, a similar approach can be implemented to model cumulative quantities in the model the probability of being in a state at a fixed time, or the expected length of stay in a state up to a fixed time. 
+
+---
+
+# Simultaneous inference
+
+- In multi-state models, it is often of interest to test for exposure effects on multiple outcomes simultaneously, e.g., does treatment reduce time to recurrence or death? 
+- Furberg et al. 2021, developed the idea of specifying two models, one for each outcome type, then stacking the estimating equations to simultaneously estimate covariate effects on different outcomes, say $(\hat{\beta}, \hat{\gamma})$ and their covariance $\hat{\Sigma}$.
+- Then one can do the joint test using the Wald statistic
+
+$$
+(\hat{\beta}, \hat{\gamma})^\top \hat{\Sigma}^{-1} (\hat{\beta}, \hat{\gamma})
+$$
+
+- They also develop sequential tests, and hierarchical tests motivated by trials of treatments for cardiovascular disease. 
+- Noninferiority for death, superiority for recurrent heart attack events
+
 
 ---
 
@@ -515,15 +549,14 @@ pseudo_infjack <- function(formula, time, cause = 1, data,
 
 # For more details
 
-Documentation and vignettes: https://sachsmc.github.io/eventglm
+Documentation and vignettes: https://sachsmc.github.io/eventglm/
 
-Paper to appear in _Journal of Statistical Software_
+Tutorial this afternoon! https://sachsmc.github.io/eventglm-tutorial/
 
-Sachs MC, Gabriel EE. eventglm: Regression Models for Event History Outcomes; 2021. R package version 1.2.1; https://cran.r-project.org/package=eventglm.
+Sachs MC, Gabriel EE (2022). “Event History Regression with Pseudo-Observations: Computational
+Approaches and an Implementation in R.” _Journal of Statistical Software_, *102*(9), 1-34.
 
 Gabriel EE, Arkema EV, Sachs MC. Direct modeling of relative and absolute risks in register data: mortality risk in sarcoidosis. _Annals of Epidemiology_. 2021 Nov 11.
-
-Erichsen R, Olén O, Sachs MC, Pedersen L, Halfvarson J, Askling J, Ekbom A, Ludvigsson JF, Sørensen HT. Hepatobiliary Cancer Risk in Patients with Inflammatory Bowel Disease: A Scandinavian Population-Based Cohort Study. _Cancer Epidemiology and Prevention Biomarkers_. 2021 May 1;30(5):886-94.
 
 
 ---
