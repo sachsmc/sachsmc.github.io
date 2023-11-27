@@ -1,0 +1,21 @@
+---
+title: "Courses"
+listing:
+  template: courses.ejs
+  contents:
+    - title: Programming and Statistical Modeling in R
+      path: https://sachsmc.github.io/r-programming/
+      description: The course covers use of the statistical software package R. The aim is to take the intermediate R user to the next level, and make use of programming techniques for more efficient use of R. A key focus in on introducing loops and functions. The course will consist of lectures and exercises over 4 days. This will give the students a chance to use and work with different aspects of R.
+    - title: Theory of survival analysis using counting processes
+      path: https://sachsmc.github.io/surv-theory-course/
+      description: The analysis of survival data is critical in medical research, whether one is studying the lifetimes of cells, tumors, or humans. This course aims to develop an intuitive understanding of the theory of survival analysis methods using counting processes and martingales. This will provide participants with a deeper understanding of survival data analysis methods in medical research, enabling them to better interpret and analyze them.
+    - title: Applied Causal Inference
+      path: https://sachsmc.github.io/applied-causal-inference/
+      description: A short introduction to causal inference with biomedical applications. Includes theory and practical information about causal inference methods including regression standardization, inverse probability weighting, DAGs, and more. 
+    - title: R package development workshop
+      path: https://sachsmc.github.io/rpackage-workshop/index.html
+      description: Aside from the mechanics of packaging R code and basic principles of software development, this 3-day course will focus on development of high quality packages and maximizing their impact. Through a series of examples from existing R packages, participants will learn about different strategies for designing and implementing interfaces to statistical and epidemiological methods. Then, we will summarize the steps one can take to maximize the impact of the R package and to obtain academic credit for one’s efforts.
+    - title: Using the `eventglm` R package for regression modeling of censored time-to-event outcomes
+      path: https://sachsmc.github.io/eventglm-tutorial/index.html
+      description: Self-guided tutorial on using the eventglm R package for analyzing event history (time-to-event) data. 
+---

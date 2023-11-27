@@ -1,0 +1,68 @@
+---
+title: "Publications"
+date: "Updated on `r Sys.Date()`"
+---
+
+
+__Note:__ This list is automatically parsed from my [Google Scholar profile](https://scholar.google.com/citations?user=txzZpf0AAAAJ&hl=en). I do my best to maintain the information, but there may still be inaccuracies present. 
+
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| cache: true
+library(rvest)
+
+parse_element <- function(node) {
+  
+  main <- html_element(node, ".gsc_a_t")
+  year <- html_element(node, ".gsc_a_y") |> html_text()
+  
+  title <- main  |> html_element("a") |> html_text()
+  tmpcite <- main |> html_elements(".gs_gray") |> html_text2()
+  authors_short <- tmpcite[1]
+  reference <- tmpcite[2]
+  
+  link <- paste0("https://scholar.google.com", main  |> html_element("a") |> html_attr("href"))
+  
+  data.frame(title = title, authors = authors_short, reference = reference, year = year, link = link)
+    
+}
+
+google_scholar_url <- "https://scholar.google.com/citations?hl=en&user=txzZpf0AAAAJ&view_op=list_works&sortby=pubdate&pagesize=100&cstart=%s"
+
+cstarts <- c(0, 100, 200) ## i will never have more than 300 pubs
+pubdf <- NULL
+for(i in cstarts) {
+  
+  doc <- read_html(sprintf(google_scholar_url, as.character(i)))
+  publist <- doc |> html_elements(".gsc_a_tr")
+  if((publist |> html_text())[1] == "There are no articles in this profile.") break
+  
+  pubdf <- c(pubdf, lapply(publist, parse_element))
+
+}
+
+pubdf <- do.call(rbind, pubdf)
+```
+
+
+
+```{r}
+#| echo: false
+#| output: asis
+pubdfout <- data.frame(Title = pubdf$title, Authors = pubdf$authors, 
+                       Journal = paste0("_",pubdf$reference, "_"), 
+                      # Year = pubdf$year, 
+                       Link = paste0("<a href=",pubdf$link, " target = '_blank'>Google scholar link</a>"))
+
+for(i in 1:nrow(pubdfout)) {
+  
+  with(pubdfout[i,], cat(paste0(i, "."), Title, ", ", Authors, ".  ", Journal, ". ", Link, "\n"))
+  
+}
+```
+
+
+
+

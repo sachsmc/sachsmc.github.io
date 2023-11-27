@@ -1,0 +1,21 @@
+<% for (const item of items) { %>
+<div class="card-group">
+  <div class = "card border-primary">
+  <div class="card-body">
+  <h3 class="card-title">
+  <%= item.title %>
+ </h3>
+ <p class="card-text"><%= item.description %></p>
+ <a href="<%- item.path %>" class="card-link">Package homepage</a>
+ <% if (item.cran) { %>
+ <a href="https://cran.r-project.org/package=<%- item.cran %>" class="card-link">CRAN link</a>
+ <% } %>
+ <% if (item.shiny) { %>
+ <a href="<%- item.shiny %>" class="card-link">Shiny application</a>
+<% } %>
+ </div>
+ </div>
+ </div>
+<% } %>
+
+

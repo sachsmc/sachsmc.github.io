@@ -1,0 +1,7 @@
+---
+title: "Michael C Sachs"
+navbar: false
+listing:
+  contents: pages
+  template: home.ejs
+---

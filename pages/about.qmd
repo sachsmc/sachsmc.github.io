@@ -1,0 +1,44 @@
+---
+title: "About"
+about:
+  template: solana
+  image-width: 15em
+  image-shape: round
+  image: MichaelSachs.png
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/sachsmc
+    - icon: github
+      text: Github
+      href: https://github.com/sachsmc
+    - icon: bank
+      text: University profile
+      href: https://publichealth.ku.dk/about-the-department/biostat/?pure=en/persons/745536
+---
+
+Michael Sachs is an Associate Professor at the Section of Biostatistics at the University of Copenhagen, and has an affiliation at the Karolinska Institute. He has a PhD degree in biostatistics from the University of Washington, Seattle, WA.
+
+He has worked as an applied statistician in a variety of medical areas including, cancer treatment and diagnosis, inflammatory diseases, Alzheimer’s disease, and nephrology. He is an avid R user and developer, with a passion for open science, data visualization, and reproducible research.
+
+His personal research interests are the development and evaluation of risk prediction models and biomarkers, assay development and validation, statistical computing, causal inference in observational studies, and tools for reproducible research.
+
+
+
+## Education
+
+__University of Washington__, Seattle, Washington, USA
+
+PhD in Biostatistics, 2011
+
+__Lake Forest College__, Lake Forest, Illinois, USA
+
+B.A.s in Mathematics and French, 2005
+
+## Experience
+
+__University of Copenhagen__, Associate Professor: 2022 - present.
+
+__Karolinska Institutet__, Biostatistician: 2016 - 2022.
+
+__National Cancer Institute__, Mathematical Statistician: 2014 - 2016.

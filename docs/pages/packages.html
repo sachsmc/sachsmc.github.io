@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Michael C Sachs</title>
+<title>Michael C Sachs - Software packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-listing','listing-path','listing-outputHref','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-date','listing-date-modified','listing-about',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] }],
+      valueNames: ['listing-title','listing-path','listing-cran','listing-shiny','listing-description',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-listing","listing-path","listing-outputHref","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-date","listing-date-modified","listing-about"],
+      searchColumns: ["listing-title","listing-path","listing-cran","listing-shiny","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -96,14 +96,56 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Michael C Sachs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/courses.html" rel="" target="">
+ <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../pages/packages.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Software packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../pages/publications.html" rel="" target="">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -112,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Michael C Sachs</h1>
+<h1 class="title">Software packages</h1>
 </div>
 
 
@@ -133,47 +175,107 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
 <div class="card-group">
-<div class="card text-center border-primary">
-<a href="./pages/about.html">
+<div class="card border-primary">
 <div class="card-body">
 <h3 class="card-title anchored">
-About
+<code>plotROC</code>: Generate Useful ROC Curve Charts for Print and Interactive Use
 </h3>
+<p class="card-text">
+Most ROC curve plots obscure the cutoff values and inhibit interpretation and comparison of multiple curves. This attempts to address those shortcomings by providing plotting and interactive tools. Functions are provided to generate an interactive ROC curve plot for web use, and print versions. A Shiny application implementing the functions is also included.
+</p>
+<a href="https://sachsmc.github.io/plotROC/" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=plotROC" class="card-link">CRAN link</a> <a href="https://sachsmc.shinyapps.io/plotROC/" class="card-link">Shiny application</a>
 </div>
-</a>
 </div>
 </div>
 <div class="card-group">
-<div class="card text-center border-primary">
-<a href="./pages/courses.html">
+<div class="card border-primary">
 <div class="card-body">
 <h3 class="card-title anchored">
-Courses
+<code>causaloptim</code>: An Interface to Specify Causal Graphs and Compute Bounds on Causal Effects
 </h3>
+<p class="card-text">
+When causal quantities are not identifiable from the observed data, it still may be possible to bound these quantities using the observed data. We outline a class of problems for which the derivation of tight bounds is always a linear programming problem and can therefore, at least theoretically, be solved using a symbolic linear optimizer. We extend and generalize the approach of Balke and Pearl (1994) <a href="doi:10.1016/B978-1-55860-332-5.50011-0" class="uri">doi:10.1016/B978-1-55860-332-5.50011-0</a> and we provide a user friendly graphical interface for setting up such problems via directed acyclic graphs (DAG), which only allow for problems within this class to be depicted. The user can then define linear constraints to further refine their assumptions to meet their specific problem, and then specify a causal query using a text interface. The program converts this user defined DAG, query, and constraints, and returns tight bounds. The bounds can be converted to R functions to evaluate them for specific datasets, and to latex code for publication. The methods and proofs of tightness and validity of the bounds are described in a paper by Sachs, Jonzon, Gabriel, and Sjölander (2022) <a href="doi:10.1080/10618600.2022.2071905" class="uri">doi:10.1080/10618600.2022.2071905</a>.
+</p>
+<a href="https://sachsmc.github.io/causaloptim/" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=causaloptim" class="card-link">CRAN link</a> <a href="https://sachsmc.shinyapps.io/causaloptimweb/" class="card-link">Shiny application</a>
 </div>
-</a>
 </div>
 </div>
 <div class="card-group">
-<div class="card text-center border-primary">
-<a href="./pages/publications.html">
+<div class="card border-primary">
 <div class="card-body">
 <h3 class="card-title anchored">
-Publications
+<code>stdReg2</code>: Regression Standardization for Causal Inference
 </h3>
+<p class="card-text">
+Contains more modern tools for causal inference using regression standardization. Four general classes of models are allowed; generalized linear models, conditional generalized estimating equation models, Cox proportional hazards models and shared frailty gamma-Weibull models. Sjolander, A. (2016) <a href="doi:10.1007/s10654-016-0157-3" class="uri">doi:10.1007/s10654-016-0157-3</a>. Also includes functionality for doubly robust estimation for these model classes in some special cases.
+</p>
+<a href="https://sachsmc.github.io/stdReg2/" class="card-link">Package homepage</a>
 </div>
-</a>
 </div>
 </div>
 <div class="card-group">
-<div class="card text-center border-primary">
-<a href="./pages/packages.html">
+<div class="card border-primary">
 <div class="card-body">
 <h3 class="card-title anchored">
-Software packages
+<code>eventglm</code>: Regression Models for Event History Outcomes
 </h3>
+<p class="card-text">
+A user friendly, easy to understand way of doing event history regression for marginal estimands of interest, including the cumulative incidence and the restricted mean survival, using the pseudo observation framework for estimation. For a review of the methodology, see Andersen and Pohar Perme (2010) <a href="doi:10.1177/0962280209105020" class="uri">doi:10.1177/0962280209105020</a> or Sachs and Gabriel (2022) <a href="doi:10.18637/jss.v102.i09" class="uri">doi:10.18637/jss.v102.i09</a>. The interface uses the well known formulation of a generalized linear model and allows for features including plotting of residuals, the use of sampling weights, and corrected variance estimation.
+</p>
+<a href="https://sachsmc.github.io/eventglm" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=eventglm" class="card-link">CRAN link</a>
 </div>
-</a>
+</div>
+</div>
+<div class="card-group">
+<div class="card border-primary">
+<div class="card-body">
+<h3 class="card-title anchored">
+<code>cosinor</code>: Tools for Estimating and Predicting the Cosinor Model
+</h3>
+<p class="card-text">
+A set of simple functions that transforms longitudinal data to estimate the cosinor linear model as described in Tong (1976). Methods are given to summarize the mean, amplitude and acrophase, to predict the mean annual outcome value, and to test the coefficients.
+</p>
+<a href="https://cloud.r-project.org/web/packages/cosinor/vignettes/Intro.html" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=cosinor" class="card-link">CRAN link</a> <a href="http://sachsmc.shinyapps.io/cosinor-shinyapp/" class="card-link">Shiny application</a>
+</div>
+</div>
+</div>
+<div class="card-group">
+<div class="card border-primary">
+<div class="card-body">
+<h3 class="card-title anchored">
+<code>testassay</code>: A Hypothesis Testing Framework for Validating an Assay for Precision
+</h3>
+<p class="card-text">
+A common way of validating a biological assay for is through a procedure, where m levels of an analyte are measured with n replicates at each level, and if all m estimates of the coefficient of variation (CV) are less than some prespecified level, then the assay is declared validated for precision within the range of the m analyte levels. Two limitations of this procedure are: there is no clear statistical statement of precision upon passing, and it is unclear how to modify the procedure for assays with constant standard deviation. We provide tools to convert such a procedure into a set of m hypothesis tests. This reframing motivates the m:n:q procedure, which upon completion delivers a 100q% upper confidence limit on the CV. Additionally, for a post-validation assay output of y, the method gives an “effective standard deviation interval” of log(y) plus or minus r, which is a 68% confidence interval on log(mu), where mu is the expected value of the assay output for that sample. Further, the m:n:q procedure can be straightforwardly applied to constant standard deviation assays. We illustrate these tools by applying them to a growth inhibition assay. This is an implementation of the methods described in Fay, Sachs, and Miura (2018) <a href="doi:10.1002/sim.7528" class="uri">doi:10.1002/sim.7528</a>.
+</p>
+<a href="https://sachsmc.github.io/testassay/" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=testassay" class="card-link">CRAN link</a>
+</div>
+</div>
+</div>
+<div class="card-group">
+<div class="card border-primary">
+<div class="card-body">
+<h3 class="card-title anchored">
+<code>pseval</code>: Methods for Evaluating Principal Surrogates of Treatment Response
+</h3>
+<p class="card-text">
+Contains the core methods for the evaluation of principal surrogates in a single clinical trial. Provides a flexible interface for defining models for the risk given treatment and the surrogate, the models for integration over the missing counterfactual surrogate responses, and the estimation methods. Estimated maximum likelihood and pseudo-score can be used for estimation, and the bootstrap for inference. A variety of post-estimation summary methods are provided, including print, summary, plot, and testing.
+</p>
+<a href="https://sachsmc.github.io/pseval/" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=pseval" class="card-link">CRAN link</a>
+</div>
+</div>
+</div>
+<div class="card-group">
+<div class="card border-primary">
+<div class="card-body">
+<h3 class="card-title anchored">
+<code>tufterhandout</code>: Tufte-style html document format for rmarkdown
+</h3>
+<p class="card-text">
+Custom template and output formats for use with rmarkdown. Produce Edward Tufte-style handouts in html formats with full support for rmarkdown features
+</p>
+<a href="https://sachsmc.github.io/tufterhandout" class="card-link">Package homepage</a> <a href="https://cran.r-project.org/package=tufterhandout" class="card-link">CRAN link</a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">

@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+  
+website:
+  title: "Michael C Sachs"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - pages/about.qmd
+      - pages/courses.qmd
+      - pages/packages.qmd
+      - pages/publications.qmd
+
+format:
+  html:
+    theme: 
+      dark: [darkly, custom.scss]
+      light: [materia, custom.scss]
+    css: styles.css
+    toc: false
+
+
+
