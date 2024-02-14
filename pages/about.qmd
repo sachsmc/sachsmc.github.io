@@ -23,6 +23,7 @@ He has worked as an applied statistician in a variety of medical areas including
 
 His personal research interests are the development and evaluation of risk prediction models and biomarkers, assay development and validation, statistical computing, causal inference in observational studies, and tools for reproducible research.
 
+He is the director of the Graduate Program in Biostatistics and Bioinformatics at the University of Copenhagen. Read more about the program here: [https://phd-biostatistics.ku.dk/](https://phd-biostatistics.ku.dk/)
 
 
 ## Education
