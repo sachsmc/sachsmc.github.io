@@ -6,7 +6,7 @@
   <%= item.title %>
  </h3>
  <p class="card-text"><%= item.description %></p>
- <a href="<%- item.path %>" class="card-link">Package homepage</a>
+ <a href="<%- item.ppath %>" class="card-link">Package homepage</a>
  <% if (item.cran) { %>
  <a href="https://cran.r-project.org/package=<%- item.cran %>" class="card-link">CRAN link</a>
  <% } %>

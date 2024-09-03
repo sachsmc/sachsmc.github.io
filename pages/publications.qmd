@@ -11,6 +11,7 @@ __Note:__ This list is automatically parsed from my [Google Scholar profile](htt
 #| echo: true
 #| code-fold: true
 #| cache: true
+#| warning: false
 library(rvest)
 
 parse_element <- function(node) {

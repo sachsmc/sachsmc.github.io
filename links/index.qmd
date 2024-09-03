@@ -1,0 +1,9 @@
+---
+title: "Links"
+listing:
+  template: links.ejs
+  contents:
+    - title: Introduction to causaloptim
+      ppath: https://sachsmc.github.io/links/causaloptim_presentation.pdf
+      description: Talk at Weisbaden R Users Group, 2024 September 3
+---
