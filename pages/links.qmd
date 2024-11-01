@@ -1,0 +1,12 @@
+---
+title: "Links"
+listing:
+  template: links.ejs
+  contents:
+    - title: Causal Considerations in Developing and Evaluating Risk Prediction Models
+      ppath: https://sachsmc.github.io/pages/sachs_causal_prediction.pdf
+      description: SMARTbiomed Workshop -- 2024 October 28
+    - title: Introduction to causaloptim
+      ppath: https://sachsmc.github.io/pages/causaloptim_presentation.pdf
+      description: Talk at Weisbaden R Users Group, 2024 September 3
+---

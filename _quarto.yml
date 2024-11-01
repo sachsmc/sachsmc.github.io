@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  resources: links/*.pdf
+  resources: pages/*.pdf
   
 website:
   title: "Michael C Sachs"
