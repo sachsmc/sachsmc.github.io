@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/pages/links.html",
-    "items": []
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/pages/about.html",
@@ -14,11 +10,15 @@
     ]
   },
   {
-    "listing": "/pages/courses.html",
+    "listing": "/pages/links.html",
     "items": []
   },
   {
     "listing": "/pages/packages.html",
+    "items": []
+  },
+  {
+    "listing": "/pages/courses.html",
     "items": []
   }
 ]

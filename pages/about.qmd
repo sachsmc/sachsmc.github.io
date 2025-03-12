@@ -6,15 +6,15 @@ about:
   image-shape: round
   image: MichaelSachs.png
   links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com/sachsmc
     - icon: github
       text: Github
       href: https://github.com/sachsmc
     - icon: bank
       text: University profile
       href: https://publichealth.ku.dk/about-the-department/biostat/?pure=en/persons/745536
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/michael-sachs-09324659/
 ---
 
 Michael Sachs is an Associate Professor at the Section of Biostatistics at the University of Copenhagen, and has an affiliation at the Karolinska Institute. He has a PhD degree in biostatistics from the University of Washington, Seattle, WA.
