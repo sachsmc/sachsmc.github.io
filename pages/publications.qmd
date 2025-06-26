@@ -59,7 +59,7 @@ pubdfout <- data.frame(Title = pubdf$title, Authors = pubdf$authors,
 
 for(i in 1:nrow(pubdfout)) {
   
-  with(pubdfout[i,], cat(paste0(i, "."), Title, ", ", Authors, ".  ", Journal, ". ", Link, "\n"))
+  with(pubdfout[i,], cat(paste0(i, ". "), Title, ", ", Authors, ".  ", Journal, ". ", Link, "\n\n", sep = ""))
   
 }
 ```
