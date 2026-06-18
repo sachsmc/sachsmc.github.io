@@ -5,3 +5,5 @@
 .mtok
 
 /.quarto/
+
+**/*.quarto_ipynb

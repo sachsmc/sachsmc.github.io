@@ -1,0 +1,1006 @@
+---
+title: "From methods development to the clinic"
+subtitle: "How to upskill your use of AI in SMARTbiomed research"
+author: "Michael Sachs"
+date: today
+institute: "[smartbiomed.dk](https://smartbiomed.dk)"
+format:
+  revealjs:
+    logo: SMARTbiomed_logo_left_pos.png
+    theme: [default, custom.scss]
+    slide-number: c/t
+    progress: true
+    preview-links: auto
+    footer: "SMARTbiomed Annual Review"
+    transition: fade
+    highlight-style: github
+    code-line-numbers: true
+    execute:
+      echo: true
+      eval: false
+    fig-align: center
+    width: 1280
+    height: 720
+    scrollable: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Today's roadmap {.smaller}
+
+**Four parts — ~40 minutes of content, then 15 minutes discussion**
+
+::: {.columns}
+::: {.column width="55%"}
+1. How LLMs work *(theory for statisticians)*
+2. The methods-to-clinic pipeline
+3. Developing methods with AI: git, tests, and a simulation deep dive
+4. Validate · Communicate · Govern
+:::
+::: {.column width="45%"}
+**Opening poll** — how do you use AI today?
+
+- Not yet
+- Writing (emails, methods text, …)
+- Coding (autocomplete, chat)
+- Methods & analysis
+- Other
+
+:::
+:::
+
+::: notes
+~2 min. Use Slido or Mentimeter for the poll; a show of hands works fine.
+Set the tone: this is a working seminar, not a vendor pitch. You will hear honest failure modes.
+:::
+
+# The pipeline {background-color="#002546"}
+
+## The pipeline view
+
+:::: {.columns}
+::: {.column width="72%"}
+
+```{=html}
+<div style="display:flex; align-items:center; gap:0.5em; font-size:0.85em; margin-top:1em;">
+  <div class="stage-box">Discover<br><small>orient · literature · methods</small></div>
+  <div class="stage-arrow">→</div>
+  <div class="stage-box">Develop<br><small>code · simulate · test</small></div>
+  <div class="stage-arrow">→</div>
+  <div class="stage-box">Validate<br><small>check · diagnose · explain</small></div>
+  <div class="stage-arrow">→</div>
+  <div class="stage-box">Translate<br><small>write · report · tailor</small></div>
+</div>
+<div style="margin-top:1.2em; background:#87D1F4; color:#002546; padding:0.5em 1em; border-radius:4px; font-size:0.82em; font-weight:600; text-align:center;">
+  <strong>Govern</strong> · privacy · reproducibility · verification · disclosure
+</div>
+```
+
+:::
+::: {.column width="28%"}
+::: {.callout-tip icon=false}
+**Ground rule**
+
+AI accelerates the work.
+**You** are responsible for it.
+:::
+:::
+::::
+
+::: notes
+~2 min. Walk the four stages briefly — we will revisit each in turn.
+Govern is not a stage you reach; it runs across everything.
+Come back to the ground rule throughout the talk.
+:::
+
+# How LLMs work {background-color="#002546"}
+
+## What is an LLM? A statistician's view
+
+::: {.columns}
+::: {.column width="55%"}
+**A conditional probability model over text**
+
+$$P(\text{next token} \mid \text{text so far})$$
+
+- Text is chopped into **tokens** (~¾ word each)
+- A **context window** is the max tokens it sees at once
+- **Temperature** $\tau$ controls sampling sharpness:
+  $\tau \to 0$ → greedy; $\tau \to \infty$ → uniform
+:::
+::: {.column width="45%"}
+**How it's trained**
+
+1. **Next-token prediction** on massive text corpora
+2. **Instruction tuning** — follow prompts, be helpful
+3. **RLHF / RLAIF** — human (or AI) preference ranking
+
+**Why code is a strength**
+
+Code is abundant, structured, and *correct by execution* —
+a uniquely checkable signal in training data.
+:::
+:::
+
+::: notes
+~3 min. This is the statistician's frame: a sequence model, not a knowledge base.
+Tokens and context window matter practically — large files may be truncated.
+Temperature matters when you want reproducibility (set it to 0 or use a seed).
+RLHF = Reinforcement Learning from Human Feedback.
+:::
+
+
+## Exercise - Build a lLM in 5 minutes
+
+- Find a corpus to train the model and tokenize: 
+
+```{r}
+#| eval: true
+## Works of Edgar Allan Poe, Volume I
+corpus <- readLines("https://www.gutenberg.org/cache/epub/2147/pg2147.txt")
+tokens <- unlist(tokenizers::tokenize_words(corpus))
+```
+
+- Train a Markov model
+
+```{r}
+#| eval: true
+bigram  <- lapply(
+    split(tokens[-1], tokens[-length(tokens)]),
+    table
+  )
+unigram <- table(tokens)
+
+model <- list(bigram = bigram, unigram = unigram)
+
+```
+
+## Continued
+
+- Sample from the model
+
+```{r}
+#| eval: true
+sample_next <- function(model, word) {
+  counts <- model$bigram[[tolower(word)]]
+  if (is.null(counts)) counts <- model$unigram
+  sample(names(counts), 1, prob = counts)
+}
+
+generate <- function(model, start, n = 20) {
+  out <- start
+  for (i in seq_len(n)) {
+    nxt <- sample_next(model, tail(out, 1))
+    if (is.na(nxt)) break
+    out <- c(out, nxt)
+  }
+  paste(out, collapse = " ")
+}
+
+generate(model, "bird", 10)
+```
+
+### Discussion
+
+- What LLM concepts does this illustrate?
+- How can this model be improved? 
+- What else can it be used for? 
+
+
+## Why they're confident — and sometimes wrong
+
+::: {.columns}
+::: {.column width="58%"}
+**Hallucination**
+
+> The model generates *plausible text*, not *verified truth*.
+
+- Fabricated citations that look real *(always verify)*
+- Confident wrong code that compiles but is subtly incorrect
+- Invented API arguments or package functions
+
+**Reasoning models** (o3, R1, extended thinking) trade
+compute for better multi-step work, but the same failure
+modes apply at higher stakes.
+:::
+::: {.column width="42%"}
+::: {.callout-important icon=false}
+**Always verify**
+
+Every citation · every number
+every derivation · every API call
+
+Treat model output as a
+**hypothesis, not a result.**
+:::
+
+::: {.callout-warning icon=false}
+**Quiet deskilling**
+
+Outsourcing judgement builds
+dependency, not expertise.
+Stay in the loop intentionally.
+:::
+:::
+:::
+
+::: notes
+~2 min. Hallucination is the canonical failure mode — give a concrete example if you have one.
+The key message: the model cannot be wrong and *know* it is wrong. It has no uncertainty signal it will share with you reliably.
+:::
+
+## The context window and memory {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+**What the model "sees"**
+
+| | Typical range |
+|---|---|
+| Small / fast models | 8k–32k tokens |
+| Standard assistants | 128k–200k tokens |
+| Long-context leaders | 1M+ tokens |
+
+A context window is **not memory** —
+each new conversation starts fresh.
+
+**What counts against it**
+
+- Your prompt
+- The entire conversation so far
+- Any files or code you paste in
+- Tool call results
+:::
+::: {.column width="50%"}
+**How to work within limits**
+
+- **Chunking**: split long documents; summarise sections before sending
+- **System prompts**: keep standing instructions short and reuse across sessions
+- **External memory**: project `.md` files persist context across sessions
+- **Agent memory**: tools like Claude Code maintain a `CLAUDE.md` project file that persists
+
+::: {.callout-tip icon=false}
+**Practical rule**
+
+If the conversation is getting long,
+start fresh — older context degrades
+response quality before it truncates.
+:::
+:::
+:::
+
+::: notes
+~2 min. Statisticians often paste in large datasets — remind them this is expensive and may hit limits.
+The "context is not memory" point surprises people. The model has no recall between sessions unless you build it in.
+Agent tools (Claude Code, Codex) handle this better with persistent project files.
+:::
+
+# Stage 1: Discover & frame {background-color="#002546"}
+
+## Discover & frame
+
+**Orient fast in a new subfield · surface candidate methods · anchor literature work**
+
+::: {.columns}
+::: {.column width="55%"}
+**What AI does well here**
+
+- Rapid orientation: *"explain doubly-robust estimation to a statistician"*
+- Surfacing related methods and their trade-offs
+- Summarising abstracts, structuring a literature map
+- Drafting search strings for PubMed / Web of Science
+
+:::
+::: {.column width="45%"}
+::: {.callout-important icon=false}
+**Big caution: confabulated citations**
+
+The model will generate plausible
+author names, journal names,
+and years — that do not exist.
+
+**Rule:** verify *every* reference
+against the real source before
+citing or acting on it.
+:::
+
+**Tools**
+
+- Chat interfaces for exploration
+- Elicit · Semantic Scholar for literature search
+:::
+:::
+
+::: notes
+~2 min. This is the safest AI use-case but also the trickiest — easy to over-trust.
+Citation fabrication is not fixed in any current model. Show an example if you have one.
+Specialised tools like Elicit and Semantic Scholar are safer for literature because they retrieve real documents.
+:::
+
+# Stage 2: Develop {background-color="#002546"}
+
+## Three tiers of tools {.smaller}
+
+Move up the tiers as the task grows in scope and complexity.
+
+::: {.columns}
+::: {.column width="33%"}
+<span class="tier">Tier 1</span> **Chat interfaces**
+
+ChatGPT · Claude · Gemini · Copilot Chat
+
+- Paste code, ask questions
+- One-shot generation
+- No access to your full repo
+- Good for: explaining, drafting snippets, quick checks
+
+:::
+::: {.column width="33%"}
+<span class="tier">Tier 2</span> **In-IDE assistants**
+
+GitHub Copilot · RStudio Copilot
+`ellmer` · `chattr` · `gander` · `chatlas`
+
+- Autocomplete in your editor
+- **`gander` knows your data frame's columns** — context-aware suggestions
+- Good for: writing functions, transforming data, iterative coding
+
+:::
+::: {.column width="33%"}
+<span class="tier">Tier 3</span> **Coding agents**
+
+Claude Code · Codex
+
+- Repo-aware — reads your whole project
+- Can run code, read errors, iterate
+- Work toward a goal you set
+- Good for: multi-file tasks, test-driven development, simulation scaffolding
+:::
+:::
+
+::: {.callout-tip icon=false}
+**Suggested on-ramp:** start with copilot in RStudio/vscode. It is the lowest-friction step up from copy-pasting to the chat window.
+:::
+
+::: notes
+~2 min. Walk the three tiers as a ladder. The audience is R-heavy so emphasise the Posit ecosystem tools.
+gander is a standout because it has access to the local R session — it knows the column names in your data frame.
+ellmer is the foundation package the other R tools build on.
+:::
+
+## Coding agents: from autocomplete to delegate {.smaller}
+
+::: {.columns}
+::: {.column width="55%"}
+**What makes agents different**
+
+- **Repo-aware**: they read your `DESCRIPTION`, existing tests, README
+- **Tool-use**: they can run R/Python, call the shell, read error messages
+- **Iterative**: they retry when tests fail — the loop is automated
+- **Transparent**: all changes come as a **diff** you review and commit
+
+**Human-in-the-loop is not optional**
+
+- Read every diff before accepting
+- Run your own checks — don't trust "tests pass" without verifying
+- Commit deliberately: each commit is a checkpoint you can revert to
+
+:::
+::: {.column width="45%"}
+**Workflow**
+
+```
+You: "Write a function coverage() that
+      computes CI coverage, with tests"
+
+Agent: reads repo → writes function
+       → writes tests → runs tests
+       → iterates on failures
+       → proposes diff
+
+You:  review diff → run tests yourself
+      → commit if happy
+```
+
+::: {.callout-warning icon=false}
+**The agent proposes; you decide.**
+Never let an agent push to `main`
+without a human reviewing the diff.
+:::
+:::
+:::
+
+::: notes
+~2 min. Key message: agents are not autopilot. They are a very capable junior collaborator who proposes all changes as reviewable diffs.
+The diff-and-commit workflow is what makes agents *safe* — nothing is permanent until you commit.
+:::
+
+# Stage 2: Foundations {background-color="#002546"}
+
+## What coding agents stand on {.smaller}
+
+**Agents are only as reliable as the foundations they work in. These are the skills that make agent output reviewable and reversible.**
+
+::: {.columns}
+::: {.column width="50%"}
+| Foundation | Why it matters for agents |
+|---|---|
+| **git** | every change is a diff you can inspect and revert |
+| **Unit tests** | the objective signal the agent iterates against |
+| **Terminal / IDE** | you run and inspect the output yourself |
+| **Reproducible envs** | `renv`, Docker, seeds — results don't change between machines |
+| **CI** | automated checks catch regressions across commits |
+:::
+::: {.column width="50%"}
+::: {.callout-tip icon=false}
+**Practical priority**
+
+If you only do two things:
+
+1. Put your project in a **git repo**
+2. Write at least a few **unit tests**
+
+Everything else helps, but these
+two give you a safety net for
+everything the agent touches.
+:::
+:::
+:::
+
+::: notes
+~2 min. This slide and the next two (text skills, git, unit tests) can be folded or skimmed for audiences already familiar with the developer toolkit — see pacing notes.
+:::
+
+## Text-based computer skills {.smaller}
+
+**Agents live in the terminal and work with plain text. A little fluency here pays outsized dividends.**
+
+::: {.columns}
+::: {.column width="50%"}
+**Key skills**
+
+- Navigate a project directory from the command line
+- Read and write **plain text files** (`.md`, `.R`, `.py`, `.txt`)
+- Understand what a **project root** looks like:
+  ```
+  my-project/
+  ├── R/              # functions
+  ├── analysis/       # scripts
+  ├── tests/
+  ├── README.md       # what is this project?
+  ├── CLAUDE.md       # instructions for the agent
+  └── renv.lock       # reproducible packages
+  ```
+:::
+::: {.column width="50%"}
+**Markdown files that guide agents**
+
+| File | Purpose |
+|---|---|
+| `README.md` | human-facing project overview |
+| `CLAUDE.md` / `agents.md` | standing instructions for the AI agent |
+| `skills.md` | reusable task templates |
+
+::: {.callout-tip icon=false}
+A well-written `CLAUDE.md` is worth
+hours of re-prompting — the agent
+reads it at the start of every session.
+:::
+:::
+:::
+
+::: notes
+~1.5 min. Many researchers are not comfortable in the terminal. Acknowledge this — the tools are getting better at abstracting it (Positron, RStudio terminal panel), but basic familiarity matters.
+CLAUDE.md is a practical win: one file that sets context, coding conventions, and constraints for every agent session.
+:::
+
+## git: the safety net that makes agents safe {.smaller}
+
+::: {.columns}
+::: {.column width="52%"}
+**The five operations you need**
+
+| Command | What it does |
+|---|---|
+| `git commit` | checkpoint — a snapshot you can return to |
+| `git branch` | parallel work — experiment without risk |
+| `git diff` | **what changed** — what you review before committing |
+| `git revert` | undo a commit cleanly |
+| pull request | propose changes for review on GitHub/GitLab |
+
+:::
+::: {.column width="48%"}
+**Why git makes agents safe**
+
+> *An agent proposes work as diffs
+> you review and commit —
+> always visible, always reversible.*
+
+**Workflow with an agent:**
+
+```
+agent writes → you diff → you test
+→ you commit → repeat
+```
+
+If anything looks wrong:
+`git checkout -- .` or `git revert`
+puts you back exactly where you were.
+:::
+:::
+
+::: notes
+~2 min. Many statisticians have never used git. Pitch it as "undo for your whole project", not as a collaboration tool.
+The key mental model: commit often — every commit is a save point. Working with an agent without git means you can't cleanly undo anything it does.
+:::
+
+## Unit tests: making "correct" checkable {.smaller}
+
+**A test is a function that runs your code on a known input and asserts the expected output. It turns "I think this is right" into a pass/fail signal.**
+
+::: {.columns}
+::: {.column width="52%"}
+**In R with `testthat`:**
+
+```r
+test_that("my_function is correct", {
+  expect_equal(my_function(input), known_output)
+  expect_error(my_function(bad_input))
+})
+```
+
+**Test-driven development (TDD):**
+
+1. **Red** — write a failing test for the behaviour you want
+2. **Green** — write the code that makes it pass
+3. **Refactor** — clean up; tests still pass
+
+The agent *iterates against your tests* —
+without tests, it has no objective criterion.
+:::
+::: {.column width="48%"}
+**For statisticians: what to test**
+
+- **Correctness**: numbers you can work out by hand (simple DGMs, closed-form results)
+- **Boundary conditions**: edge cases, empty inputs, length-one vectors
+- **Statistical properties**: symmetry, monotonicity, bounds on estimators
+- **Reproducibility**: same seed → same result
+
+::: {.callout-tip icon=false}
+Tests are not bureaucracy —
+they are the contract between
+you and the code.
+:::
+:::
+:::
+
+::: notes
+~2 min. The audience writes a lot of simulation code — this is where testthat is most valuable.
+Emphasise that for statistical code you can often construct hand-checkable truth from closed-form expressions.
+Reproducibility tests with set.seed() are trivially easy and catch a whole class of silent bugs.
+:::
+
+## Illustration (1/2) — Ask: write the function {.smaller}
+
+**Prompt quality determines output quality.**
+
+::: {.columns}
+::: {.column width="55%"}
+**A rigorous prompt:**
+
+> *"Write an R function `coverage(truth, lower, upper)` that computes the empirical coverage probability of a set of confidence intervals. `truth` is a scalar, `lower` and `upper` are equal-length numeric vectors. Return the proportion of intervals that contain `truth`. Validate that `lower` and `upper` have equal length and that `lower <= upper` element-wise. Return a scalar between 0 and 1."*
+
+**Generated output:**
+
+```r
+coverage <- function(truth, lower, upper) {
+  stopifnot(length(lower) == length(upper))
+  stopifnot(all(lower <= upper))
+  mean(lower <= truth & truth <= upper)
+}
+```
+:::
+::: {.column width="45%"}
+::: {.callout-important icon=false}
+**Generated code is a hypothesis,
+not a result.**
+
+Read it · understand it · test it.
+
+Would you submit a simulation result
+without checking the DGM?
+:::
+
+**What made this prompt good?**
+
+- Named the function and arguments
+- Specified the return type
+- Specified validation behaviour
+- Specified the estimand (proportion)
+
+*Vague prompt → vague output*
+:::
+:::
+
+::: notes
+~2 min. Walk through why the prompt is specific. Compare to a lazy prompt: "write a coverage function in R."
+The coverage function is small enough that the audience can read and understand it in 30 seconds — that is the point. With a complex function you still need to understand it before trusting it.
+:::
+
+## Illustration (2/2) — Test it: validity and correctness {.smaller}
+
+**Tests make the agent's loop self-correcting.**
+
+::: {.columns}
+::: {.column width="55%"}
+```r
+library(testthat)
+
+test_that("coverage() is correct", {
+  # Correctness — worked out by hand
+  expect_equal(coverage(0, c(-1, -1), c(1,  1)), 1)   # all cover
+  expect_equal(coverage(0, c( 1,  2), c(3,  4)), 0)   # none cover
+  expect_equal(coverage(0, c(-1,  1), c(1,  2)), 0.5) # half cover
+
+  # Boundary — closed endpoint counts
+  expect_equal(coverage(1, 1, 2), 1)
+
+  # Validity — bad input rejected
+  expect_error(coverage(0, c(1, 2), 3))
+})
+```
+:::
+::: {.column width="45%"}
+**The TDD loop with an agent:**
+
+```
+Write tests → agent writes function
+→ tests FAIL (Red)
+→ agent revises
+→ tests PASS (Green)
+→ you review diff and commit
+```
+
+::: {.callout-tip icon=false}
+The test numbers are **yours** —
+you worked them out by hand.
+The agent cannot fake correctness
+against truth you define.
+:::
+:::
+:::
+
+::: notes
+~2 min. Walk through each test: the first three cover the logic, the boundary test checks edge behaviour, the error test checks validation.
+The key point: the agent can iterate against these tests autonomously, but the truth values in the tests come from the statistician — that's the irreducible human contribution.
+:::
+
+# Worked example: simulation {background-color="#002546"}
+
+## Double robustness under misspecification {.smaller}
+
+**The question:**
+
+> *How do the bias and variance of a doubly-robust GLM estimator compare to non-DR estimators when **both** the outcome model and the exposure model are misspecified?*
+
+::: {.columns}
+::: {.column width="55%"}
+**Why this is the stress test**
+
+A DR estimator is consistent if *either* nuisance model is correct.
+Breaking both models removes the safety net entirely.
+
+**Estimand:** marginal causal contrast
+
+$$\tau = \mathbb{E}[Y(1)] - \mathbb{E}[Y(0)]$$
+
+Binary outcome, binary exposure, confounders Z.
+
+**Tool:** `stdReg2::standardize_glm_dr()`
+*(Sachs, Sjölander, Gabriel, Ohlendorff & Brand)*
+:::
+::: {.column width="45%"}
+**Competing estimators**
+
+| Estimator | Outcome model | PS model |
+|---|---|---|
+| DR standardisation | misspecified | misspecified |
+| Non-DR standardisation | misspecified | — |
+| IPW | — | misspecified |
+
+**DGM:** confounder Z with nonlinear
+`X|Z` and `Y|X,Z` — linear working models are wrong by construction.
+
+**Performance:** bias · variance · RMSE
+· CI coverage · Monte Carlo SEs
+:::
+:::
+
+::: notes
+~3 min. Introduce the scientific question first, then the simulation design. The audience knows causal inference — lean on their knowledge.
+stdReg2 is a package from this group, which makes it a natural centrepiece. Mention the binary-exposure requirement.
+"Dual misspecification" is the stress test: if we break both models, how bad is it? The simulation will quantify that.
+:::
+
+## Build it with ADEMP — and let AI accelerate {.smaller}
+
+**ADEMP** (Morris, White & Crowther, *Stat Med* 2019): a principled framework for simulation design.
+
+| Element | What **you** decide | What **AI** accelerates |
+|---|---|---|
+| **Aims** | Compare DR vs non-DR under dual misspecification | Drafts study skeleton and runner |
+| **Data-generating** | Confounder Z; nonlinear `X\|Z` and `Y\|X,Z` so linear working models are wrong | Writes the simulator — you verify it hits the true estimand |
+| **Estimand** | Marginal contrast $\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]$, known from DGM | Computes the true value numerically |
+| **Methods** | DR `standardize_glm_dr` (both models misspecified) vs non-DR / IPW | Wires up the competing method calls |
+| **Performance** | Bias, variance, RMSE, CI coverage + Monte Carlo SEs | Codes the metrics — you insist on the MCSEs |
+
+**Toolkit:** `SimDesign` · `rsimsum` · `future`/`furrr` · `set.seed()`
+
+::: notes
+~3 min. Walk the table column by column. The left column is intellectual work — ADEMP forces you to be explicit about each decision before you write code. The right column is mechanical — fast to generate, slow to verify.
+Emphasise Monte Carlo SEs: they are easy to add and the single most common missing element in simulation studies.
+:::
+
+## The skill is in the prompt {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+**Lazy prompt:**
+
+> *"Write me a simulation study comparing doubly-robust and non-doubly-robust estimators."*
+
+**What you get:**
+
+- Generic DGM with no meaningful misspecification
+- No estimand stated
+- No performance measures beyond bias
+- No Monte Carlo SEs
+- Code you cannot easily verify
+
+::: {.callout-warning icon=false}
+Garbage in → convincing-looking garbage out.
+The model will produce *something* —
+it will look complete and plausible.
+:::
+:::
+::: {.column width="50%"}
+**Rigorous ADEMP-structured prompt:**
+
+> *"Design a simulation study using ADEMP. Aim: compare `stdReg2::standardize_glm_dr()` against non-DR standardisation and IPW for estimating $\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]$. DGM: binary Y, binary X, continuous confounder Z; use nonlinear relationships so linear working models are misspecified for both outcome and PS. Estimand: marginal risk difference. Methods: the three above, all using misspecified models. Performance: bias, empirical variance, RMSE, nominal-95% CI coverage — all with Monte Carlo SEs. Use `SimDesign` with `set.seed(42)`."*
+
+**What you get:**
+
+- Structured, reviewable code
+- Correct estimand and DGM
+- MCSEs included automatically
+- Something you can actually critique
+:::
+:::
+
+::: notes
+~2 min. This is the most practically impactful slide in the deck. The contrast between the two prompts is stark.
+Walk through what makes the good prompt good: it maps directly to ADEMP, it names the tool, it specifies misspecification explicitly, it demands MCSEs.
+The model cannot improve the quality of your scientific decisions — it can only implement them faithfully.
+:::
+
+# Stages 3–4 + Govern {background-color="#002546"}
+
+## Validate & analyse {.smaller}
+
+**AI speeds the mechanics. Judgement stays human.**
+
+::: {.columns}
+::: {.column width="55%"}
+**Where AI helps**
+
+- Interpreting R/Python output: *"what does this warning mean?"*
+- Running and explaining model diagnostics
+- Explaining a method back to you in plain language
+  *(a surprisingly useful cross-check)*
+- Suggesting additional sensitivity analyses
+- Formatting simulation results with `rsimsum`
+
+:::
+::: {.column width="45%"}
+::: {.callout-important icon=false}
+**Reproduce the headline numbers**
+
+Before accepting AI-assisted output,
+compute the key numbers yourself —
+in a fresh script, from the raw results.
+
+If the numbers disagree, investigate.
+:::
+
+::: {.callout-warning icon=false}
+**Quiet deskilling**
+
+If the AI always explains the output,
+you stop reading it directly.
+Stay engaged — use AI to *check*
+your interpretation, not replace it.
+:::
+:::
+:::
+
+::: notes
+~2 min. The "explain the method back" trick is underused: ask the model to explain what the function you just wrote actually does — it often surfaces misunderstandings.
+Reproduce the headline numbers is the operational equivalent of the ground rule. One independent calculation is a minimum bar.
+:::
+
+## Translate & communicate — to the clinic {.smaller}
+
+::: {.columns}
+::: {.column width="55%"}
+**Where AI helps**
+
+- Draft and refine methods sections
+- Tailor language for a clinical vs. statistical audience
+- Respond to reviewer comments *(draft, then edit — never send raw)*
+- Structure grant text against a funder's criteria
+- Check a clinical prediction model report against guidelines
+
+**AI reporting guideline checklist:**
+
+| Guideline | Scope |
+|---|---|
+| TRIPOD+AI | prediction model development & validation |
+| PROBAST-AI | prediction model risk-of-bias assessment |
+| DECIDE-AI | decision support / clinical evaluation |
+| CONSORT-AI | randomised trials with AI interventions |
+:::
+::: {.column width="45%"}
+::: {.callout-important icon=false}
+**The methodologist guarantees correctness**
+
+AI can improve clarity and structure.
+It cannot guarantee the methods
+are correct for your research question.
+
+*That is your job.*
+:::
+
+::: {.callout-tip icon=false}
+**Practical tip**
+
+Ask the model to evaluate your
+methods section against TRIPOD+AI
+checklist items — it will surface
+gaps you missed.
+:::
+:::
+:::
+
+::: notes
+~2 min. The clinical audience point is important for SMARTbiomed specifically — the pipeline ends at the clinic, and language mismatches cause real translation failures.
+Reviewer responses: the model is genuinely useful for drafting, but you must edit carefully. Reviewers can often detect boilerplate.
+The reporting guidelines checklist is a high-value, low-risk use case — the AI can do the tedious line-by-line check.
+:::
+
+## Govern: use it responsibly {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+**Privacy**
+
+- **Never paste patient-level data** into public chat interfaces
+- Use approved / on-premise deployments for sensitive data (check with your IT/data protection officer)
+- GDPR applies to identifiable data in prompts — when in doubt, ask before pasting
+
+**Reproducibility**
+
+- Log the **prompts** you used for any analysis — treat them like code
+- Record **tool versions** (model ID, package version)
+- Your methods section should be reproducible from prompts + code + seed
+
+:::
+::: {.column width="50%"}
+**Verification**
+
+- Every **citation** — verify against the real source
+- Every **number** — reproduce independently
+- Every **derivation** — check the algebra yourself
+- Every **API call** — check the documentation
+
+**Disclosure**
+
+- Most journals now require disclosure of AI use in writing or analysis
+- ICMJE: authors are responsible for all AI-assisted content
+- Check your target journal's policy *before* submission
+
+::: {.callout-tip icon=false}
+A one-paragraph "AI use statement" at
+submission is becoming standard practice.
+Write it as you go, not at the end.
+:::
+:::
+:::
+
+::: notes
+~2 min. Privacy is the highest-stakes failure mode — one incident can damage trust in AI across the whole team.
+Reproducibility logging is where most researchers fall short. Prompts are methods and should be treated as such.
+The ICMJE point is practically important: journals are moving fast here and policies vary. Check early.
+:::
+
+# Closing {background-color="#002546"}
+
+## Three things to try this week
+
+::: {.columns}
+::: {.column width="33%"}
+**1. Install `gander`**
+
+Try it in RStudio on a real dataset.
+Ask it to write one function
+using your actual column names.
+
+*Lowest friction entry point
+into in-IDE AI assistance.*
+:::
+::: {.column width="33%"}
+**2. Draft a simulation with ADEMP**
+
+Write out the five ADEMP elements
+in plain text first.
+Then paste them into a
+structured prompt.
+Verify the DGM hits the true estimand.
+
+*The structure is the value —
+not just for AI.*
+:::
+::: {.column width="33%"}
+**3. Set one team ground rule**
+
+Privacy: *"No patient-level data
+in public chat interfaces."*
+
+Disclosure: *"Log the prompts
+used in any analysis."*
+
+*A shared norm beats
+individual policy every time.*
+:::
+:::
+
+::: notes
+~1 min. These are deliberately small and actionable. The goal is to lower the barrier to first use while anchoring good habits.
+:::
+
+## Over to you — 15 minutes {.smaller}
+
+**Topic dot-vote** *(pick your top 2 — [Slido / stickers])*
+
+::: {.columns}
+::: {.column width="50%"}
+- Setting up git for an existing project
+- Writing your first unit tests in `testthat`
+- Evaluating a DR simulation with `rsimsum`
+:::
+::: {.column width="50%"}
+- Privacy and governance in your team's workflow
+- Reporting guidelines for clinical AI
+- Live demo: `gander` / Claude Code in action
+:::
+:::
+
+---
+
+**Think–pair–share prompt:**
+
+> *Name one task you would hand to AI tomorrow —
+> and one task you would never hand to AI.*
+
+Share with a neighbour (2 min), then we'll hear a few pairs.
+
+---
+## Thank you — let's discuss {.smaller}
+
+*Open floor — questions, pushback, and reality checks welcome.*
+
+::: notes
+Facilitator: run the dot-vote first to decide which topic gets the deep dive. The think-pair-share can run in parallel or after.
+Leave room for sceptical questions — they are the most useful ones.
+:::
+
+

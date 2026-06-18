@@ -4,13 +4,14 @@
     "items": [
       "/pages/about.html",
       "/pages/courses.html",
+      "/pages/SBM-AI-Skills/SMARTbiomed_AI_upskilling_DRAFT.html",
       "/pages/links.html",
       "/pages/publications.html",
       "/pages/packages.html"
     ]
   },
   {
-    "listing": "/pages/links.html",
+    "listing": "/pages/courses.html",
     "items": []
   },
   {
@@ -18,7 +19,7 @@
     "items": []
   },
   {
-    "listing": "/pages/courses.html",
+    "listing": "/pages/links.html",
     "items": []
   }
 ]

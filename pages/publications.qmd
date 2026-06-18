@@ -1,6 +1,8 @@
 ---
 title: "Publications"
 date: "Updated on `r Sys.Date()`"
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -20,13 +22,29 @@ parse_element <- function(node) {
   year <- html_element(node, ".gsc_a_y") |> html_text()
   
   title <- main  |> html_element("a") |> html_text()
+  #cat(title, "\n")
   tmpcite <- main |> html_elements(".gs_gray") |> html_text2()
   authors_short <- tmpcite[1]
   reference <- tmpcite[2]
   
   link <- paste0("https://scholar.google.com", main  |> html_element("a") |> html_attr("href"))
   
-  data.frame(title = title, authors = authors_short, reference = reference, year = year, link = link)
+  authlist <- strsplit(authors_short, ", ")[[1]]
+  authtype <- "middle"
+  if(any(grepl("Sachs", authlist))) {
+    if(which(grepl("Sachs", authlist))[1] == 1){ 
+      authtype <- "first" 
+    } else if(which(grepl("Sachs", authlist))[1] == length(authlist)) authtype <- "last" 
+  } else {
+    subnode <- read_html(link)
+    longauth <- (html_element(subnode, "div.gsc_oci_field:contains(Authors) + div") |> html_text() |> 
+      strsplit(", "))[[1]]
+    if(grepl("Sachs", longauth)[1] != FALSE && which(grepl("Sachs", longauth))[1] == length(longauth)) authtype <- "last"
+    
+  }
+  
+  data.frame(title = title, authors = authors_short, reference = reference, year = year, link = link, 
+             authtype = authtype)
     
 }
 
@@ -52,6 +70,10 @@ pubdf <- do.call(rbind, pubdf)
 ```{r}
 #| echo: false
 #| output: asis
+
+knitr::kable(table(`Author-type` = pubdf$authtype), format="html")
+cat("\n\n")
+
 pubdfout <- data.frame(Title = pubdf$title, Authors = pubdf$authors, 
                        Journal = paste0("_",pubdf$reference, "_"), 
                       # Year = pubdf$year, 
