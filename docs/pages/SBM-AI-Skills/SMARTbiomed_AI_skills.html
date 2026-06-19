@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/clipboard/clipboard.min.js"></script>
+<script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/tabby.min.js"></script>
+<script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/popper.min.js"></script>
+<script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Michael Sachs">
-  <meta name="dcterms.date" content="2026-06-18">
-  <title>Michael C Sachs – From methods development to the clinic</title>
+  <meta name="dcterms.date" content="2026-06-19">
+  <title>From methods development to the clinic</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -99,11 +99,11 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0d7874fecf1229dc58c3888313248dd3.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/dist/theme/quarto-0d7874fecf1229dc58c3888313248dd3.css">
+  <link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -212,20 +212,11 @@ Michael Sachs
     </div>
 </div>
 
-  <p class="date">2026-06-18</p>
+  <p class="date">2026-06-19</p>
 </section>
-<section id="todays-roadmap" class="slide level2 smaller scrollable">
-<h2>Today’s roadmap</h2>
-<p><strong>Four parts — ~40 minutes of content, then 15 minutes discussion</strong></p>
-<div class="columns">
-<div class="column" style="width:55%;">
-<ol type="1">
-<li>How LLMs work <em>(theory for statisticians)</em></li>
-<li>The methods-to-clinic pipeline</li>
-<li>Developing methods with AI: git, tests, and a simulation deep dive</li>
-<li>Validate · Communicate · Govern</li>
-</ol>
-</div><div class="column" style="width:45%;">
+<section id="warmup" class="slide level2 smaller">
+<h2>Warmup</h2>
+<p><strong>I have some slides, but please interrupt with questions/comments</strong></p>
 <p><strong>Opening poll</strong> — how do you use AI today?</p>
 <ul>
 <li>Not yet</li>
@@ -234,7 +225,6 @@ Michael Sachs
 <li>Methods &amp; analysis</li>
 <li>Other</li>
 </ul>
-</div></div>
 <aside class="notes">
 <p>~2 min. Use Slido or Mentimeter for the poll; a show of hands works fine. Set the tone: this is a working seminar, not a vendor pitch. You will hear honest failure modes.</p>
 <style type="text/css">
@@ -343,21 +333,21 @@ Michael Sachs
 <li>Find a corpus to train the model and tokenize:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">## Works of Edgar Allan Poe, Volume I</span></span>
-<span id="cb1-2"><a></a>corpus <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"https://www.gutenberg.org/cache/epub/2147/pg2147.txt"</span>)</span>
-<span id="cb1-3"><a></a>tokens <span class="ot">&lt;-</span> <span class="fu">unlist</span>(tokenizers<span class="sc">::</span><span class="fu">tokenize_words</span>(corpus))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="do">## Works of Edgar Allan Poe, Volume I</span></span>
+<span id="cb1-2"><a href=""></a>corpus <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"https://www.gutenberg.org/cache/epub/2147/pg2147.txt"</span>)</span>
+<span id="cb1-3"><a href=""></a>tokens <span class="ot">&lt;-</span> <span class="fu">unlist</span>(tokenizers<span class="sc">::</span><span class="fu">tokenize_words</span>(corpus))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Train a Markov model</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>bigram  <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
-<span id="cb2-2"><a></a>    <span class="fu">split</span>(tokens[<span class="sc">-</span><span class="dv">1</span>], tokens[<span class="sc">-</span><span class="fu">length</span>(tokens)]),</span>
-<span id="cb2-3"><a></a>    table</span>
-<span id="cb2-4"><a></a>  )</span>
-<span id="cb2-5"><a></a>unigram <span class="ot">&lt;-</span> <span class="fu">table</span>(tokens)</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>model <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">bigram =</span> bigram, <span class="at">unigram =</span> unigram)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>bigram  <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
+<span id="cb2-2"><a href=""></a>    <span class="fu">split</span>(tokens[<span class="sc">-</span><span class="dv">1</span>], tokens[<span class="sc">-</span><span class="fu">length</span>(tokens)]),</span>
+<span id="cb2-3"><a href=""></a>    table</span>
+<span id="cb2-4"><a href=""></a>  )</span>
+<span id="cb2-5"><a href=""></a>unigram <span class="ot">&lt;-</span> <span class="fu">table</span>(tokens)</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">bigram =</span> bigram, <span class="at">unigram =</span> unigram)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="continued" class="slide level2">
@@ -366,25 +356,25 @@ Michael Sachs
 <li>Sample from the model</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>sample_next <span class="ot">&lt;-</span> <span class="cf">function</span>(model, word) {</span>
-<span id="cb3-2"><a></a>  counts <span class="ot">&lt;-</span> model<span class="sc">$</span>bigram[[<span class="fu">tolower</span>(word)]]</span>
-<span id="cb3-3"><a></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(counts)) counts <span class="ot">&lt;-</span> model<span class="sc">$</span>unigram</span>
-<span id="cb3-4"><a></a>  <span class="fu">sample</span>(<span class="fu">names</span>(counts), <span class="dv">1</span>, <span class="at">prob =</span> counts)</span>
-<span id="cb3-5"><a></a>}</span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a>generate <span class="ot">&lt;-</span> <span class="cf">function</span>(model, start, <span class="at">n =</span> <span class="dv">20</span>) {</span>
-<span id="cb3-8"><a></a>  out <span class="ot">&lt;-</span> start</span>
-<span id="cb3-9"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(n)) {</span>
-<span id="cb3-10"><a></a>    nxt <span class="ot">&lt;-</span> <span class="fu">sample_next</span>(model, <span class="fu">tail</span>(out, <span class="dv">1</span>))</span>
-<span id="cb3-11"><a></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(nxt)) <span class="cf">break</span></span>
-<span id="cb3-12"><a></a>    out <span class="ot">&lt;-</span> <span class="fu">c</span>(out, nxt)</span>
-<span id="cb3-13"><a></a>  }</span>
-<span id="cb3-14"><a></a>  <span class="fu">paste</span>(out, <span class="at">collapse =</span> <span class="st">" "</span>)</span>
-<span id="cb3-15"><a></a>}</span>
-<span id="cb3-16"><a></a></span>
-<span id="cb3-17"><a></a><span class="fu">generate</span>(model, <span class="st">"bird"</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>sample_next <span class="ot">&lt;-</span> <span class="cf">function</span>(model, word) {</span>
+<span id="cb3-2"><a href=""></a>  counts <span class="ot">&lt;-</span> model<span class="sc">$</span>bigram[[<span class="fu">tolower</span>(word)]]</span>
+<span id="cb3-3"><a href=""></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(counts)) counts <span class="ot">&lt;-</span> model<span class="sc">$</span>unigram</span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">sample</span>(<span class="fu">names</span>(counts), <span class="dv">1</span>, <span class="at">prob =</span> counts)</span>
+<span id="cb3-5"><a href=""></a>}</span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>generate <span class="ot">&lt;-</span> <span class="cf">function</span>(model, start, <span class="at">n =</span> <span class="dv">20</span>) {</span>
+<span id="cb3-8"><a href=""></a>  out <span class="ot">&lt;-</span> start</span>
+<span id="cb3-9"><a href=""></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(n)) {</span>
+<span id="cb3-10"><a href=""></a>    nxt <span class="ot">&lt;-</span> <span class="fu">sample_next</span>(model, <span class="fu">tail</span>(out, <span class="dv">1</span>))</span>
+<span id="cb3-11"><a href=""></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(nxt)) <span class="cf">break</span></span>
+<span id="cb3-12"><a href=""></a>    out <span class="ot">&lt;-</span> <span class="fu">c</span>(out, nxt)</span>
+<span id="cb3-13"><a href=""></a>  }</span>
+<span id="cb3-14"><a href=""></a>  <span class="fu">paste</span>(out, <span class="at">collapse =</span> <span class="st">" "</span>)</span>
+<span id="cb3-15"><a href=""></a>}</span>
+<span id="cb3-16"><a href=""></a></span>
+<span id="cb3-17"><a href=""></a><span class="fu">generate</span>(model, <span class="st">"bird"</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "bird and therefore if any link of the path a woman"</code></pre>
+<pre><code>[1] "bird and myself in the mystery of the dark and a"</code></pre>
 </div>
 </div>
 <h3 id="discussion">Discussion</h3>
@@ -540,7 +530,7 @@ Michael Sachs
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Big caution: confabulated citations</strong></p>
+<p><strong>Big caution: fake citations</strong></p>
 <p>The model will generate plausible author names, journal names, and years — that do not exist.</p>
 <p><strong>Rule:</strong> verify <em>every</em> reference against the real source before citing or acting on it.</p>
 </div>
@@ -554,6 +544,67 @@ Michael Sachs
 </div></div>
 <aside class="notes">
 <p>~2 min. This is the safest AI use-case but also the trickiest — easy to over-trust. Citation fabrication is not fixed in any current model. Show an example if you have one. Specialised tools like Elicit and Semantic Scholar are safer for literature because they retrieve real documents.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="concept-retrieval-augmented-generation" class="slide level2 scrollable">
+<h2>Concept: Retrieval Augmented Generation</h2>
+<p><strong>The problem:</strong> LLMs answer from training memory → hallucinated citations</p>
+<p><strong>The fix:</strong> retrieve real documents <em>first</em>, then generate from them</p>
+<ol type="1">
+<li><strong>Retrieve</strong> — embed the query; find the closest documents in a vector store</li>
+<li><strong>Augment</strong> — paste the retrieved text into the context window</li>
+<li><strong>Generate</strong> — model answers are grounded in <em>that</em> text, not in weights</li>
+</ol>
+<p>The model cannot fabricate a citation it was never given.</p>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Tools you may already use</strong></p>
+<p>Elicit · Semantic Scholar · NotebookLM are RAG systems — they retrieve real papers before generating any answer.</p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>~1 min. RAG is the architectural answer to hallucinated citations — if the document wasn’t retrieved, a well-built RAG system says “I don’t know” rather than inventing something. The retrieval step uses vector embeddings: text is turned into a high-dimensional vector and nearest-neighbour search finds relevant chunks. Elicit and Semantic Scholar do this under the hood.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rag-in-r-ragnar" class="slide level2">
+<h2>RAG in R: <code>ragnar</code></h2>
+<p><strong>Build your own pipeline to chat with a PDF corpus</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(ragnar)</span>
+<span id="cb5-2"><a href=""></a>store <span class="ot">&lt;-</span> <span class="fu">ragnar_store_create</span>(<span class="st">"papers.db"</span>)</span>
+<span id="cb5-3"><a href=""></a><span class="fu">ragnar_store_insert</span>(store, <span class="fu">ragnar_read</span>(<span class="st">"mypaper.pdf"</span>))</span>
+<span id="cb5-4"><a href=""></a><span class="fu">ragnar_store_build_index</span>(store)</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>chunks <span class="ot">&lt;-</span> <span class="fu">ragnar_retrieve</span>(store, <span class="st">"What endpoints were used?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Pass <code>chunks</code> into your <code>ellmer</code> chat as context — the model answers from your documents, not from memory.</p>
+<aside class="notes">
+<p>~1 min. The ragnar package (Posit) is the most direct R path: ingest PDFs into a local store, build a vector index, retrieve chunks, then pass them to an ellmer chat call. Good use cases: clinical guidelines, your own paper corpus, a set of retrieved trial abstracts.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -594,7 +645,7 @@ Michael Sachs
 </ul>
 </div><div class="column" style="width:33%;">
 <p><span class="tier">Tier 3</span> <strong>Coding agents</strong></p>
-<p>Claude Code · Codex</p>
+<p>Claude Code · Codex · Copilot · Pi.dev · NanoClaw</p>
 <ul>
 <li>Repo-aware — reads your whole project</li>
 <li>Can run code, read errors, iterate</li>
@@ -668,6 +719,105 @@ You:  review diff → run tests yourself
 </div></div>
 <aside class="notes">
 <p>~2 min. Key message: agents are not autopilot. They are a very capable junior collaborator who proposes all changes as reviewable diffs. The diff-and-commit workflow is what makes agents <em>safe</em> — nothing is permanent until you commit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="open-agent-alternatives" class="slide level2 smaller">
+<h2>Open agent alternatives</h2>
+<p>Beyond Claude Code and Codex, three open-source agents are worth knowing.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><a href="https://pi.dev">Pi.dev</a></th>
+<th><a href="https://hermes-agent.nousresearch.com">Hermes</a></th>
+<th><a href="https://nanoclaw.dev">NanoClaw</a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Made by</strong></td>
+<td>Earendil (MIT)</td>
+<td>Nous Research (MIT)</td>
+<td>NanoCo (MIT)</td>
+</tr>
+<tr class="even">
+<td><strong>Interface</strong></td>
+<td>CLI</td>
+<td>CLI + messaging apps</td>
+<td>Messaging apps</td>
+</tr>
+<tr class="odd">
+<td><strong>Model choice</strong></td>
+<td>15+ providers, swap mid-session</td>
+<td>300+ models via Nous Portal</td>
+<td>Claude (Claude Code native)</td>
+</tr>
+<tr class="even">
+<td><strong>Local / private</strong></td>
+<td>Yes</td>
+<td>Configurable</td>
+<td>Yes — Docker-isolated containers</td>
+</tr>
+<tr class="odd">
+<td><strong>Persistent memory</strong></td>
+<td>Project instructions file</td>
+<td>Yes — learns project context</td>
+<td>Per-session containers</td>
+</tr>
+<tr class="even">
+<td><strong>Standout feature</strong></td>
+<td>Extensible via TypeScript packages</td>
+<td>Runs across Slack · Telegram · Discord</td>
+<td>~15 source files — fully auditable</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>~2 min. These are all MIT-licensed and open-source — the codebase is readable, which matters for trust. Pi is the most customisable: “primitives, not features” — you build your workflow rather than accepting a fixed product. Hermes is the broadest: it integrates across messaging platforms your lab may already use and maintains memory across sessions. NanoClaw is the smallest and most auditable: the entire codebase is ~15 files, which is unusual and valuable for groups concerned about what the tool is actually doing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="choosing-an-agent-for-research-work" class="slide level2">
+<h2>Choosing an agent for research work</h2>
+<p><strong>The key axes: model lock-in · privacy · interface familiarity</strong></p>
+<ul>
+<li><strong>Sensitive data, must stay local</strong> → NanoClaw or Pi.dev (both run on your machine; no data leaves unless you call an external API)</li>
+<li><strong>Want to switch between Claude, GPT-4o, Gemini</strong> → Pi.dev or Hermes (both support multiple providers; useful when one model is better at a specific task)</li>
+<li><strong>Lab group already lives in Slack or Telegram</strong> → Hermes (the agent joins your existing channels; no new interface to learn)</li>
+<li><strong>Want to understand exactly what the agent is doing</strong> → NanoClaw (~15 source files, written to be read)</li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>All agents call external APIs by default</strong></p>
+<p>Running locally ≠ processing locally. Check which model endpoint your agent is calling — data still leaves your machine unless you use a self-hosted model.</p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>~2 min. The callout is important for clinical or patient-adjacent data: even a “local” agent may be sending prompts to OpenAI or Anthropic servers. For truly sensitive data the safe path is a self-hosted model (e.g.&nbsp;llama.cpp, Ollama) combined with a local agent harness.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -888,10 +1038,10 @@ You:  review diff → run tests yourself
 <div class="columns">
 <div class="column" style="width:52%;">
 <p><strong>In R with <code>testthat</code>:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">test_that</span>(<span class="st">"my_function is correct"</span>, {</span>
-<span id="cb8-2"><a></a>  <span class="fu">expect_equal</span>(<span class="fu">my_function</span>(input), known_output)</span>
-<span id="cb8-3"><a></a>  <span class="fu">expect_error</span>(<span class="fu">my_function</span>(bad_input))</span>
-<span id="cb8-4"><a></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">test_that</span>(<span class="st">"my_function is correct"</span>, {</span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">my_function</span>(input), known_output)</span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">expect_error</span>(<span class="fu">my_function</span>(bad_input))</span>
+<span id="cb9-4"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Test-driven development (TDD):</strong></p>
 <ol type="1">
 <li><strong>Red</strong> — write a failing test for the behaviour you want</li>
@@ -942,11 +1092,11 @@ You:  review diff → run tests yourself
 <p><em>“Write an R function <code>coverage(truth, lower, upper)</code> that computes the empirical coverage probability of a set of confidence intervals. <code>truth</code> is a scalar, <code>lower</code> and <code>upper</code> are equal-length numeric vectors. Return the proportion of intervals that contain <code>truth</code>. Validate that <code>lower</code> and <code>upper</code> have equal length and that <code>lower &lt;= upper</code> element-wise. Return a scalar between 0 and 1.”</em></p>
 </blockquote>
 <p><strong>Generated output:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>coverage <span class="ot">&lt;-</span> <span class="cf">function</span>(truth, lower, upper) {</span>
-<span id="cb9-2"><a></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(lower) <span class="sc">==</span> <span class="fu">length</span>(upper))</span>
-<span id="cb9-3"><a></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(lower <span class="sc">&lt;=</span> upper))</span>
-<span id="cb9-4"><a></a>  <span class="fu">mean</span>(lower <span class="sc">&lt;=</span> truth <span class="sc">&amp;</span> truth <span class="sc">&lt;=</span> upper)</span>
-<span id="cb9-5"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>coverage <span class="ot">&lt;-</span> <span class="cf">function</span>(truth, lower, upper) {</span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(lower) <span class="sc">==</span> <span class="fu">length</span>(upper))</span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(lower <span class="sc">&lt;=</span> upper))</span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">mean</span>(lower <span class="sc">&lt;=</span> truth <span class="sc">&amp;</span> truth <span class="sc">&lt;=</span> upper)</span>
+<span id="cb10-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:45%;">
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -988,20 +1138,20 @@ You:  review diff → run tests yourself
 <p><strong>Tests make the agent’s loop self-correcting.</strong></p>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(testthat)</span>
-<span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a><span class="fu">test_that</span>(<span class="st">"coverage() is correct"</span>, {</span>
-<span id="cb10-4"><a></a>  <span class="co"># Correctness — worked out by hand</span></span>
-<span id="cb10-5"><a></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,  <span class="dv">1</span>)), <span class="dv">1</span>)   <span class="co"># all cover</span></span>
-<span id="cb10-6"><a></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>( <span class="dv">1</span>,  <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>,  <span class="dv">4</span>)), <span class="dv">0</span>)   <span class="co"># none cover</span></span>
-<span id="cb10-7"><a></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,  <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,  <span class="dv">2</span>)), <span class="fl">0.5</span>) <span class="co"># half cover</span></span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a>  <span class="co"># Boundary — closed endpoint counts</span></span>
-<span id="cb10-10"><a></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">1</span>)</span>
-<span id="cb10-11"><a></a></span>
-<span id="cb10-12"><a></a>  <span class="co"># Validity — bad input rejected</span></span>
-<span id="cb10-13"><a></a>  <span class="fu">expect_error</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">3</span>))</span>
-<span id="cb10-14"><a></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(testthat)</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="fu">test_that</span>(<span class="st">"coverage() is correct"</span>, {</span>
+<span id="cb11-4"><a href=""></a>  <span class="co"># Correctness — worked out by hand</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,  <span class="dv">1</span>)), <span class="dv">1</span>)   <span class="co"># all cover</span></span>
+<span id="cb11-6"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>( <span class="dv">1</span>,  <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>,  <span class="dv">4</span>)), <span class="dv">0</span>)   <span class="co"># none cover</span></span>
+<span id="cb11-7"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,  <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,  <span class="dv">2</span>)), <span class="fl">0.5</span>) <span class="co"># half cover</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a>  <span class="co"># Boundary — closed endpoint counts</span></span>
+<span id="cb11-10"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">coverage</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">1</span>)</span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a>  <span class="co"># Validity — bad input rejected</span></span>
+<span id="cb11-13"><a href=""></a>  <span class="fu">expect_error</span>(<span class="fu">coverage</span>(<span class="dv">0</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">3</span>))</span>
+<span id="cb11-14"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:45%;">
 <p><strong>The TDD loop with an agent:</strong></p>
 <pre><code>Write tests → agent writes function
@@ -1436,35 +1586,28 @@ You:  review diff → run tests yourself
           display:block!important;
       }</style></aside>
 </section>
-<section id="over-to-you-15-minutes" class="slide level2 smaller">
-<h2>Over to you — 15 minutes</h2>
-<p><strong>Topic dot-vote</strong> <em>(pick your top 2 — [Slido / stickers])</em></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Setting up git for an existing project</li>
-<li>Writing your first unit tests in <code>testthat</code></li>
-<li>Evaluating a DR simulation with <code>rsimsum</code></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Privacy and governance in your team’s workflow</li>
-<li>Reporting guidelines for clinical AI</li>
-<li>Live demo: <code>gander</code> / Claude Code in action</li>
-</ul>
-</div></div>
-</section>
 <section class="slide level2">
 
 <p><strong>Think–pair–share prompt:</strong></p>
 <blockquote>
 <p><em>Name one task you would hand to AI tomorrow — and one task you would never hand to AI.</em></p>
 </blockquote>
-<p>Share with a neighbour (2 min), then we’ll hear a few pairs.</p>
+<p>Share with a neighbor (2 min), then we’ll hear a few pairs.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Future seminar series — help us plan it</strong></p>
+<p>We are scoping a series on <em>mastering the technical skills of AI use in biomedical research</em>. Tell us what you want:</p>
+<ul>
+<li><strong>Topic:</strong> What skill or tool would make the biggest difference to your work right now? <em>(git · unit testing · RAG · coding agents · simulation frameworks · clinical reporting guidelines · other)</em></li>
+<li><strong>Format:</strong> Hands-on workshop · lecture + Q&amp;A · live coding demo · reading group</li>
+<li><strong>Speaker:</strong> Is there someone — inside or outside SMARTbiomed — whose practice you would like to learn from?</li>
+<li><strong>Level:</strong> Absolute beginner · already using AI but want to go deeper · want to build pipelines from scratch</li>
+</ul>
 </section>
 <section id="thank-you-lets-discuss" class="slide level2 smaller">
 <h2>Thank you — let’s discuss</h2>
-<p><em>Open floor — questions, pushback, and reality checks welcome.</em></p>
+<p><em>Open floor — questions and comments welcome.</em></p>
 <aside class="notes">
 <p>Facilitator: run the dot-vote first to decide which topic gets the deep dive. The think-pair-share can run in parallel or after. Leave room for sceptical questions — they are the most useful ones.</p>
 <style type="text/css">
@@ -1479,7 +1622,6 @@ You:  review diff → run tests yourself
           display:block!important;
       }</style></aside>
 
-
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -1490,19 +1632,19 @@ You:  review diff → run tests yourself
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="SMARTbiomed_AI_upskilling_DRAFT_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
